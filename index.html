@@ -1,194 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jack Gaffney - Software Engineer and Computer Science student at University of Michigan. Building efficient systems and elegant solutions.">
-    <meta name="keywords" content="Jack Gaffney, Software Engineer, Computer Science, University of Michigan, C++, Game Engine, Full Stack Developer">
-    <meta name="author" content="Jack Gaffney">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jack-chaudier.github.io/">
-    <meta property="og:title" content="Jack Gaffney - Software Engineer">
-    <meta property="og:description" content="Software Engineer and Computer Science student building efficient systems and elegant solutions.">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jack-chaudier.github.io/">
-    <meta property="twitter:title" content="Jack Gaffney - Software Engineer">
-    <meta property="twitter:description" content="Software Engineer and Computer Science student building efficient systems and elegant solutions.">
-    
-    <title>Jack Gaffney - Software Engineer</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
-    
-    <!-- Stylesheets -->
+    <title>Jack Gaffney - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
 </head>
-<body class="preload">
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="#home" class="nav-brand" aria-label="Jack Gaffney">JG</a>
-            <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="#home" class="nav-link" role="menuitem">Home</a></li>
-                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-                <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
-                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
-                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
-                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+<body>
+    <header>
+        <nav>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
             </ul>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero" aria-label="Introduction">
-        <div class="hero-content">
-            <h1 class="hero-title animate-in">Jack Gaffney</h1>
-            <p class="hero-subtitle animate-in" style="animation-delay: 0.1s">Software Engineer & Computer Science Student</p>
-            <p class="hero-description animate-in" style="animation-delay: 0.2s">
-                Crafting efficient systems and elegant solutions at the intersection of innovation and engineering excellence
-            </p>
-            <div class="hero-buttons animate-in" style="animation-delay: 0.3s">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </a>
-                <a href="#projects" class="btn btn-secondary">
-                    <i class="fas fa-code"></i> View Projects
-                </a>
+    <main>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>Jack Gaffney</h1>
+                <p class="subtitle">Computer Science Student & Software Engineer</p>
+                <div class="contact-info">
+                    <a href="tel:231-675-9844"><i class="fas fa-phone"></i> <span>(231) 675-9844</span></a>
+                    <a href="mailto:jackgaff@umich.edu"><i class="fas fa-envelope"></i> <span>jackgaff@umich.edu</span></a>
+                    <a href="https://www.linkedin.com/in/jackgaffney23" target="_blank"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+                    <a href="https://github.com/jackgaff" target="_blank"><i class="fab fa-github"></i> <span>GitHub</span></a>
+                </div>
             </div>
-            <div class="hero-scroll animate-in" style="animation-delay: 0.4s">
-                <a href="#about" aria-label="Scroll to about section">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section" aria-label="About me">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate Computer Science student at the University of Michigan with a deep interest in building 
-                        robust, scalable systems. Currently, I'm working as a Software Engineering Intern at <strong>Quantum Opus</strong>, 
-                        where I'm architecting a comprehensive enterprise database system that's transforming how the company manages 
-                        and analyzes their data.
-                    </p>
-                    <p>
-                        My journey in software engineering spans from low-level system programming in C++ to modern full-stack 
-                        development. I thrive on solving complex technical challenges and creating solutions that have tangible 
-                        real-world impact. Whether it's building a game engine from scratch or designing enterprise-scale database 
-                        systems, I approach each project with meticulous attention to detail and a commitment to excellence.
-                    </p>
-                    <div class="education">
-                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                        <div class="education-item">
-                            <h4>University of Michigan, Ann Arbor</h4>
-                            <p>Bachelor of Science in Engineering - Computer Science</p>
-                            <p class="date">Expected May 2026 | GPA: 3.0/4.0</p>
-                            <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems, Computer Vision, Cybersecurity, Discrete Mathematics, Linear Algebra</p>
+        <section id="about">
+            <div class="container-small">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>I'm a Computer Science student at the University of Michigan with a passion for building efficient, scalable software solutions. From developing cross-platform game engines to creating enterprise database systems, I enjoy tackling complex technical challenges and delivering impactful results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>fr-ocean Engine</h3>
+                            <p class="company">Cross-Platform 2D Game Engine</p>
                         </div>
+                        <span class="date">Winter 2025 - Present</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section section-alt" aria-label="Work experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Present</div>
-                    <div class="timeline-content">
-                        <h3>Software Engineering Intern</h3>
-                        <h4><i class="fas fa-building"></i> Quantum Opus - Plymouth, MI</h4>
-                        <ul>
-                            <li>Architecting and developing a full-stack enterprise database system using PostgreSQL, Go, and Next.js</li>
-                            <li>Transformed fragmented data recording into a unified system enabling data-driven decision making</li>
-                            <li>Implemented RESTful API architecture with type-safe, performant frontend-backend communication</li>
-                            <li>Achieved 75% reduction in data retrieval time through optimized database indexing and query design</li>
-                            <li>Enabled previously impossible business optimizations through comprehensive analytics features</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Summer 2024</div>
-                    <div class="timeline-content">
-                        <h3>Carpenter</h3>
-                        <h4><i class="fas fa-hammer"></i> Renewit Decking - Charlevoix, MI</h4>
-                        <ul>
-                            <li>Applied precision and systematic problem-solving in constructing high-quality outdoor living spaces</li>
-                            <li>Advanced to logistics coordinator role, optimizing material distribution across Northern Michigan</li>
-                            <li>Developed efficient resource allocation strategies, reducing material waste by 20%</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Summer 2022</div>
-                    <div class="timeline-content">
-                        <h3>Engineering Intern</h3>
-                        <h4><i class="fas fa-cogs"></i> DTS Enterprises Inc. - Ellsworth, MI</h4>
-                        <ul>
-                            <li>Created and optimized 3D/2D CAD renderings, improving design-to-production workflow</li>
-                            <li>Authored comprehensive technical documentation for mechanical systems</li>
-                            <li>Redesigned component database architecture, reducing retrieval time by 40%</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section" aria-label="Featured projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <article class="project-card featured">
-                    <div class="project-header">
-                        <h3>fr-ocean Game Engine</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/jackgaff/fr-ocean-engine" target="_blank" rel="noopener noreferrer" aria-label="View fr-ocean on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View live demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p>A comprehensive cross-platform 2D game engine built from scratch with modern C++17, featuring physics simulation, scripting capabilities, and professional-grade rendering.</p>
-                    <div class="project-features">
-                        <h4>Key Features:</h4>
-                        <ul>
-                            <li>Cross-platform support for Windows, macOS, and Linux</li>
-                            <li>Box2D physics integration for realistic 2D physics simulation</li>
-                            <li>Lua scripting interface for game logic and rapid prototyping</li>
-                            <li>Component-based architecture for maximum flexibility</li>
-                            <li>SDL2-based rendering with sprite, text, and audio support</li>
-                            <li>JSON-based configuration and scene management</li>
-                            <li>Automated CI/CD pipeline for multi-platform builds</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
+                    <ul>
+                        <li>Engineered a cross-platform 2D game engine using modern C++17, supporting Windows, macOS, and Linux</li>
+                        <li>Integrated Box2D for realistic physics simulation and SDL2 for high-performance rendering</li>
+                        <li>Implemented a Lua scripting interface enabling developers to create custom game logic and rapid prototyping</li>
+                        <li>Built a flexible component-based architecture with JSON configuration system for easy game development</li>
+                        <li>Set up continuous integration pipelines via GitLab to automate testing and deployment across all platforms</li>
+                        <li>Features include sprite rendering, audio playback via SDL2_mixer, and comprehensive asset management</li>
+                    </ul>
+                    <div class="tech-stack">
                         <span class="tech-tag">C++17</span>
                         <span class="tech-tag">SDL2</span>
                         <span class="tech-tag">Box2D</span>
@@ -196,176 +78,195 @@
                         <span class="tech-tag">CMake</span>
                         <span class="tech-tag">GitLab CI</span>
                     </div>
-                </article>
+                    <div class="project-links">
+                        <a href="https://github.com/jackgaff/fr-ocean-engine" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <h3>Enterprise Database System</h3>
-                        <div class="project-links">
-                            <span class="tech-tag" style="background: var(--success); color: white;">In Production</span>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>School Rewards iOS App</h3>
+                            <p class="company">Gamified Education Platform</p>
                         </div>
+                        <span class="date">2024</span>
                     </div>
-                    <p>Full-stack database solution transforming data management at Quantum Opus, enabling data-driven insights across the organization.</p>
-                    <div class="project-features">
-                        <h4>Impact & Features:</h4>
-                        <ul>
-                            <li>Unified disparate data sources into centralized system</li>
-                            <li>75% reduction in data retrieval time</li>
-                            <li>Real-time analytics dashboard for business insights</li>
-                            <li>Automated data validation and error reporting</li>
-                            <li>Role-based access control for data security</li>
-                            <li>RESTful API with comprehensive documentation</li>
-                        </ul>
+                    <ul>
+                        <li>Developed a native iOS application using SwiftUI to gamify student achievement and behavior</li>
+                        <li>Implemented Firebase backend for secure authentication, real-time data storage, and cloud hosting</li>
+                        <li>Created a points-based reward system where teachers can award students for achievements and students can spend points in a virtual rewards shop</li>
+                        <li>Designed engaging UI/UX features including leaderboards to increase student motivation and competition</li>
+                        <li>Built to improve classroom engagement by making task completion and good behavior more rewarding for students</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SwiftUI</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">iOS</span>
+                        <span class="tech-tag">Cloud Functions</span>
                     </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Docker</span>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <h3>Custom Relational Database</h3>
-                        <div class="project-links">
-                            <span class="tech-tag" style="background: var(--primary); color: white;">Academic Project</span>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Relational Database Management System</h3>
+                            <p class="company">SQL Database Implementation</p>
                         </div>
+                        <span class="date">Spring 2024</span>
                     </div>
-                    <p>Built a SQL-compliant relational database from scratch in C++, featuring optimized query processing and advanced indexing strategies.</p>
-                    <div class="project-features">
-                        <h4>Technical Implementation:</h4>
-                        <ul>
-                            <li>Custom SQL parser and query optimizer</li>
-                            <li>B-tree and hash index implementations</li>
-                            <li>ACID compliance with transaction support</li>
-                            <li>Buffer pool management for I/O optimization</li>
-                            <li>Join algorithms: nested loop, hash, sort-merge</li>
-                            <li>Interactive shell interface for queries</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
+                    <ul>
+                        <li>Developed a SQL-based relational database in C++ with a shell interface focusing on efficiency and simplicity</li>
+                        <li>Designed and integrated multiple interacting data structures to efficiently support operations such as querying, inserting, updating, and deleting records</li>
+                        <li>Optimized database performance using index tooling through both binary search trees and hash maps, achieving lower amortized time complexity</li>
+                        <li>Implemented comprehensive SQL query support with structured data management for streamlined user interactions</li>
+                    </ul>
+                    <div class="tech-stack">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">SQL</span>
                         <span class="tech-tag">Data Structures</span>
                         <span class="tech-tag">Algorithms</span>
-                        <span class="tech-tag">Systems Programming</span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section section-alt" aria-label="Technical skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Languages</h3>
-                    <div class="skill-list">
-                        <span class="skill-item" data-level="expert">C++</span>
-                        <span class="skill-item" data-level="expert">C</span>
-                        <span class="skill-item" data-level="advanced">Python</span>
-                        <span class="skill-item" data-level="advanced">Go</span>
-                        <span class="skill-item" data-level="advanced">JavaScript/TypeScript</span>
-                        <span class="skill-item" data-level="intermediate">Lua</span>
-                        <span class="skill-item" data-level="advanced">SQL</span>
-                        <span class="skill-item" data-level="intermediate">Assembly</span>
-                        <span class="skill-item" data-level="intermediate">MATLAB</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cube"></i> Frameworks & Libraries</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Next.js</span>
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">Django</span>
-                        <span class="skill-item">SDL2</span>
-                        <span class="skill-item">Box2D</span>
-                        <span class="skill-item">Express.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Git/GitHub</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">CMake</span>
-                        <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">Agile/Scrum</span>
-                        <span class="skill-item">VS Code</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Activities Section -->
-    <section id="activities" class="section">
-        <div class="container">
-            <h2 class="section-title">Activities & Involvement</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>U of M Autonomous Robotic Vehicle Team</h3>
-                    <p class="activity-date">Winter 2024 - Present</p>
-                    <p>Contributing to autonomous navigation systems and sensor integration for competitive robotics challenges.</p>
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Software Engineering Intern</h3>
+                            <p class="company">Quantum Opus - Plymouth, MI</p>
+                        </div>
+                        <span class="date">Current</span>
+                    </div>
+                    <ul>
+                        <li>Developing a comprehensive company database system using PostgreSQL for data storage, Go for the backend API layer, and Next.js for the frontend interface</li>
+                        <li>Significantly improving company efficiency by replacing inconsistent data recording methods with a centralized, structured system</li>
+                        <li>Enabling data-driven optimizations that were previously impossible due to fragmented and inefficient data management practices</li>
+                        <li>Implementing robust data validation and consistency checks to ensure data integrity across all company operations</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
                 </div>
-                <div class="activity-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Michigan Data Science Team</h3>
-                    <p class="activity-date">Fall 2024 - Present</p>
-                    <p>Participating in data science competitions and collaborative machine learning projects.</p>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Carpenter</h3>
+                            <p class="company">Renewit Decking - Charlevoix, MI</p>
+                        </div>
+                        <span class="date">Summer 2024</span>
+                    </div>
+                    <ul>
+                        <li>Assisted in constructing high-quality outdoor living spaces in Northern Michigan, focusing on precision, long-term project planning, and effective problem-solving as challenges arose</li>
+                        <li>Advanced to logistical responsibilities, including organizing and loading project materials for multiple crews across a wide area, ensuring efficient workflow and material management</li>
+                        <li>Evolved into a dynamic problem solver, consistently finding more effective solutions in less time and with fewer resources while enhancing communication and collaboration with the team</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Engineering Intern</h3>
+                            <p class="company">DTS Enterprises Inc. - Ellsworth, MI</p>
+                        </div>
+                        <span class="date">Summer 2022</span>
+                    </div>
+                    <ul>
+                        <li>Created and modified 3D and 2D schematic renderings, ensuring product designs were both sound and feasible for production by facilitating communication across multiple production levels</li>
+                        <li>Produced a comprehensive instruction manual for a mechanical boat door system, combining technical expertise and communication skills to convey functionality to all customers clearly</li>
+                        <li>Maintained and optimized a large database of assembly files and component drawings, ensuring an organized repository and periodically asked to reorganize projects for maximum efficiency</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section section-alt" aria-label="Contact information">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <p>I'm always interested in new opportunities, collaborations, and discussions about technology. Feel free to reach out!</p>
-                <div class="contact-info">
-                    <a href="mailto:jackgaff@umich.edu" class="contact-link" aria-label="Email Jack Gaffney">
-                        <i class="fas fa-envelope"></i>
-                        <span>jackgaff@umich.edu</span>
-                    </a>
-                    <a href="tel:2316759844" class="contact-link" aria-label="Call Jack Gaffney">
-                        <i class="fas fa-phone"></i>
-                        <span>(231) 675-9844</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn Profile">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub Profile">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <ul>
+                            <li>C/C++</li>
+                            <li>Python</li>
+                            <li>Go</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>Swift</li>
+                            <li>Lua</li>
+                            <li>Assembly</li>
+                            <li>MATLAB</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frameworks & Libraries</h4>
+                        <ul>
+                            <li>Next.js</li>
+                            <li>SwiftUI</li>
+                            <li>SDL2</li>
+                            <li>Django</li>
+                            <li>Firebase</li>
+                            <li>Box2D</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <ul>
+                            <li>Git/GitHub/GitLab</li>
+                            <li>Docker</li>
+                            <li>PostgreSQL</li>
+                            <li>CMake</li>
+                            <li>WSL</li>
+                            <li>CI/CD</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Operating Systems</h4>
+                        <ul>
+                            <li>macOS</li>
+                            <li>Linux</li>
+                            <li>Windows</li>
+                        </ul>
+                    </div>
                 </div>
-                <a href="mailto:jackgaff@umich.edu" class="btn btn-primary btn-large">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-card">
+                    <h3>University of Michigan, Ann Arbor</h3>
+                    <p class="company">Bachelor of Science in Engineering in Computer Science</p>
+                    <p class="date">Expected May 2026 | GPA: 3.0/4.0</p>
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">Relevant Coursework</h4>
+                        <p style="color: var(--text-secondary);">Data Structures & Algorithms, Database Management Systems, Computer Vision, Cybersecurity, Discrete Mathematics, Multivariable Calculus, Linear Algebra, Physics I & II</p>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">Activities</h4>
+                        <ul>
+                            <li style="color: var(--text-secondary); padding: 0.5rem 0;">U of M Autonomous Robotic Vehicle Project Team (Winter 2024 - Present)</li>
+                            <li style="color: var(--text-secondary); padding: 0.5rem 0;">Michigan Data Science Team (Fall 2024 - Present)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <p>&copy; 2025 Jack Gaffney. Built with passion and <span class="footer-heart">♥</span> using vanilla JS.</p>
-            <p class="footer-links">
-                <a href="https://github.com/jack-chaudier/jack-chaudier.github.io" target="_blank" rel="noopener noreferrer">View Source</a>
-            </p>
+            <p>&copy; 2025 Jack Gaffney. Built with passion for great software.</p>
         </div>
     </footer>
 
