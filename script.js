@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -199,9 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Add stagger effect for lists
                 if (entry.target.classList.contains('timeline-item') || 
-                    entry.target.classList.contains('project-card')) {
-                    const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100;
-                    entry.target.style.transitionDelay = `${delay}ms`;
+                    entry.target.classList.contains('project-card') ||
+                    entry.target.classList.contains('skill-category') ||
+                    entry.target.classList.contains('activity-card')) {
+                    const siblings = Array.from(entry.target.parentElement.children);
+                    const index = siblings.indexOf(entry.target);
+                    entry.target.style.transitionDelay = `${index * 100}ms`;
                 }
                 
                 observer.unobserve(entry.target);
@@ -211,13 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Observe elements
     const animateElements = document.querySelectorAll(
-        '.section, .timeline-item, .project-card, .skill-category, .activity-card'
+        '.section, .timeline-item, .project-card, .skill-category, .activity-card, .about-content, .contact-content'
     );
 
     animateElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         observer.observe(el);
     });
 
@@ -229,8 +232,23 @@ document.addEventListener('DOMContentLoaded', () => {
     skillItems.forEach(skill => {
         const level = skill.getAttribute('data-level');
         if (level) {
-            skill.title = `Proficiency: ${level}`;
+            skill.title = `Proficiency: ${level.charAt(0).toUpperCase() + level.slice(1)}`;
         }
+    });
+
+    // ===================================
+    // Project Card Hover Effect
+    // ===================================
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
     });
 
     // ===================================
@@ -267,19 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================
-    // Form Handling (if you add a contact form later)
+    // Copy Email to Clipboard
     // ===================================
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        // Add form submission logic here
-        console.log('Form submitted');
-    };
-
-    // ===================================
-    // Utility Functions
-    // ===================================
-    
-    // Copy email to clipboard
     const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
     
     emailLinks.forEach(link => {
@@ -298,18 +305,48 @@ document.addEventListener('DOMContentLoaded', () => {
                         bottom: 20px;
                         left: 50%;
                         transform: translateX(-50%);
-                        background: var(--primary-color);
+                        background: var(--primary);
                         color: white;
-                        padding: 0.5rem 1rem;
-                        border-radius: 0.5rem;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: var(--radius-full);
                         z-index: 9999;
                         animation: fadeInUp 0.3s ease;
+                        box-shadow: var(--shadow-lg);
                     `;
                     document.body.appendChild(tooltip);
                     
+                    // Add fadeInUp animation
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes fadeInUp {
+                            from {
+                                opacity: 0;
+                                transform: translate(-50%, 10px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translate(-50%, 0);
+                            }
+                        }
+                        @keyframes fadeOutDown {
+                            from {
+                                opacity: 1;
+                                transform: translate(-50%, 0);
+                            }
+                            to {
+                                opacity: 0;
+                                transform: translate(-50%, 10px);
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
                     setTimeout(() => {
                         tooltip.style.animation = 'fadeOutDown 0.3s ease';
-                        setTimeout(() => tooltip.remove(), 300);
+                        setTimeout(() => {
+                            tooltip.remove();
+                            style.remove();
+                        }, 300);
                     }, 2000);
                 }).catch(err => {
                     console.error('Failed to copy email:', err);
@@ -319,13 +356,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================
+    // Smooth Page Load
+    // ===================================
+    window.addEventListener('load', () => {
+        // Trigger animations for hero section
+        document.querySelectorAll('.animate-in').forEach((el, index) => {
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+
+    // ===================================
+    // Parallax Effect for Hero
+    // ===================================
+    let heroContent = document.querySelector('.hero-content');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = 0.5;
+        
+        if (heroContent && scrolled < window.innerHeight) {
+            heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+        }
+    });
+
+    // ===================================
     // Performance Monitoring
     // ===================================
-    if ('performance' in window) {
+    if ('performance' in window && 'getEntriesByType' in window.performance) {
         window.addEventListener('load', () => {
-            const perfData = window.performance.timing;
-            const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log(`Page load time: ${pageLoadTime}ms`);
+            // Use the modern Performance API
+            const navigationEntries = performance.getEntriesByType('navigation');
+            if (navigationEntries.length > 0) {
+                const navigationEntry = navigationEntries[0];
+                const pageLoadTime = navigationEntry.loadEventEnd - navigationEntry.fetchStart;
+                console.log(`Page load time: ${Math.round(pageLoadTime)}ms`);
+            }
         });
     }
 
@@ -339,26 +408,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('unhandledrejection', (e) => {
         console.error('Unhandled promise rejection:', e.reason);
     });
-
-    // ===================================
-    // Service Worker Registration (optional)
-    // ===================================
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').then(registration => {
-                console.log('SW registered:', registration);
-            }).catch(error => {
-                console.log('SW registration failed:', error);
-            });
-        });
-    }
-});
-
-// ===================================
-// External Script Loading
-// ===================================
-window.addEventListener('load', () => {
-    // Google Analytics or other analytics
-    // gtag('js', new Date());
-    // gtag('config', 'GA_MEASUREMENT_ID');
 });

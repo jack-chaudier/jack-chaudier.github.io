@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,16 +22,14 @@
     <title>Jack Gaffney - Software Engineer</title>
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="preload" href="styles.css" as="style">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👨‍💻%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
 </head>
 <body class="preload">
     <!-- Navigation -->
@@ -47,9 +45,7 @@
                 <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
             </ul>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span class="theme-toggle-icon">
-                    <i class="fas fa-moon"></i>
-                </span>
+                <i class="fas fa-moon"></i>
             </button>
             <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
@@ -64,10 +60,16 @@
         <div class="hero-content">
             <h1 class="hero-title animate-in">Jack Gaffney</h1>
             <p class="hero-subtitle animate-in" style="animation-delay: 0.1s">Software Engineer & Computer Science Student</p>
-            <p class="hero-description animate-in" style="animation-delay: 0.2s">Building efficient systems and elegant solutions</p>
+            <p class="hero-description animate-in" style="animation-delay: 0.2s">
+                Crafting efficient systems and elegant solutions at the intersection of innovation and engineering excellence
+            </p>
             <div class="hero-buttons animate-in" style="animation-delay: 0.3s">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#projects" class="btn btn-secondary">View Projects</a>
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> View Projects
+                </a>
             </div>
             <div class="hero-scroll animate-in" style="animation-delay: 0.4s">
                 <a href="#about" aria-label="Scroll to about section">
@@ -83,15 +85,25 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a Computer Science student at the University of Michigan with a passion for building efficient, scalable systems. Currently, I'm working as a Software Engineering Intern at <strong>Quantum Opus</strong> in Plymouth, Michigan, where I'm developing a comprehensive company database system that's revolutionizing how the company manages and optimizes their data.</p>
-                    <p>My experience spans from low-level system programming in C++ to modern web development with Next.js. I enjoy tackling complex problems and creating solutions that have real-world impact. Whether it's building a game engine from scratch or designing enterprise database systems, I bring the same level of dedication and attention to detail.</p>
+                    <p>
+                        I'm a passionate Computer Science student at the University of Michigan with a deep interest in building 
+                        robust, scalable systems. Currently, I'm working as a Software Engineering Intern at <strong>Quantum Opus</strong>, 
+                        where I'm architecting a comprehensive enterprise database system that's transforming how the company manages 
+                        and analyzes their data.
+                    </p>
+                    <p>
+                        My journey in software engineering spans from low-level system programming in C++ to modern full-stack 
+                        development. I thrive on solving complex technical challenges and creating solutions that have tangible 
+                        real-world impact. Whether it's building a game engine from scratch or designing enterprise-scale database 
+                        systems, I approach each project with meticulous attention to detail and a commitment to excellence.
+                    </p>
                     <div class="education">
                         <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                         <div class="education-item">
                             <h4>University of Michigan, Ann Arbor</h4>
                             <p>Bachelor of Science in Engineering - Computer Science</p>
                             <p class="date">Expected May 2026 | GPA: 3.0/4.0</p>
-                            <p class="coursework"><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems, Computer Vision, Cybersecurity, Discrete Mathematics, Linear Algebra</p>
+                            <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems, Computer Vision, Cybersecurity, Discrete Mathematics, Linear Algebra</p>
                         </div>
                     </div>
                 </div>
@@ -102,7 +114,7 @@
     <!-- Experience Section -->
     <section id="experience" class="section section-alt" aria-label="Work experience">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title">Professional Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">Present</div>
@@ -111,10 +123,10 @@
                         <h4><i class="fas fa-building"></i> Quantum Opus - Plymouth, MI</h4>
                         <ul>
                             <li>Architecting and developing a full-stack enterprise database system using PostgreSQL, Go, and Next.js</li>
-                            <li>Transformed fragmented, inconsistent data recording methods into a unified, efficient system that enables data-driven decision making</li>
-                            <li>Implemented RESTful API architecture ensuring type-safe, performant communication between frontend and backend</li>
-                            <li>Reduced data retrieval time by 75% through optimized database indexing and query optimization</li>
-                            <li>Enabled previously impossible business optimizations through comprehensive data analytics and reporting features</li>
+                            <li>Transformed fragmented data recording into a unified system enabling data-driven decision making</li>
+                            <li>Implemented RESTful API architecture with type-safe, performant frontend-backend communication</li>
+                            <li>Achieved 75% reduction in data retrieval time through optimized database indexing and query design</li>
+                            <li>Enabled previously impossible business optimizations through comprehensive analytics features</li>
                         </ul>
                     </div>
                 </div>
@@ -125,7 +137,7 @@
                         <h4><i class="fas fa-hammer"></i> Renewit Decking - Charlevoix, MI</h4>
                         <ul>
                             <li>Applied precision and systematic problem-solving in constructing high-quality outdoor living spaces</li>
-                            <li>Advanced to logistics coordinator role, optimizing material distribution for multiple crews across Northern Michigan</li>
+                            <li>Advanced to logistics coordinator role, optimizing material distribution across Northern Michigan</li>
                             <li>Developed efficient resource allocation strategies, reducing material waste by 20%</li>
                         </ul>
                     </div>
@@ -136,8 +148,8 @@
                         <h3>Engineering Intern</h3>
                         <h4><i class="fas fa-cogs"></i> DTS Enterprises Inc. - Ellsworth, MI</h4>
                         <ul>
-                            <li>Created and optimized 3D/2D CAD renderings, improving design-to-production workflow efficiency</li>
-                            <li>Authored comprehensive technical documentation for mechanical systems, enhancing customer understanding</li>
+                            <li>Created and optimized 3D/2D CAD renderings, improving design-to-production workflow</li>
+                            <li>Authored comprehensive technical documentation for mechanical systems</li>
                             <li>Redesigned component database architecture, reducing retrieval time by 40%</li>
                         </ul>
                     </div>
@@ -189,9 +201,11 @@
                 <article class="project-card">
                     <div class="project-header">
                         <h3>Enterprise Database System</h3>
-                        <div class="project-status">In Production</div>
+                        <div class="project-links">
+                            <span class="tech-tag" style="background: var(--success); color: white;">In Production</span>
+                        </div>
                     </div>
-                    <p>Full-stack database solution transforming data management and analytics at Quantum Opus, enabling data-driven decision making across the organization.</p>
+                    <p>Full-stack database solution transforming data management at Quantum Opus, enabling data-driven insights across the organization.</p>
                     <div class="project-features">
                         <h4>Impact & Features:</h4>
                         <ul>
@@ -216,7 +230,9 @@
                 <article class="project-card">
                     <div class="project-header">
                         <h3>Custom Relational Database</h3>
-                        <div class="project-date">Spring 2024</div>
+                        <div class="project-links">
+                            <span class="tech-tag" style="background: var(--primary); color: white;">Academic Project</span>
+                        </div>
                     </div>
                     <p>Built a SQL-compliant relational database from scratch in C++, featuring optimized query processing and advanced indexing strategies.</p>
                     <div class="project-features">
@@ -227,7 +243,7 @@
                             <li>ACID compliance with transaction support</li>
                             <li>Buffer pool management for I/O optimization</li>
                             <li>Join algorithms: nested loop, hash, sort-merge</li>
-                            <li>Shell interface for interactive queries</li>
+                            <li>Interactive shell interface for queries</li>
                         </ul>
                     </div>
                     <div class="project-tech">
@@ -315,9 +331,9 @@
     <!-- Contact Section -->
     <section id="contact" class="section section-alt" aria-label="Contact information">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Let's Connect</h2>
             <div class="contact-content">
-                <p>I'm always interested in new opportunities, collaborations, and interesting conversations about technology. Feel free to reach out!</p>
+                <p>I'm always interested in new opportunities, collaborations, and discussions about technology. Feel free to reach out!</p>
                 <div class="contact-info">
                     <a href="mailto:jackgaff@umich.edu" class="contact-link" aria-label="Email Jack Gaffney">
                         <i class="fas fa-envelope"></i>
