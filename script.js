@@ -2,18 +2,20 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 // Active Navigation Link
 const sections = document.querySelectorAll('section');
@@ -21,16 +23,16 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (scrollY >= (sectionTop - 100)) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').slice(1) === current) {
@@ -47,8 +49,8 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
         navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.1)';
     }
 });
 
@@ -68,30 +70,8 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animated elements
-document.querySelectorAll('.timeline-item, .project-card, .skill-category, .stat-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease-out';
+document.querySelectorAll('.timeline-item, .solution-card, .skill-category-pro, .approach-item, .competency-item').forEach(el => {
     observer.observe(el);
-});
-
-// Typing Effect for Hero Title
-const heroName = document.querySelector('.hero-name');
-const originalText = heroName.textContent;
-heroName.textContent = '';
-let index = 0;
-
-function typeWriter() {
-    if (index < originalText.length) {
-        heroName.textContent += originalText.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100);
-    }
-}
-
-// Start typing effect when page loads
-window.addEventListener('load', () => {
-    setTimeout(typeWriter, 500);
 });
 
 // Smooth Scroll for Safari
@@ -109,65 +89,131 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Dynamic Year in Footer
-const year = new Date().getFullYear();
-document.querySelector('.footer p').innerHTML = `&copy; ${year} Jack Gaffney. Built with passion and code.`;
-
-// Code Window Hover Effect
-const codeWindow = document.querySelector('.code-window');
-if (codeWindow) {
-    codeWindow.addEventListener('mousemove', (e) => {
-        const rect = codeWindow.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const centerX = rect.width / 2;
-        const rotateY = ((x - centerX) / centerX) * 10;
-        
-        codeWindow.style.transform = `perspective(1000px) rotateY(${rotateY}deg)`;
-    });
-    
-    codeWindow.addEventListener('mouseleave', () => {
-        codeWindow.style.transform = 'perspective(1000px) rotateY(-10deg)';
-    });
+const footer = document.querySelector('.footer p');
+if (footer) {
+    const year = new Date().getFullYear();
+    footer.innerHTML = `&copy; ${year} Jack Gaffney. All rights reserved.`;
 }
 
-// Add subtle parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroText = document.querySelector('.hero-text');
-    const heroVisual = document.querySelector('.hero-visual');
-    
-    if (heroText && scrolled < window.innerHeight) {
-        heroText.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroText.style.opacity = 1 - (scrolled / window.innerHeight);
-    }
-    
-    if (heroVisual && scrolled < window.innerHeight) {
-        heroVisual.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
+// Animate metric bars on scroll
+const metricBars = document.querySelectorAll('.metric-fill, .skill-bar-fill');
+
+const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Trigger the width animation
+            const width = entry.target.style.width;
+            entry.target.style.width = '0';
+            setTimeout(() => {
+                entry.target.style.width = width;
+            }, 100);
+        }
+    });
+}, { threshold: 0.5 });
+
+metricBars.forEach(bar => {
+    barObserver.observe(bar);
 });
 
-// Skills hover effect
-document.querySelectorAll('.skill-item').forEach(skill => {
-    skill.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px) scale(1.05)';
-    });
-    
-    skill.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Project cards hover effect
-document.querySelectorAll('.project-card').forEach(card => {
+// Add hover effects to cards
+document.querySelectorAll('.solution-card, .timeline-content, .approach-item, .competency-item').forEach(card => {
     card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px)';
+        this.style.transform = 'translateY(-6px)';
     });
-    
+
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0)';
     });
 });
 
 // Console Easter Egg
-console.log('%c👋 Hey there!', 'font-size: 24px; font-weight: bold; color: #2563eb;');
-console.log('%cThanks for checking out my portfolio!', 'font-size: 16px; color: #6b7280;');
-console.log('%cFeel free to reach out at jackgaff@umich.edu', 'font-size: 14px; color: #10b981;');
+console.log('%c👋 Hey there!', 'font-size: 24px; font-weight: bold; color: #1e40af;');
+console.log('%cThanks for checking out my portfolio!', 'font-size: 16px; color: #475569;');
+console.log('%cInterested in Forward Deployed Software Engineering? Let\'s connect!', 'font-size: 14px; color: #059669;');
+console.log('%c📧 jackgaff@umich.edu', 'font-size: 14px; color: #1e40af; font-weight: bold;');
+
+// Add subtle parallax effect to hero section
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const heroText = document.querySelector('.hero-text');
+            const heroVisual = document.querySelector('.hero-visual');
+
+            if (heroText && scrolled < window.innerHeight) {
+                heroText.style.transform = `translateY(${scrolled * 0.2}px)`;
+                heroText.style.opacity = 1 - (scrolled / window.innerHeight) * 0.8;
+            }
+
+            if (heroVisual && scrolled < window.innerHeight) {
+                heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
+
+// Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Track scroll depth for analytics (optional)
+let maxScroll = 0;
+window.addEventListener('scroll', () => {
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    if (scrollPercent > maxScroll) {
+        maxScroll = Math.round(scrollPercent);
+        // You could send this to analytics here
+        if (maxScroll % 25 === 0) { // Log at 25%, 50%, 75%, 100%
+            console.log(`User reached ${maxScroll}% of page`);
+        }
+    }
+});
+
+// Prefetch links on hover for faster navigation
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('mouseenter', function() {
+        const url = this.href;
+        if (!document.querySelector(`link[rel="prefetch"][href="${url}"]`)) {
+            const prefetch = document.createElement('link');
+            prefetch.rel = 'prefetch';
+            prefetch.href = url;
+            document.head.appendChild(prefetch);
+        }
+    });
+});
+
+// Add loading state to resume download button
+const resumeBtn = document.querySelector('.resume-cta .btn-primary');
+if (resumeBtn) {
+    resumeBtn.addEventListener('click', function(e) {
+        // Show a subtle feedback
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 150);
+    });
+}
