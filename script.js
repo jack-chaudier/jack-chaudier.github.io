@@ -164,7 +164,7 @@ document.querySelectorAll('.solution-card, .timeline-content, .approach-item, .c
 // Console Easter Egg
 console.log('%c👋 Hey there!', 'font-size: 24px; font-weight: bold; color: #1e40af;');
 console.log('%cThanks for checking out my portfolio!', 'font-size: 16px; color: #475569;');
-console.log('%cInterested in Forward Deployed Software Engineering? Let\'s connect!', 'font-size: 14px; color: #059669;');
+console.log('%cInterested in collaborating or learning more? Let\'s connect!', 'font-size: 14px; color: #059669;');
 console.log('%c📧 jackgaff@umich.edu', 'font-size: 14px; color: #1e40af; font-weight: bold;');
 
 // Add subtle parallax effect to hero section
