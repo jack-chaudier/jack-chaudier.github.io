@@ -1,3 +1,28 @@
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', currentTheme);
+
+// Toggle theme function
+function toggleTheme() {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Add a smooth transition effect
+    htmlElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+}
+
+// Add event listener to theme toggle button
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -45,12 +70,22 @@ window.addEventListener('scroll', () => {
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
+    const isDarkTheme = htmlElement.getAttribute('data-theme') === 'dark';
+
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        if (isDarkTheme) {
+            navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+        navbar.style.boxShadow = '0 4px 12px 0 rgba(0, 0, 0, 0.15)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.1)';
+        if (isDarkTheme) {
+            navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+        }
+        navbar.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.08)';
     }
 });
 
