@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Gaffney - Portfolio</title>
+    <title>Jack Gaffney - Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">JG</div>
+            <div class="nav-logo">
+                <span class="logo-text">Jack Gaffney</span>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -22,7 +25,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5"/>
                     <line x1="12" y1="1" x2="12" y2="3"/>
                     <line x1="12" y1="21" x2="12" y2="23"/>
@@ -33,7 +36,7 @@
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                 </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                 </svg>
             </button>
@@ -45,133 +48,161 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-label">Software Engineer</div>
                 <h1 class="hero-title">
-                    <span class="hero-name">Jack Gaffney</span>
+                    Building high-performance systems<br/>
+                    <span class="gradient-text">from the ground up</span>
                 </h1>
-                <p class="hero-subtitle">Systems Programmer & Full-Stack Developer</p>
                 <p class="hero-description">
-                    University of Michigan Computer Science student (May 2026) specializing in low-level systems programming
-                    and scalable full-stack development. From building cross-platform game engines and operating systems to
-                    deploying production databases, I combine technical depth with practical problem-solving.
+                    Computer Science student at University of Michigan (May 2026) specializing in systems programming,
+                    performance optimization, and full-stack development. Currently deploying production systems at Quantum Opus.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="code-window">
-                    <div class="window-header">
-                        <div class="window-controls">
-                            <span class="control red"></span>
-                            <span class="control yellow"></span>
-                            <span class="control green"></span>
-                        </div>
-                        <span class="window-title">profile.cpp</span>
-                    </div>
-                    <pre class="code-content"><code><span class="comment">// Technical Profile</span>
-
-<span class="keyword">struct</span> <span class="class">Developer</span> {
-    <span class="type">string</span> name = <span class="string">"Jack Gaffney"</span>;
-    <span class="type">string</span> school = <span class="string">"UMich"</span>;
-
-    vector&lt;<span class="type">string</span>&gt; languages = {
-        <span class="string">"C++"</span>, <span class="string">"C"</span>, <span class="string">"Python"</span>,
-        <span class="string">"Go"</span>, <span class="string">"Rust"</span>, <span class="string">"JavaScript"</span>
-    };
-
-    vector&lt;<span class="type">string</span>&gt; focus = {
-        <span class="string">"Systems Programming"</span>,
-        <span class="string">"Performance Optimization"</span>,
-        <span class="string">"Full-Stack Development"</span>
-    };
-};
-
-<span class="keyword">return</span> <span class="number">0</span>;</code></pre>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">60fps</div>
+                    <div class="stat-label">Game engine rendering millions of actors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">CAD files organized & indexed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Distributed construction crews coordinated</div>
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Computer Science student at the University of Michigan, expected to graduate in May 2026.
-                        My passion lies in systems programming, performance optimization, and building scalable full-stack applications.
+            <div class="section-header">
+                <span class="section-label">About</span>
+                <h2 class="section-title">Building systems that scale</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-main">
+                    <p class="about-text">
+                        I'm a Computer Science student at the University of Michigan, graduating May 2026. My work spans
+                        from low-level systems programming to production-grade full-stack applications.
                     </p>
-                    <p>
-                        From engineering cross-platform game engines that render millions of actors at 60fps to building
-                        operating systems from scratch, I thrive on solving complex technical challenges. Currently, I'm applying
-                        these skills as a Forward Deployed Software Engineer Intern at Quantum Opus, where I build production-grade full-stack systems.
+                    <p class="about-text">
+                        Whether it's engineering cross-platform game engines that handle millions of actors at 60fps,
+                        building operating systems from scratch, or deploying containerized databases with Go backends,
+                        I focus on performance, scalability, and clean architecture.
                     </p>
-                    <p>
-                        I'm actively involved in UMich's Autonomous Robotic Vehicle Project Team (Lights Team) and the
-                        Michigan Data Science Team, where I continue to expand my skills in algorithm development and teamwork.
+                    <p class="about-text">
+                        Currently working as a Forward Deployed Software Engineer Intern at Quantum Opus, where I build
+                        full-stack internal tools and automation pipelines. I'm also active in UMich's Autonomous Robotic
+                        Vehicle Project Team and Michigan Data Science Team.
                     </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎓</div>
+                        <div class="highlight-content">
+                            <h3>Education</h3>
+                            <p>University of Michigan<br/>Computer Science, May 2026</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">💼</div>
+                        <div class="highlight-content">
+                            <h3>Focus Areas</h3>
+                            <p>Systems Programming<br/>Performance Optimization<br/>Full-Stack Development</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🔧</div>
+                        <div class="highlight-content">
+                            <h3>Core Languages</h3>
+                            <p>C++ • C • Go • Python<br/>Rust • JavaScript</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <div class="section-header">
+                <span class="section-label">Experience</span>
+                <h2 class="section-title">Where I've worked</h2>
+            </div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">Summer 2025 – Present</div>
                     <div class="timeline-content">
-                        <h3>Forward Deployed Software Engineer Intern</h3>
-                        <h4>Quantum Opus LLC • Plymouth, MI</h4>
-                        <span class="timeline-date">Summer 2025 – Present</span>
-                        <ul>
-                            <li>Helped build a full-stack internal database with a <strong>Next.js/Tailwind frontend</strong> and <strong>Go/Gin backend</strong> on PostgreSQL, containerized with Docker Compose, improving scalability and maintainability of workflows</li>
-                            <li>Designed <strong>modular Go API endpoints</strong> that could be consumed independently, enabling seamless integration with Python-based data generation workflows and supporting flexible automation pipelines, reducing redundant data transferring</li>
-                            <li>Implemented a <strong>CSV upload pipeline</strong> with dynamic entity linking, incorporating automated validation and relationship mapping to streamline data ingestion, enforce consistency, and minimize manual intervention across datasets</li>
-                        </ul>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">Tailwind CSS</span>
-                            <span class="tech-badge">Go/Gin</span>
-                            <span class="tech-badge">PostgreSQL</span>
-                            <span class="tech-badge">Docker</span>
+                        <div class="timeline-header">
+                            <h3>Forward Deployed Software Engineer Intern</h3>
+                            <h4>Quantum Opus LLC</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Built full-stack internal database with <strong>Next.js/Tailwind frontend</strong> and <strong>Go/Gin backend</strong> on PostgreSQL, containerized with Docker Compose</li>
+                                <li>Designed <strong>modular Go API endpoints</strong> for independent consumption, enabling seamless integration with Python data workflows and flexible automation pipelines</li>
+                                <li>Implemented <strong>CSV upload pipeline</strong> with dynamic entity linking, automated validation, and relationship mapping to streamline data ingestion</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Tailwind</span>
+                                <span class="tech-tag">Go/Gin</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">Summer 2024</div>
                     <div class="timeline-content">
-                        <h3>Carpenter</h3>
-                        <h4>Renewit Decking • Charlevoix, MI</h4>
-                        <span class="timeline-date">Summer 2024</span>
-                        <ul>
-                            <li>Constructed large-scale outdoor living spaces by applying precision carpentry techniques, coordinating multi-phase project planning, and adapting designs to structural constraints under limited resources</li>
-                            <li>Coordinated logistics and scheduled material deliveries for <strong>seven distributed crews within a 50 mile radius</strong>, optimizing resource allocation and significantly reducing downtime across simultaneous job sites</li>
-                            <li>Over time was given more responsibilities, and moved from pure carpenter to someone who dealt with <strong>inventory and project planning</strong> before work began on a jobsite, improving operational efficiency and project turnaround times</li>
-                        </ul>
+                        <div class="timeline-header">
+                            <h3>Carpenter</h3>
+                            <h4>Renewit Decking</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Constructed large-scale outdoor living spaces using precision carpentry techniques and multi-phase project planning</li>
+                                <li>Coordinated logistics for <strong>seven distributed crews within 50-mile radius</strong>, optimizing resource allocation and reducing downtime</li>
+                                <li>Evolved role from carpentry to <strong>inventory management and project planning</strong>, improving operational efficiency</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">Summer 2022</div>
                     <div class="timeline-content">
-                        <h3>Engineering Intern</h3>
-                        <h4>DTS Enterprises Inc. • Ellsworth, MI</h4>
-                        <span class="timeline-date">Summer 2022</span>
-                        <ul>
-                            <li>Produced <strong>2D/3D CAD renderings</strong> and detailed technical schematics, supporting cross-functional communication between engineering design and production teams to accelerate product iteration</li>
-                            <li>Authored a <strong>comprehensive technical manual</strong> for a mechanical boat door system, allowing customers to independently complete installations and reducing reliance on on-site engineering support</li>
-                            <li>Reorganized a database of <strong>10,000+ assembly files and component drawings</strong>, implementing a new structure and indexing scheme that greatly improved retrieval speed and reduced production bottlenecks</li>
-                        </ul>
-                        <div class="tech-stack">
-                            <span class="tech-badge">CAD</span>
-                            <span class="tech-badge">Technical Documentation</span>
+                        <div class="timeline-header">
+                            <h3>Engineering Intern</h3>
+                            <h4>DTS Enterprises Inc.</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Produced <strong>2D/3D CAD renderings</strong> and technical schematics for cross-functional engineering teams</li>
+                                <li>Authored comprehensive technical manual for mechanical boat door system, enabling independent customer installations</li>
+                                <li>Reorganized database of <strong>10,000+ assembly files</strong>, implementing new indexing scheme to reduce production bottlenecks</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">CAD</span>
+                                <span class="tech-tag">Technical Documentation</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,22 +210,25 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <div class="section-header">
+                <span class="section-label">Projects</span>
+                <h2 class="section-title">What I've built</h2>
+            </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Cross-Platform Game Engine</h3>
-                        <span class="project-date">Winter 2025</span>
-                    </div>
+                <div class="project-card featured">
+                    <div class="project-label">Featured</div>
+                    <h3>Cross-Platform Game Engine</h3>
                     <p class="project-description">
-                        Engineered a high-performance game engine in modern C++17 with cross-platform support for Windows, macOS,
-                        and Linux, implementing real-time rendering, audio systems, and a custom data oriented particle engine.
+                        High-performance game engine in modern C++17 with Windows, macOS, and Linux support.
+                        Features real-time rendering, audio systems, and custom data-oriented particle engine.
                     </p>
                     <ul class="project-features">
-                        <li>Integrated <strong>Lua scripting via efficient C++ bindings</strong>, enabling rapid prototyping and flexible runtime modifications while preserving native execution speed in critical performance paths</li>
-                        <li>Learned much more about the C++ language and how to best utilize the STL, leading to <strong>massive performance improvements</strong> and a consistent <strong>60 fps when rendering millions of actors</strong> on large maps</li>
+                        <li>Integrated <strong>Lua scripting via C++ bindings</strong> for rapid prototyping while maintaining native performance</li>
+                        <li>Achieved <strong>60fps rendering of millions of actors</strong> through STL optimization and data-oriented design</li>
+                        <li>Implemented cross-platform build system supporting major desktop operating systems</li>
                     </ul>
                     <div class="project-tech">
                         <span class="tech-tag">C++17</span>
@@ -205,94 +239,173 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Custom Operating System</h3>
-                        <span class="project-date">Fall 2025</span>
-                    </div>
+                    <h3>Custom Operating System</h3>
                     <p class="project-description">
-                        Collaborated in a three-person team to design and implement a minimal operating system, gaining hands-on
-                        experience with low-level systems programming and kernel development.
+                        Minimal operating system built from scratch in three-person team. Deep dive into kernel
+                        development, process management, and low-level systems programming.
                     </p>
                     <ul class="project-features">
-                        <li>Built a <strong>kernel supporting multitasking and thread scheduling</strong>, leveraging multithreading to optimize resource allocation and process execution efficiency</li>
-                        <li>Gained deep understanding of OS fundamentals including process synchronization, virtual memory, file systems, and hardware interrupts</li>
+                        <li>Built <strong>kernel with multitasking and thread scheduling</strong> for optimal resource allocation</li>
+                        <li>Implemented process synchronization, virtual memory, file systems, and hardware interrupt handling</li>
                     </ul>
                     <div class="project-tech">
                         <span class="tech-tag">C</span>
                         <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Kernel Development</span>
+                        <span class="tech-tag">Kernel Dev</span>
                         <span class="tech-tag">Multithreading</span>
                     </div>
                 </div>
 
+                <div class="project-card">
+                    <h3>Production Database System</h3>
+                    <p class="project-description">
+                        Full-stack internal database for manufacturing workflows with automated data pipelines
+                        and dynamic entity relationships.
+                    </p>
+                    <ul class="project-features">
+                        <li>Containerized architecture with Docker Compose for consistent deployment</li>
+                        <li>RESTful API design enabling cross-language integration</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-header">
+                <span class="section-label">Skills</span>
+                <h2 class="section-title">Technical expertise</h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-group">
                     <h3>Languages</h3>
-                    <div class="skill-items">
-                        <span class="skill-item advanced">C++ (Advanced)</span>
-                        <span class="skill-item advanced">C (Advanced)</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">Go</span>
-                        <span class="skill-item">Rust</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Lua</span>
-                        <span class="skill-item">Assembly</span>
-                        <span class="skill-item">MATLAB</span>
+                    <div class="skill-list">
+                        <div class="skill-item expert">
+                            <span>C++</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item expert">
+                            <span>C</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item proficient">
+                            <span>Go</span>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                        <div class="skill-item proficient">
+                            <span>Python</span>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Rust</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript/TypeScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Lua</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Assembly</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-group">
                     <h3>Systems & Tools</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">CMake</span>
-                        <span class="skill-item">GDB</span>
-                        <span class="skill-item">Valgrind</span>
-                        <span class="skill-item">Make</span>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Linux/Unix</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>CMake</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>GDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Valgrind</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Make</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Frameworks</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Next.js</span>
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">Gin</span>
-                        <span class="skill-item">Django</span>
-                        <span class="skill-item">SDL2</span>
-                        <span class="skill-item">Tailwind CSS</span>
+                <div class="skill-group">
+                    <h3>Frameworks & Databases</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Next.js/React</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Gin (Go)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>SDL2</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Django</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-group">
                     <h3>Specializations</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Low-level Systems Programming</span>
-                        <span class="skill-item">Performance Optimization</span>
-                        <span class="skill-item">Multi-threaded Applications</span>
-                        <span class="skill-item">Full-Stack Development</span>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Systems Programming</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Performance Optimization</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Multi-threaded Applications</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Full-Stack Development</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>API Design</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Database Architecture</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="activities">
-                <h3>Activities</h3>
-                <div class="activity-cards">
+            <div class="activities-section">
+                <h3>Activities & Leadership</h3>
+                <div class="activities-grid">
                     <div class="activity-card">
+                        <div class="activity-icon">🤖</div>
                         <h4>Autonomous Robotic Vehicle Project Team</h4>
-                        <p>Lights Team</p>
+                        <p>Lights Team Member</p>
                         <span class="activity-date">Winter 2024 – Present</span>
                     </div>
                     <div class="activity-card">
+                        <div class="activity-icon">📊</div>
                         <h4>Michigan Data Science Team</h4>
                         <p>Algorithm Development</p>
                         <span class="activity-date">Winter 2024 – Present</span>
@@ -302,50 +415,95 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="contact-description">
-                I'm always interested in new opportunities and collaborations. Feel free to reach out!
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Let's build something together</h2>
+            </div>
+            <p class="contact-intro">
+                I'm actively seeking Software Engineer and Forward Deployed Engineer opportunities for Summer 2026 and beyond.
+                Let's connect if you're working on challenging problems in systems, performance, or infrastructure.
             </p>
-            <div class="contact-info">
-                <a href="mailto:jackgaff@umich.edu" class="contact-link">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    jackgaff@umich.edu
+            <div class="contact-grid">
+                <a href="mailto:jackgaff@umich.edu" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <p>jackgaff@umich.edu</p>
+                    </div>
                 </a>
-                <a href="tel:231-675-9844" class="contact-link">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    (231) 675-9844
+                <a href="tel:231-675-9844" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Phone</h4>
+                        <p>(231) 675-9844</p>
+                    </div>
                 </a>
-                <a href="https://www.linkedin.com/in/jackgaffney23" class="contact-link" target="_blank">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    LinkedIn
+                <a href="https://www.linkedin.com/in/jackgaffney23" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>LinkedIn</h4>
+                        <p>jackgaffney23</p>
+                    </div>
                 </a>
-                <a href="https://jack-chaudier.github.io" class="contact-link">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    jack-chaudier.github.io
+                <a href="https://github.com/jack-chaudier" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>GitHub</h4>
+                        <p>jack-chaudier</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Jack Gaffney</p>
+            <p>&copy; 2025 Jack Gaffney. Built with precision and performance in mind.</p>
+            <p class="footer-hint">Hint: Try pressing 's' three times quickly...</p>
         </div>
     </footer>
+
+    <!-- Snake Game Easter Egg -->
+    <div id="snake-game" class="snake-game-overlay">
+        <div class="snake-game-container">
+            <div class="snake-game-header">
+                <h2>Snake Game</h2>
+                <button class="close-game" aria-label="Close game">&times;</button>
+            </div>
+            <div class="snake-game-info">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="high-score">High Score: <span id="high-score">0</span></div>
+            </div>
+            <canvas id="snake-canvas" width="400" height="400"></canvas>
+            <div class="snake-game-controls">
+                <p>Use arrow keys to control the snake</p>
+                <button class="btn btn-primary" id="start-game">Start Game</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
