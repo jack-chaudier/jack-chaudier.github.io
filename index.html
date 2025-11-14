@@ -3,438 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Gaffney - Software Engineer</title>
+    <title>Jack Gaffney</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Jack Gaffney</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="jack_chaudier_gaffney_resume.pdf" class="nav-link" target="_blank" rel="noopener">Resume</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/>
-                    <line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-            </button>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav>
+        <div class="container">
+            <a href="#" class="name">Jack Gaffney</a>
+            <div class="nav-right">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="jack_chaudier_gaffney_resume.pdf" target="_blank">Resume</a>
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container container">
-            <div class="hero-content">
-                <div class="hero-label">systems & infrastructure</div>
-                <h1 class="hero-title">I build reliable, high-performance software that meets real-world constraints</h1>
-                <p class="hero-description">
-                    CS @ University of Michigan (’26). I focus on low-level systems, performance engineering, and production data infrastructure—ranging from kernels and real-time rendering to Go/PostgreSQL platforms used by engineers and scientists.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#experience" class="btn btn-primary">View Experience</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h1>Jack Gaffney</h1>
+                <p class="tagline">CS @ University of Michigan · May 2026</p>
+                <p class="bio">I build systems software and data infrastructure. Interested in performance engineering, low-level programming, and production systems. Looking for SWE and Forward Deployed SWE roles for 2026.</p>
+                <div class="links">
+                    <a href="mailto:jackgaff@umich.edu">jackgaff@umich.edu</a>
+                    <span>·</span>
+                    <a href="https://github.com/jack-chaudier" target="_blank">GitHub</a>
+                    <span>·</span>
+                    <a href="https://linkedin.com/in/jackgaffney23" target="_blank">LinkedIn</a>
+                    <span>·</span>
+                    <a href="tel:231-675-9844">(231) 675-9844</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">about</span>
-                <h2 class="section-title">About</h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-main">
-                    <p class="about-text">
-                        I’m a systems-oriented software engineer who enjoys turning constraints into design requirements. My work spans operating systems, real-time rendering, and data platforms—always with an eye toward reliability, performance, and clear interfaces.
-                    </p>
-                    <p class="about-text">
-                        Recently, as a Software Engineering Intern at Quantum Opus, I designed and deployed a modular data platform (Go/Gin, Next.js, PostgreSQL, Docker Compose) to centralize fragmented workflows. I like owning problems end-to-end and delivering tools teams rely on daily.
-                    </p>
-                    <p class="about-text">
-                        BSE in Computer Science, University of Michigan (May 2026). Interests: systems programming, performance optimization, and mission-driven engineering.
-                    </p>
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-content">
-                            <h3>Education</h3>
-                            <p>University of Michigan<br/>BSE Computer Science — May 2026</p>
-                        </div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-content">
-                            <h3>Focus</h3>
-                            <p>Systems Programming<br/>Performance Engineering<br/>Data Infrastructure</p>
-                        </div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-content">
-                            <h3>Languages</h3>
-                            <p>C/C++ • Go • Python •<br/>JavaScript/TypeScript • Rust • Lua • Assembly</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">experience</span>
-                <h2 class="section-title">Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Summer 2025</div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Engineering Intern</h3>
-                            <h4>Quantum Opus LLC — Plymouth, MI</h4>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <strong>Software Engineering Intern</strong> — Quantum Opus LLC
                         </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Built a full-stack internal data platform with <strong>Go/Gin</strong>, <strong>Next.js</strong>, and <strong>PostgreSQL</strong>, deployed via Docker Compose.</li>
-                                <li>Designed modular APIs for Python-based data generation and analysis pipelines.</li>
-                                <li>Automated ingestion/validation with dynamic entity linking and relationship mapping to replace manual workflows.</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Go/Gin</span>
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">Docker</span>
-                            </div>
-                        </div>
+                        <span class="date">Summer 2025</span>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Summer 2024</div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Carpenter → Logistics & Planning</h3>
-                            <h4>Renewit Decking — Charlevoix, MI</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Led logistics for <strong>seven distributed crews</strong> within a 50-mile radius, reducing downtime and material delays.</li>
-                                <li>Shifted from field work to inventory and pre-construction planning after identifying process bottlenecks.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Summer 2022</div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Engineering Intern</h3>
-                            <h4>DTS Enterprises Inc. — Ellsworth, MI</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Created <strong>2D/3D CAD</strong> assets and technical schematics for cross-functional teams.</li>
-                                <li>Authored a technical manual enabling independent customer installs.</li>
-                                <li>Re-indexed a <strong>10,000+ file</strong> database to improve retrieval speed.</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">CAD</span>
-                                <span class="tech-tag">Technical Documentation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">projects</span>
-                <h2 class="section-title">Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Cross-Platform Game Engine</h3>
-                    <p class="project-description">
-                        Modern C++17 engine (Windows/macOS/Linux) with real-time rendering, audio, and a data-oriented particle system optimized for cache locality.
-                    </p>
-                    <ul class="project-features">
-                        <li>Integrated <strong>Lua scripting via C++ bindings</strong> for rapid iteration with native performance.</li>
-                        <li>Achieved <strong>60 FPS</strong> while rendering millions of actors through memory layout and STL optimization.</li>
+                    <ul>
+                        <li>Built full-stack internal data platform with Go/Gin backend, Next.js frontend, and PostgreSQL database</li>
+                        <li>Designed modular REST APIs for Python-based data generation and analysis pipelines</li>
+                        <li>Automated data ingestion and validation with dynamic entity linking to replace manual workflows</li>
+                        <li>Deployed via Docker Compose for reproducible environment management</li>
                     </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">C++17</span>
-                        <span class="tech-tag">Lua</span>
-                        <span class="tech-tag">SDL2</span>
-                        <span class="tech-tag">Rendering</span>
+                    <div class="tags">
+                        <span>Go</span>
+                        <span>Next.js</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>Custom Operating System</h3>
-                    <p class="project-description">
-                        Minimal OS built by a team of three with focus on kernel design and scheduling.
-                    </p>
-                    <ul class="project-features">
-                        <li>Kernel with <strong>multitasking</strong> and <strong>thread scheduling</strong>.</li>
-                        <li>Process synchronization, VM, file systems, and interrupt handling.</li>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <strong>Carpenter → Logistics & Planning</strong> — Renewit Decking
+                        </div>
+                        <span class="date">Summer 2024</span>
+                    </div>
+                    <ul>
+                        <li>Led logistics coordination for seven distributed crews across 50-mile radius</li>
+                        <li>Reduced material delays and crew downtime through process optimization</li>
                     </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">C</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Kernel</span>
-                        <span class="tech-tag">Multithreading</span>
-                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>Production Data Platform</h3>
-                    <p class="project-description">
-                        Internal database and automation layer used across manufacturing workflows with modular APIs and ingestion pipelines.
-                    </p>
-                    <ul class="project-features">
-                        <li>Containerized architecture with Docker Compose for reproducible deploys.</li>
-                        <li>RESTful API design enabling Python and web clients.</li>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <strong>Engineering Intern</strong> — DTS Enterprises Inc.
+                        </div>
+                        <span class="date">Summer 2022</span>
+                    </div>
+                    <ul>
+                        <li>Created 2D/3D CAD assets and technical schematics for manufacturing teams</li>
+                        <li>Authored technical manual enabling independent customer installations</li>
+                        <li>Re-indexed 10,000+ file database to improve retrieval efficiency</li>
                     </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+
+                <div class="item">
+                    <div class="item-header">
+                        <strong>Cross-Platform Game Engine</strong>
+                    </div>
+                    <p>Modern C++17 engine supporting Windows, macOS, and Linux with real-time rendering, audio, and data-oriented particle system optimized for cache locality.</p>
+                    <ul>
+                        <li>Integrated Lua scripting via C++ bindings for rapid iteration with native performance</li>
+                        <li>Achieved 60 FPS rendering millions of actors through memory layout optimization and STL tuning</li>
+                        <li>Implemented component-based architecture with event system and resource management</li>
+                    </ul>
+                    <div class="tags">
+                        <span>C++17</span>
+                        <span>Lua</span>
+                        <span>SDL2</span>
+                        <span>OpenGL</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <strong>Custom Operating System</strong>
+                    </div>
+                    <p>Minimal OS built by team of three with focus on kernel design and process scheduling.</p>
+                    <ul>
+                        <li>Implemented multitasking kernel with thread scheduling and synchronization primitives</li>
+                        <li>Built virtual memory system, basic file system, and interrupt handling</li>
+                        <li>Developed in C/C++ with focus on low-level systems programming</li>
+                    </ul>
+                    <div class="tags">
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>x86 Assembly</span>
+                        <span>Kernel Development</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <strong>Production Data Platform</strong>
+                    </div>
+                    <p>Internal database and automation layer for manufacturing workflows with modular APIs.</p>
+                    <ul>
+                        <li>Containerized architecture with Docker Compose for reproducible deployments</li>
+                        <li>RESTful API design supporting Python and web clients</li>
+                        <li>PostgreSQL schema design with relationship mapping and validation</li>
+                    </ul>
+                    <div class="tags">
+                        <span>Go</span>
+                        <span>Next.js</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+        <section id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <p>C/C++, Go, Python, Rust, JavaScript/TypeScript, Lua, x86 Assembly</p>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Technologies</h3>
+                        <p>Linux/Unix, Git, Docker, PostgreSQL, Next.js/React, CMake, GDB, Valgrind, SDL2</p>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Focus Areas</h3>
+                        <p>Systems Programming, Performance Engineering, Data Infrastructure, Real-time Rendering, Kernel Development</p>
+                    </div>
+                </div>
+
+                <div class="activities">
+                    <h3>Activities</h3>
+                    <p><strong>Autonomous Robotic Vehicle Project</strong> — Lights Team Member (Winter 2024 – Present)</p>
+                    <p><strong>Michigan Data Science Team</strong> — Algorithm Development (Winter 2024 – Present)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">skills</span>
-                <h2 class="section-title">Skills</h2>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3>Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item expert">
-                            <span>C/C++</span>
-                            <span class="skill-level">Advanced</span>
-                        </div>
-                        <div class="skill-item proficient">
-                            <span>Go</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-item proficient">
-                            <span>Python</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Rust</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>JavaScript/TypeScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Lua</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Assembly</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Systems & Tools</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Linux/Unix</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Docker</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>CMake</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>GDB</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Valgrind</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Make</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Frameworks & Databases</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Next.js/React</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>PostgreSQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Gin (Go)</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>SDL2</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Django</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="activities-section">
-                <h3>Activities</h3>
-                <div class="activities-grid">
-                    <div class="activity-card">
-                        <h4>Autonomous Robotic Vehicle Project Team</h4>
-                        <p>Lights Team Member</p>
-                        <span class="activity-date">Winter 2024 – Present</span>
-                    </div>
-                    <div class="activity-card">
-                        <h4>Michigan Data Science Team</h4>
-                        <p>Algorithm Development</p>
-                        <span class="activity-date">Winter 2024 – Present</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">contact</span>
-                <h2 class="section-title">Contact</h2>
-            </div>
-            <p class="contact-intro">
-                Seeking Software Engineer and Forward Deployed Engineer roles for 2026. If your team solves systems, performance, or infrastructure challenges, I’d love to talk.
-            </p>
-            <div class="contact-grid">
-                <a href="mailto:jackgaff@umich.edu" class="contact-card">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Email</h4>
-                        <p>jackgaff@umich.edu</p>
-                    </div>
-                </a>
-                <a href="tel:231-675-9844" class="contact-card">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Phone</h4>
-                        <p>(231) 675-9844</p>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/jackgaffney23" class="contact-card" target="_blank" rel="noopener noreferrer">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>LinkedIn</h4>
-                        <p>jackgaffney23</p>
-                    </div>
-                </a>
-                <a href="https://github.com/jack-chaudier" class="contact-card" target="_blank" rel="noopener noreferrer">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>GitHub</h4>
-                        <p>jack-chaudier</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-brand">
-                <h3>© <span id="year"></span> Jack Gaffney</h3>
-            </div>
-
-            <div class="footer-section">
-                <ul class="footer-links">
-                    <li><a href="mailto:jackgaff@umich.edu">Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    <li><a href="jack_chaudier_gaffney_resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-                </ul>
-            </div>
+            <p>© <span id="year"></span> Jack Gaffney · <a href="mailto:jackgaff@umich.edu">jackgaff@umich.edu</a> · <a href="https://github.com/jack-chaudier" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/jackgaffney23" target="_blank">LinkedIn</a></p>
         </div>
     </footer>
 
-    <script>
-      // Preserve your existing script.js behavior and add the dynamic year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
