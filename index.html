@@ -1,343 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Gaffney — Systems & Infrastructure Engineer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a href="#" class="name">Jack Gaffney</a>
-            <div class="nav-right">
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#writing">Writing</a>
-                <a href="jack_gaffney_resume.pdf" target="_blank">Resume</a>
-                <button id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
-                    <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <section class="intro">
-            <div class="container">
-                <h1>Jack Gaffney — Systems & Infrastructure Engineer</h1>
-                <p class="tagline">CS @ University of Michigan · Graduating May 2026</p>
-                <p class="value-prop">I build high-performance systems, kernels, and production-grade data infrastructure. Focused on reliability, speed, and real-world impact.</p>
-                <p class="seeking">Seeking Systems SWE & Forward-Deployed SWE roles for 2026.</p>
-                <div class="links">
-                    <a href="mailto:jackgaff@umich.edu">Email</a>
-                    <span>·</span>
-                    <a href="https://github.com/jack-chaudier" target="_blank">GitHub</a>
-                    <span>·</span>
-                    <a href="https://linkedin.com/in/jackgaffney23" target="_blank">LinkedIn</a>
-                    <span>·</span>
-                    <a href="jack_gaffney_resume.pdf" target="_blank">Resume</a>
-                    <span>·</span>
-                    <a href="tel:231-675-9844">(231) 675-9844</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jack Gaffney — Systems Engineer</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="layout">
+            <header>
+                <div class="header-top">
+                    <h1 class="name">Jack Gaffney</h1>
+                    <button id="theme-toggle" aria-label="Toggle theme">
+                        <svg
+                            class="icon sun-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line
+                                x1="4.22"
+                                y1="4.22"
+                                x2="5.64"
+                                y2="5.64"
+                            ></line>
+                            <line
+                                x1="18.36"
+                                y1="18.36"
+                                x2="19.78"
+                                y2="19.78"
+                            ></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line
+                                x1="4.22"
+                                y1="19.78"
+                                x2="5.64"
+                                y2="18.36"
+                            ></line>
+                            <line
+                                x1="18.36"
+                                y1="5.64"
+                                x2="19.78"
+                                y2="4.22"
+                            ></line>
+                        </svg>
+                        <svg
+                            class="icon moon-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                            ></path>
+                        </svg>
+                    </button>
                 </div>
-            </div>
-        </section>
+                <p class="role">Systems & Infrastructure Engineer</p>
+                <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
 
-        <section id="philosophy" class="philosophy">
-            <div class="container">
-                <h2>Why I Build Things</h2>
-                <p>I'm drawn to systems programming because constraints force clarity. Whether it's optimizing memory layouts for real-time rendering, designing kernel schedulers, or building data platforms that teams rely on daily—I care about software that works under pressure.</p>
-                <p>Performance and reliability aren't just metrics; they're design requirements. I like projects where the "how" matters as much as the "what," and where understanding the machine makes you a better engineer. Production systems, defense tech, autonomous vehicles, and space infrastructure interest me because the stakes are real.</p>
-                <p>I want to work on things that matter—teams building mission-critical systems where latency, correctness, and resilience aren't negotiable.</p>
-            </div>
-        </section>
+                <div class="links">
+                    <a href="jack_gaffney_resume.pdf" target="_blank"
+                        >Resume.pdf</a
+                    >
+                    <a href="https://github.com/jack-chaudier" target="_blank"
+                        >GitHub</a
+                    >
+                    <a href="mailto:jackgaff@umich.edu">Email</a>
+                    <a
+                        href="https://linkedin.com/in/jackgaffney23"
+                        target="_blank"
+                        >LinkedIn</a
+                    >
+                </div>
+            </header>
 
-        <section id="experience">
-            <div class="container">
-                <h2>Experience</h2>
+            <section class="intro">
+                <p>
+                    I build high-performance systems, kernels, and production
+                    data infrastructure. I am interested in software that works
+                    under pressure—where latency, correctness, and resilience
+                    are non-negotiable design requirements.
+                </p>
+                <p class="subtle">Seeking Systems SWE & FDSE roles.</p>
+            </section>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Software Engineering Intern</strong> — Quantum Opus LLC
-                        </div>
+            <hr />
+
+            <section id="projects">
+                <h2 class="section-title">Selected Engineering</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Cross-Platform Game Engine</h3>
+                        <span class="date">C++17 / SDL2 / Lua</span>
+                    </div>
+                    <p>
+                        A high-performance 2D engine supporting Windows, macOS,
+                        and Linux. Built to explore real-time performance
+                        engineering and cache-friendly architecture.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Achieved
+                            <strong>60 FPS with millions of actors</strong> by
+                            implementing a Structure of Arrays (SoA) particle
+                            system to maximize cache locality.
+                        </li>
+                        <li>
+                            Integrated Lua scripting via efficient C++ bindings,
+                            enabling rapid gameplay iteration without
+                            recompilation.
+                        </li>
+                        <li>
+                            Engineered a custom memory allocator using memory
+                            pools to eliminate heap fragmentation in critical
+                            paths.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier/fr-ocean-engine"
+                        class="source-link"
+                        >View Source (fr-ocean-engine) →</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Custom Operating System</h3>
+                        <span class="date">C / x86 Assembly</span>
+                    </div>
+                    <p>
+                        A minimal kernel implementation focused on process
+                        scheduling and low-level system programming.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Implemented a
+                            <strong>multitasking kernel</strong> with a
+                            round-robin thread scheduler and context switching
+                            written in raw x86 assembly.
+                        </li>
+                        <li>
+                            Built a virtual memory system using paging and IDT
+                            (Interrupt Descriptor Table) handling.
+                        </li>
+                        <li>
+                            Developed kernel-level synchronization primitives
+                            (mutexes, cond vars) for thread coordination.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier"
+                        class="source-link"
+                        >View Source →</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Production Data Platform</h3>
+                        <span class="date">Go / Postgres / Docker</span>
+                    </div>
+                    <p>
+                        Internal infrastructure for manufacturing workflows,
+                        replacing manual data entry with automated ingestion
+                        pipelines.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Designed normalized PostgreSQL schema ensuring data
+                            consistency across 5+ manufacturing workflows.
+                        </li>
+                        <li>
+                            Built modular Go APIs enabling Python clients (R&D)
+                            and Web clients (Ops) to consume the same data
+                            sources.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2 class="section-title">Work History</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Quantum Opus LLC</h3>
                         <span class="date">Summer 2025</span>
                     </div>
-                    <p class="company-desc">Quantum Opus builds superconducting single-photon detectors used in quantum optics research and advanced sensing applications.</p>
-                    <ul>
-                        <li>Built full-stack internal data platform with Go/Gin backend, Next.js frontend, and PostgreSQL database to centralize fragmented manufacturing workflows</li>
-                        <li>Designed modular REST APIs for Python-based data generation and analysis pipelines, enabling rapid iteration for engineers and scientists</li>
-                        <li>Automated data ingestion and validation with dynamic entity linking to replace manual workflows, reducing data entry time by ~40%</li>
-                        <li>Improved schema consistency across 5+ workflows through normalized PostgreSQL design with relationship mapping</li>
-                        <li>Deployed via Docker Compose for reproducible environment management across development and production</li>
-                    </ul>
-                    <div class="tags">
-                        <span>Go/Gin</span>
-                        <span>Next.js</span>
-                        <span>PostgreSQL</span>
-                        <span>Docker</span>
-                        <span>REST APIs</span>
-                    </div>
+                    <p class="role-title">Software Engineering Intern</p>
+                    <p>
+                        Built the full-stack internal data platform (Go/Next.js)
+                        for superconducting single-photon detector
+                        manufacturing. Automated ingestion pipelines, reducing
+                        data entry time by ~40% and ensuring schema consistency.
+                    </p>
                 </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Carpenter → Logistics & Planning</strong> — Renewit Decking
-                        </div>
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Renewit Decking</h3>
                         <span class="date">Summer 2024</span>
                     </div>
-                    <p class="company-desc">Renewit Decking specializes in high-end outdoor construction across Northern Michigan.</p>
-                    <ul>
-                        <li>Led logistics coordination for seven distributed crews across 50-mile radius, managing materials, scheduling, and pre-construction planning</li>
-                        <li>Reduced material delays and crew downtime by identifying process bottlenecks and implementing proactive inventory management</li>
-                        <li>Transitioned from field work to operational planning role after demonstrating systems thinking and workflow optimization</li>
-                    </ul>
+                    <p class="role-title">Logistics & Operations</p>
+                    <p>
+                        Transformed from Carpenter to Logistics Lead. Managed
+                        material scheduling and pre-construction planning for 7
+                        distributed crews. Focused on identifying process
+                        bottlenecks and minimizing downtime in
+                        resource-constrained environments.
+                    </p>
                 </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Engineering Intern</strong> — DTS Enterprises Inc.
-                        </div>
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>DTS Enterprises</h3>
                         <span class="date">Summer 2022</span>
                     </div>
-                    <p class="company-desc">DTS Enterprises designs and manufactures agricultural equipment and industrial machinery.</p>
-                    <ul>
-                        <li>Created 2D/3D CAD assets and technical schematics for manufacturing teams using SolidWorks</li>
-                        <li>Authored comprehensive technical manual enabling independent customer installations, reducing support overhead</li>
-                        <li>Re-indexed 10,000+ file database to improve retrieval efficiency by restructuring directory hierarchy and naming conventions</li>
-                    </ul>
-                    <div class="tags">
-                        <span>CAD</span>
-                        <span>SolidWorks</span>
-                        <span>Technical Documentation</span>
-                    </div>
+                    <p class="role-title">Engineering Intern</p>
+                    <p>
+                        Created CAD assets and re-indexed a 10,000+ file
+                        engineering database to improve retrieval efficiency for
+                        manufacturing teams.
+                    </p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Cross-Platform Game Engine</strong>
-                            <a href="https://github.com/jack-chaudier" target="_blank" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-                    <p>Modern C++17 engine supporting Windows, macOS, and Linux with real-time rendering, audio, and data-oriented particle system optimized for cache locality.</p>
-                    <ul>
-                        <li>Integrated Lua scripting via C++ bindings (sol2) for rapid gameplay iteration with native performance</li>
-                        <li>Achieved 60 FPS rendering millions of actors through memory layout optimization (SoA over AoS) and STL container tuning</li>
-                        <li>Implemented component-based architecture with entity-component system (ECS), event dispatcher, and resource management</li>
-                        <li>Built custom allocator for particle systems using memory pools to reduce fragmentation</li>
-                        <li>Developed profiling tools to measure frame time breakdown and identify CPU/GPU bottlenecks</li>
-                        <li>Cross-platform build system using CMake with automated dependency management</li>
-                    </ul>
-                    <div class="tags">
-                        <span>C++17</span>
-                        <span>Lua</span>
-                        <span>SDL2</span>
-                        <span>OpenGL</span>
-                        <span>CMake</span>
-                        <span>ECS</span>
-                    </div>
-                    <p class="learning-note"><strong>Built to explore:</strong> Real-time performance engineering, cache-friendly data structures, and cross-platform systems design.</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Custom Operating System</strong>
-                            <a href="https://github.com/jack-chaudier" target="_blank" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-                    <p>Minimal OS built by team of three with focus on kernel design, process scheduling, and low-level system programming.</p>
-                    <ul>
-                        <li>Implemented multitasking kernel with round-robin thread scheduler and context switching via x86 assembly</li>
-                        <li>Built virtual memory system using x86 paging, interrupt descriptor table (IDT), and page fault handlers</li>
-                        <li>Developed synchronization primitives (mutex, condition variables) for process coordination</li>
-                        <li>Created basic file system with inode-based structure and block allocation</li>
-                        <li>Implemented system call interface for user-space programs to interact with kernel services</li>
-                        <li>Debugged using GDB, QEMU, and serial port logging for kernel-level diagnostics</li>
-                    </ul>
-                    <div class="tags">
-                        <span>C</span>
-                        <span>C++</span>
-                        <span>x86 Assembly</span>
-                        <span>Kernel Development</span>
-                        <span>QEMU</span>
-                        <span>GDB</span>
-                    </div>
-                    <p class="learning-note"><strong>Built to explore:</strong> Low-level systems programming, interrupt handling, memory management, and process scheduling algorithms.</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Production Data Platform</strong>
-                        </div>
-                    </div>
-                    <p>Internal database and automation layer for manufacturing workflows with modular APIs and ingestion pipelines used across engineering teams.</p>
-                    <ul>
-                        <li>Containerized architecture with Docker Compose for reproducible deployments across development and production environments</li>
-                        <li>RESTful API design supporting both Python clients and web-based frontends with versioned endpoints</li>
-                        <li>PostgreSQL schema design with normalized tables, foreign key constraints, and B-tree indexes for query optimization</li>
-                        <li>Implemented retry logic and transaction handling for reliable data ingestion from external sources</li>
-                        <li>Built authentication middleware and request validation to ensure data integrity</li>
-                        <li>Created migration system for schema versioning and rollback support</li>
-                    </ul>
-                    <div class="tags">
-                        <span>Go</span>
-                        <span>Next.js</span>
-                        <span>PostgreSQL</span>
-                        <span>Docker</span>
-                        <span>REST APIs</span>
-                    </div>
-                    <p class="learning-note"><strong>Built to explore:</strong> Production-grade API design, database schema optimization, and containerized deployment strategies.</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <strong>Network Packet Analyzer</strong>
-                            <a href="https://github.com/jack-chaudier" target="_blank" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-                    <p>Low-level packet capture and analysis tool built in C for inspecting network traffic and protocol behavior.</p>
-                    <ul>
-                        <li>Implemented raw socket programming for packet capture at the network interface level</li>
-                        <li>Parsed Ethernet, IP, TCP, and UDP headers to extract protocol-specific information</li>
-                        <li>Built filtering system for isolating specific traffic patterns (port, protocol, source/destination)</li>
-                        <li>Developed packet reassembly logic for fragmented IP packets</li>
-                    </ul>
-                    <div class="tags">
-                        <span>C</span>
-                        <span>Linux</span>
-                        <span>Networking</span>
-                        <span>Raw Sockets</span>
-                    </div>
-                    <p class="learning-note"><strong>Built to explore:</strong> Network protocols, raw socket programming, and systems-level I/O.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="writing">
-            <div class="container">
-                <h2>Technical Deep Dives</h2>
-                <p class="section-intro">Technical writeups exploring systems engineering concepts and implementation details.</p>
-
-                <div class="item writing-item">
-                    <div class="item-header">
-                        <strong>Memory Layout Optimization in Game Engines</strong>
-                        <span class="date">Dec 2024</span>
-                    </div>
-                    <p>Deep dive into cache-friendly data structures, comparing Structure of Arrays (SoA) vs Array of Structures (AoS) for particle systems. Covers cache line awareness, memory alignment, and measuring cache miss rates.</p>
-                    <div class="tags">
-                        <span>Performance</span>
-                        <span>C++</span>
-                        <span>Cache Optimization</span>
-                    </div>
-                </div>
-
-                <div class="item writing-item">
-                    <div class="item-header">
-                        <strong>Building a Multitasking Kernel: Context Switching & Scheduling</strong>
-                        <span class="date">Nov 2024</span>
-                    </div>
-                    <p>Walkthrough of implementing context switching in x86 assembly, designing a round-robin scheduler, and handling timer interrupts. Includes register saving, stack management, and kernel/user mode transitions.</p>
-                    <div class="tags">
-                        <span>OS Development</span>
-                        <span>Assembly</span>
-                        <span>Kernel Programming</span>
-                    </div>
-                </div>
-
-                <div class="item writing-item">
-                    <div class="item-header">
-                        <strong>Designing Modular Go APIs for Data Pipelines</strong>
-                        <span class="date">Oct 2024</span>
-                    </div>
-                    <p>Architectural decisions for building maintainable REST APIs in Go: package structure, middleware design, error handling patterns, and testing strategies for production services.</p>
-                    <div class="tags">
-                        <span>Go</span>
-                        <span>API Design</span>
-                        <span>Software Architecture</span>
-                    </div>
-                </div>
-
-                <div class="item writing-item">
-                    <div class="item-header">
-                        <strong>PostgreSQL Schema Design for Manufacturing Data</strong>
-                        <span class="date">Sep 2024</span>
-                    </div>
-                    <p>Lessons from designing a normalized PostgreSQL schema with complex relationships. Covers normalization trade-offs, index strategy, query optimization, and migration management.</p>
-                    <div class="tags">
-                        <span>PostgreSQL</span>
-                        <span>Database Design</span>
-                        <span>Data Modeling</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <h2>Skills & Technologies</h2>
-
+            <section id="skills">
+                <h2 class="section-title">Technical Stack</h2>
                 <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Languages</h3>
-                        <p>C, C++, Go, Python, Rust, JavaScript/TypeScript, Lua, x86 Assembly</p>
+                    <div class="skill-col">
+                        <span class="skill-head">Languages</span>
+                        <span
+                            >C++ (Advanced), C, Go, Python, Rust, x86 Assembly,
+                            Lua</span
+                        >
                     </div>
-
-                    <div class="skill-category">
-                        <h3>Systems & Tools</h3>
-                        <p>Linux/Unix, Git, Docker, CMake, Make, GDB, Valgrind, QEMU, Vim</p>
+                    <div class="skill-col">
+                        <span class="skill-head">Systems</span>
+                        <span
+                            >Linux/Unix, Docker, CMake, GDB, Valgrind,
+                            QEMU</span
+                        >
                     </div>
-
-                    <div class="skill-category">
-                        <h3>Technologies</h3>
-                        <p>PostgreSQL, Next.js/React, SDL2, OpenGL, Gin (Go), Tailwind CSS, Django</p>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Focus Areas</h3>
-                        <p>Systems Programming, Performance Engineering, Kernel Development, Data Infrastructure, Real-time Rendering, Low-level Optimization, Production Systems</p>
+                    <div class="skill-col">
+                        <span class="skill-head">Interests</span>
+                        <span
+                            >Kernel Dev, Real-time Rendering, Distributed
+                            Systems</span
+                        >
                     </div>
                 </div>
+            </section>
 
-                <div class="activities">
-                    <h3>Activities</h3>
-                    <p><strong>Autonomous Robotic Vehicle Project</strong> — Lights Team Member · Embedded programming, signal integration, control systems (Winter 2024 – Present)</p>
-                    <p><strong>Michigan Data Science Team</strong> — Algorithm Development · Competitive modeling, optimization, data pipeline design (Winter 2024 – Present)</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© <span id="year"></span> Jack Gaffney · <a href="mailto:jackgaff@umich.edu">jackgaff@umich.edu</a> · <a href="https://github.com/jack-chaudier" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/jackgaffney23" target="_blank">LinkedIn</a></p>
+            <footer>
+                <p>© <span id="year"></span> Jack Gaffney</p>
+            </footer>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
