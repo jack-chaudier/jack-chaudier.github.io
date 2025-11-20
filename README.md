@@ -8,7 +8,7 @@ CS @ University of Michigan (Class of 2026).
 ---
 
 ### Philosophy
-[cite_start]I build high-performance systems, kernels, and production-grade data infrastructure[cite: 9]. I am interested in software that works under pressure—where latency, correctness, and resilience are non-negotiable design requirements.
+I build high-performance systems, kernels, and production-grade data infrastructure. I am interested in software that works under pressure—where latency, correctness, and resilience are non-negotiable design requirements.
 
 Currently seeking **Systems SWE** & **Forward-Deployed SWE** roles for 2026.
 
@@ -16,14 +16,14 @@ Currently seeking **Systems SWE** & **Forward-Deployed SWE** roles for 2026.
 
 | Project | Stack | Description |
 | :--- | :--- | :--- |
-| **[fr-ocean-engine](https://github.com/jack-chaudier/fr-ocean-engine)** | C++17, SDL2, Lua | [cite_start]Cross-platform 2D game engine[cite: 26]. [cite_start]Features SoA particle systems (60FPS @ 1M+ actors) [cite: 29][cite_start], custom memory pools, and Lua scripting bindings[cite: 29]. |
-| **[Custom Kernel](https://github.com/jack-chaudier)** | C, x86 Assembly | [cite_start]Minimal OS kernel[cite: 30]. [cite_start]Implements round-robin scheduling[cite: 33], virtual memory (paging/IDT), and synchronization primitives. |
-| **Production Data Platform** | Go, Postgres, Docker | [cite_start]Internal infrastructure for manufacturing workflows[cite: 12]. [cite_start]Automated ingestion pipelines and normalized schema design[cite: 14]. |
+| **[fr-ocean-engine](https://github.com/jack-chaudier/fr-ocean-engine)** | C++17, SDL2, Lua | Cross-platform 2D game engine. Features SoA particle systems (60FPS @ 1M+ actors), custom memory pools, and Lua scripting bindings. |
+| **[Custom Kernel](https://github.com/jack-chaudier)** | C, x86 Assembly | Minimal OS kernel. Implements round-robin scheduling, virtual memory (paging/IDT), and synchronization primitives. |
+| **Production Data Platform** | Go, Postgres, Docker | Internal infrastructure for manufacturing workflows. Automated ingestion pipelines and normalized schema design. |
 
 ### Technical Stack
-* [cite_start]**Languages:** C++ (Advanced), C, Go, Python, Rust, x86 Assembly, Lua [cite: 40]
-* [cite_start]**Systems:** Linux/Unix, Docker, CMake, GDB, Valgrind, QEMU [cite: 36]
-* [cite_start]**Interests:** Kernel Dev, Real-time Rendering, Distributed Systems [cite: 38]
+* **Languages:** C++ (Advanced), C, Go, Python, Rust, x86 Assembly, Lua
+* **Systems:** Linux/Unix, Docker, CMake, GDB, Valgrind, QEMU
+* **Interests:** Kernel Dev, Real-time Rendering, Distributed Systems
 
 ### About This Site
 This portfolio is built with **zero dependencies**.
