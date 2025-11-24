@@ -3,6 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan."
+        />
+        <meta property="og:title" content="Jack Gaffney — Systems Engineer" />
+        <meta
+            property="og:description"
+            content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jack-chaudier.github.io/" />
         <title>Jack Gaffney — Systems Engineer</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,16 +83,23 @@
                 <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
 
                 <div class="links">
-                    <a href="jack_gaffney_resume.pdf" target="_blank"
+                    <a
+                        href="jack_gaffney_resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         >Resume.pdf</a
                     >
-                    <a href="https://github.com/jack-chaudier" target="_blank"
+                    <a
+                        href="https://github.com/jack-chaudier"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         >GitHub</a
                     >
                     <a href="mailto:jackgaff@umich.edu">Email</a>
                     <a
                         href="https://linkedin.com/in/jackgaffney23"
                         target="_blank"
+                        rel="noopener noreferrer"
                         >LinkedIn</a
                     >
                 </div>
@@ -99,102 +117,25 @@
 
             <hr />
 
-            <section id="projects">
-                <h2 class="section-title">Selected Engineering</h2>
-
+            <section id="education">
+                <h2 class="section-title">Education</h2>
                 <div class="entry">
                     <div class="entry-header">
-                        <h3>Cross-Platform Game Engine</h3>
-                        <span class="date">C++17 / SDL2 / Lua</span>
+                        <h3>University of Michigan</h3>
+                        <span class="date">Expected May 2026</span>
                     </div>
+                    <p class="role-title">B.S.E. Computer Science</p>
                     <p>
-                        A high-performance 2D engine supporting Windows, macOS,
-                        and Linux. Built to explore real-time performance
-                        engineering and cache-friendly architecture.
+                        <strong>Relevant Coursework:</strong> Operating Systems,
+                        Embedded Systems, Computer Organization, Artificial
+                        Intelligence, Data Structures & Algorithms, Linear
+                        Algebra, Multivariable Calculus, Physics I & II
                     </p>
-                    <ul class="tech-list">
-                        <li>
-                            Achieved
-                            <strong>60 FPS with millions of actors</strong> by
-                            implementing a Structure of Arrays (SoA) particle
-                            system to maximize cache locality.
-                        </li>
-                        <li>
-                            Integrated Lua scripting via efficient C++ bindings,
-                            enabling rapid gameplay iteration without
-                            recompilation.
-                        </li>
-                        <li>
-                            Engineered a custom memory allocator using memory
-                            pools to eliminate heap fragmentation in critical
-                            paths.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier/fr-ocean-engine"
-                        class="source-link"
-                        >View Source (fr-ocean-engine) →</a
-                    >
-                </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Custom Operating System</h3>
-                        <span class="date">C / x86 Assembly</span>
-                    </div>
-                    <p>
-                        A minimal kernel implementation focused on process
-                        scheduling and low-level system programming.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Implemented a
-                            <strong>multitasking kernel</strong> with a
-                            round-robin thread scheduler and context switching
-                            written in raw x86 assembly.
-                        </li>
-                        <li>
-                            Built a virtual memory system using paging and IDT
-                            (Interrupt Descriptor Table) handling.
-                        </li>
-                        <li>
-                            Developed kernel-level synchronization primitives
-                            (mutexes, cond vars) for thread coordination.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier"
-                        class="source-link"
-                        >View Source →</a
-                    >
-                </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Production Data Platform</h3>
-                        <span class="date">Go / Postgres / Docker</span>
-                    </div>
-                    <p>
-                        Internal infrastructure for manufacturing workflows,
-                        replacing manual data entry with automated ingestion
-                        pipelines.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Designed normalized PostgreSQL schema ensuring data
-                            consistency across 5+ manufacturing workflows.
-                        </li>
-                        <li>
-                            Built modular Go APIs enabling Python clients (R&D)
-                            and Web clients (Ops) to consume the same data
-                            sources.
-                        </li>
-                    </ul>
                 </div>
             </section>
 
             <section id="experience">
-                <h2 class="section-title">Work History</h2>
+                <h2 class="section-title">Experience</h2>
 
                 <div class="entry">
                     <div class="entry-header">
@@ -202,12 +143,28 @@
                         <span class="date">Summer 2025</span>
                     </div>
                     <p class="role-title">Software Engineering Intern</p>
-                    <p>
-                        Built the full-stack internal data platform (Go/Next.js)
-                        for superconducting single-photon detector
-                        manufacturing. Automated ingestion pipelines, reducing
-                        data entry time by ~40% and ensuring schema consistency.
-                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Built and deployed a full-stack internal database
+                            (Go/Gin backend, Next.js frontend, PostgreSQL,
+                            Docker Compose) that centralized fragmented
+                            workflows and improved operational scalability for
+                            the engineering team.
+                        </li>
+                        <li>
+                            Designed modular Go API endpoints that could be
+                            consumed independently, enabling seamless
+                            integration with Python-based data generation
+                            pipelines and reducing redundant data transfers.
+                        </li>
+                        <li>
+                            Implemented automated data ingestion and validation
+                            pipelines with dynamic entity linking and
+                            relationship mapping, improving reliability and
+                            reducing manual intervention across complex
+                            datasets.
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="entry">
@@ -215,54 +172,182 @@
                         <h3>Renewit Decking</h3>
                         <span class="date">Summer 2024</span>
                     </div>
-                    <p class="role-title">Logistics & Operations</p>
-                    <p>
-                        Transformed from Carpenter to Logistics Lead. Managed
-                        material scheduling and pre-construction planning for 7
-                        distributed crews. Focused on identifying process
-                        bottlenecks and minimizing downtime in
-                        resource-constrained environments.
-                    </p>
+                    <p class="role-title">Carpenter & Logistics Lead</p>
+                    <ul class="tech-list">
+                        <li>
+                            Constructed large-scale outdoor living spaces by
+                            applying precision carpentry techniques,
+                            coordinating multi-phase project planning, and
+                            adapting designs to structural constraints under
+                            limited resources.
+                        </li>
+                        <li>
+                            Coordinated logistics and scheduled material
+                            deliveries for seven distributed crews within a
+                            50-mile radius, optimizing resource allocation and
+                            significantly reducing downtime across simultaneous
+                            job sites.
+                        </li>
+                        <li>
+                            Transitioned from carpentry to logistics and
+                            pre-construction project planning after identifying
+                            workflow inefficiencies, demonstrating adaptability
+                            and process improvement.
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="entry">
                     <div class="entry-header">
-                        <h3>DTS Enterprises</h3>
+                        <h3>DTS Enterprises Inc.</h3>
                         <span class="date">Summer 2022</span>
                     </div>
                     <p class="role-title">Engineering Intern</p>
+                    <ul class="tech-list">
+                        <li>
+                            Produced 2D/3D CAD renderings and detailed technical
+                            schematics, supporting cross-functional
+                            communication between engineering design and
+                            production teams to accelerate product iteration.
+                        </li>
+                        <li>
+                            Authored a comprehensive technical manual for a
+                            mechanical boat door system, allowing customers to
+                            independently complete installations and reducing
+                            reliance on on-site engineering support.
+                        </li>
+                        <li>
+                            Reorganized a database of 10,000+ assembly files and
+                            component drawings, implementing a new structure and
+                            indexing scheme that greatly improved retrieval
+                            speed and reduced production bottlenecks.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Custom Operating System Kernel</h3>
+                        <span class="date">C / C++ / Assembly</span>
+                    </div>
                     <p>
-                        Created CAD assets and re-indexed a 10,000+ file
-                        engineering database to improve retrieval efficiency for
-                        manufacturing teams.
+                        A UNIX-like operating system kernel designed from scratch.
                     </p>
+                    <ul class="tech-list">
+                        <li>
+                            Co-developed a UNIX-like operating system kernel
+                            from scratch, designing low-level memory management
+                            units, paging algorithms, and a custom round-robin
+                            thread scheduler.
+                        </li>
+                        <li>
+                            Wrote interrupt handlers and context-switching logic
+                            in Assembly and C, gaining deep familiarity with
+                            hardware-software interaction, CPU architecture, and
+                            register manipulation.
+                        </li>
+                        <li>
+                            Debugged race conditions and deadlocks in a
+                            multithreaded environment, ensuring safe resource
+                            access and system stability under high-load
+                            scenarios.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View Source →</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>High-Performance Game Engine</h3>
+                        <span class="date">C++17 / Lua / Rust Concepts</span>
+                    </div>
+                    <p>
+                        A real-time rendering engine optimized for strict
+                        frame-timing constraints.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Engineered a real-time rendering engine using C++17,
+                            optimizing for strict frame-timing constraints
+                            (16ms) and implementing custom memory allocators to
+                            prevent heap fragmentation.
+                        </li>
+                        <li>
+                            Integrated Lua for high-level logic scripting,
+                            creating a "software-defined" architecture where
+                            core C++ systems expose functionality to flexible
+                            upper-level scripts, mirroring embedded control
+                            patterns.
+                        </li>
+                        <li>
+                            Leveraged advanced STL features and pointer
+                            arithmetic to achieve massive performance
+                            improvements, maintaining consistent 60 fps when
+                            rendering millions of actors on large maps.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier/fr-ocean-engine"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View Source (fr-ocean-engine) →</a
+                    >
                 </div>
             </section>
 
             <section id="skills">
-                <h2 class="section-title">Technical Stack</h2>
+                <h2 class="section-title">Technical Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-col">
                         <span class="skill-head">Languages</span>
                         <span
-                            >C++ (Advanced), C, Go, Python, Rust, x86 Assembly,
-                            Lua</span
+                            >C++ (Advanced), C, Python, Rust, Go, Lua, Assembly,
+                            MATLAB</span
                         >
                     </div>
                     <div class="skill-col">
-                        <span class="skill-head">Systems</span>
+                        <span class="skill-head">Systems & Tools</span>
                         <span
-                            >Linux/Unix, Docker, CMake, GDB, Valgrind,
-                            QEMU</span
+                            >Linux, RTOS Concepts, Git, Docker, CMake, GDB,
+                            Valgrind, Make</span
                         >
                     </div>
                     <div class="skill-col">
-                        <span class="skill-head">Interests</span>
+                        <span class="skill-head">Focus Areas</span>
                         <span
-                            >Kernel Dev, Real-time Rendering, Distributed
-                            Systems</span
+                            >Systems Programming, Embedded Concepts, Performance
+                            Optimization, Multithreading</span
                         >
                     </div>
+                </div>
+            </section>
+
+            <section id="activities">
+                <h2 class="section-title">Activities</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Autonomous Robotic Vehicle Project Team</h3>
+                        <span class="date">Winter 2024 -- Present</span>
+                    </div>
+                    <p class="role-title">Lights Team</p>
+                </div>
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Michigan Data Science Team</h3>
+                        <span class="date">Winter 2024 -- Present</span>
+                    </div>
+                    <p class="role-title">Algorithm Development</p>
                 </div>
             </section>
 
