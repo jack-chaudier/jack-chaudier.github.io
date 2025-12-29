@@ -14,17 +14,24 @@
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@jackchaudier" />
+        <meta name="twitter:creator" content="@jackchaudier" />
+        <meta name="twitter:title" content="Jack Gaffney — Systems Engineer" />
+        <meta name="twitter:description" content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan." />
         <title>Jack Gaffney — Systems Engineer</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap&font-display=swap"
             rel="stylesheet"
         />
     </head>
     <body>
-        <div class="layout">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <div class="layout" id="main-content" tabindex="-1">
             <header>
                 <div class="header-top">
                     <h1 class="name">Jack Gaffney</h1>
@@ -82,27 +89,47 @@
                 <p class="role">Systems & Infrastructure Engineer</p>
                 <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
 
-                <div class="links">
-                    <a
-                        href="jack_gaffney_resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Resume.pdf</a
-                    >
-                    <a
-                        href="https://github.com/jack-chaudier"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >GitHub</a
-                    >
-                    <a href="mailto:jackgaff@umich.edu">Email</a>
-                    <a
-                        href="https://linkedin.com/in/jackgaffney23"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >LinkedIn</a
-                    >
-                </div>
+                <nav class="links" aria-label="Contact links">
+                    <a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Resume</span>
+                    </a>
+                    <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:jackgaff@umich.edu" title="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://x.com/jackchaudier" target="_blank" rel="noopener noreferrer" title="X">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4l11.5 16h4.5l-11.5-16z"></path>
+                            <path d="M4 20l6.5-6.5"></path>
+                            <path d="M20 4l-6.5 6.5"></path>
+                        </svg>
+                        <span>X</span>
+                    </a>
+                </nav>
             </header>
 
             <section class="intro">
@@ -231,38 +258,35 @@
 
                 <div class="entry">
                     <div class="entry-header">
-                        <h3>Custom Operating System Kernel</h3>
-                        <span class="date">C / C++ / Assembly</span>
+                        <h3>Ocean Microkernel</h3>
+                        <span class="date">C11 / x86_64 Assembly</span>
                     </div>
                     <p>
-                        A UNIX-like operating system kernel designed from scratch.
+                        An educational x86_64 microkernel exploring OS concepts with the goal of becoming self-hosting.
                     </p>
                     <ul class="tech-list">
                         <li>
-                            Co-developed a UNIX-like operating system kernel
-                            from scratch, designing low-level memory management
-                            units, paging algorithms, and a custom round-robin
-                            thread scheduler.
+                            Designed a Unix-inspired microkernel where only essential
+                            services run in kernel space, with userspace servers
+                            communicating through capability-based message passing IPC.
                         </li>
                         <li>
-                            Wrote interrupt handlers and context-switching logic
-                            in Assembly and C, gaining deep familiarity with
-                            hardware-software interaction, CPU architecture, and
-                            register manipulation.
+                            Implemented memory management systems including a buddy
+                            allocator, 4-level paging, and slab allocator, along with
+                            a priority-based preemptive scheduler with per-CPU queues.
                         </li>
                         <li>
-                            Debugged race conditions and deadlocks in a
-                            multithreaded environment, ensuring safe resource
-                            access and system stability under high-load
-                            scenarios.
+                            Built fast syscall paths using SYSCALL/SYSRET, ELF loading
+                            for process creation, and a minimal C runtime with custom
+                            libc implementation.
                         </li>
                     </ul>
                     <a
-                        href="https://github.com/jack-chaudier"
+                        href="https://github.com/jack-chaudier/ocean-linux"
                         class="source-link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >View Source →</a
+                        >View Source (ocean-linux) →</a
                     >
                 </div>
 
@@ -308,27 +332,41 @@
 
             <section id="skills">
                 <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-col">
+                <div class="skills-container">
+                    <div class="skill-group">
                         <span class="skill-head">Languages</span>
-                        <span
-                            >C++ (Advanced), C, Python, Rust, Go, Lua, Assembly,
-                            MATLAB</span
-                        >
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">C++</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Rust</span>
+                            <span class="skill-tag">Go</span>
+                            <span class="skill-tag">Lua</span>
+                            <span class="skill-tag">Assembly</span>
+                            <span class="skill-tag">MATLAB</span>
+                        </div>
                     </div>
-                    <div class="skill-col">
+                    <div class="skill-group">
                         <span class="skill-head">Systems & Tools</span>
-                        <span
-                            >Linux, RTOS Concepts, Git, Docker, CMake, GDB,
-                            Valgrind, Make</span
-                        >
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">RTOS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">CMake</span>
+                            <span class="skill-tag">GDB</span>
+                            <span class="skill-tag">Valgrind</span>
+                            <span class="skill-tag">Make</span>
+                        </div>
                     </div>
-                    <div class="skill-col">
+                    <div class="skill-group">
                         <span class="skill-head">Focus Areas</span>
-                        <span
-                            >Systems Programming, Embedded Concepts, Performance
-                            Optimization, Multithreading</span
-                        >
+                        <div class="skill-tags">
+                            <span class="skill-tag">Systems Programming</span>
+                            <span class="skill-tag">Embedded Systems</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                            <span class="skill-tag">Multithreading</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -352,7 +390,15 @@
             </section>
 
             <footer>
-                <p>© <span id="year"></span> Jack Gaffney</p>
+                <div class="footer-content">
+                    <p>© <span id="year"></span> Jack Gaffney</p>
+                    <a href="#main-content" class="back-to-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        <span>Top</span>
+                    </a>
+                </div>
             </footer>
         </div>
 
