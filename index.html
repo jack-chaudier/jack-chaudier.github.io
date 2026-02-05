@@ -14,11 +14,15 @@
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:site" content="@jackchaudier" />
         <meta name="twitter:creator" content="@jackchaudier" />
         <meta name="twitter:title" content="Jack Gaffney — Systems Engineer" />
         <meta name="twitter:description" content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan." />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link rel="canonical" href="https://jack-chaudier.github.io/" />
         <title>Jack Gaffney — Systems Engineer</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
         <link rel="stylesheet" href="style.css" />
@@ -28,6 +32,25 @@
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap&font-display=swap"
             rel="stylesheet"
         />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Jack Gaffney",
+            "url": "https://jack-chaudier.github.io/",
+            "jobTitle": "Systems & Infrastructure Engineer",
+            "sameAs": [
+                "https://github.com/jack-chaudier",
+                "https://linkedin.com/in/jackgaffney23",
+                "https://x.com/jackchaudier"
+            ],
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Michigan"
+            },
+            "knowsAbout": ["Systems Programming", "Embedded Systems", "Performance Optimization", "C++", "C", "Rust", "Go"]
+        }
+        </script>
     </head>
     <body>
         <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -42,6 +65,7 @@
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
+                            aria-hidden="true"
                         >
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -79,6 +103,7 @@
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
+                            aria-hidden="true"
                         >
                             <path
                                 d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
@@ -91,7 +116,7 @@
 
                 <nav class="links" aria-label="Contact links">
                     <a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
                             <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -101,20 +126,20 @@
                         <span>Resume</span>
                     </a>
                     <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer" title="GitHub">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                         </svg>
                         <span>GitHub</span>
                     </a>
                     <a href="mailto:jackgaff@umich.edu" title="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         <span>Email</span>
                     </a>
                     <a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>
                             <circle cx="4" cy="4" r="2"></circle>
@@ -122,7 +147,7 @@
                         <span>LinkedIn</span>
                     </a>
                     <a href="https://x.com/jackchaudier" target="_blank" rel="noopener noreferrer" title="X">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M4 4l11.5 16h4.5l-11.5-16z"></path>
                             <path d="M4 20l6.5-6.5"></path>
                             <path d="M20 4l-6.5 6.5"></path>
@@ -160,6 +185,8 @@
                     </p>
                 </div>
             </section>
+
+            <hr />
 
             <section id="experience">
                 <h2 class="section-title">Experience</h2>
@@ -253,6 +280,8 @@
                 </div>
             </section>
 
+            <hr />
+
             <section id="projects">
                 <h2 class="section-title">Projects</h2>
 
@@ -330,6 +359,8 @@
                 </div>
             </section>
 
+            <hr />
+
             <section id="skills">
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="skills-container">
@@ -371,19 +402,21 @@
                 </div>
             </section>
 
+            <hr />
+
             <section id="activities">
                 <h2 class="section-title">Activities</h2>
                 <div class="entry">
                     <div class="entry-header">
                         <h3>Autonomous Robotic Vehicle Project Team</h3>
-                        <span class="date">Winter 2024 -- Present</span>
+                        <span class="date">Winter 2024 — Present</span>
                     </div>
                     <p class="role-title">Lights Team</p>
                 </div>
                 <div class="entry">
                     <div class="entry-header">
                         <h3>Michigan Data Science Team</h3>
-                        <span class="date">Winter 2024 -- Present</span>
+                        <span class="date">Winter 2024 — Present</span>
                     </div>
                     <p class="role-title">Algorithm Development</p>
                 </div>
@@ -393,7 +426,7 @@
                 <div class="footer-content">
                     <p>© <span id="year"></span> Jack Gaffney</p>
                     <a href="#main-content" class="back-to-top">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <polyline points="18 15 12 9 6 15"></polyline>
                         </svg>
                         <span>Top</span>
