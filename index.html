@@ -7,12 +7,12 @@
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
         <meta
             name="description"
-            content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan."
+            content="Portfolio of Jack Gaffney, a University of Michigan CS student building kernels, game engines, and production backend infrastructure."
         />
-        <meta property="og:title" content="Jack Gaffney — Systems Engineer" />
+        <meta property="og:title" content="Jack Gaffney — Systems Software" />
         <meta
             property="og:description"
-            content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan."
+            content="Portfolio of Jack Gaffney, a University of Michigan CS student building kernels, game engines, and production backend infrastructure."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
@@ -23,8 +23,8 @@
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:site" content="@jackchaudier" />
         <meta name="twitter:creator" content="@jackchaudier" />
-        <meta name="twitter:title" content="Jack Gaffney — Systems Engineer" />
-        <meta name="twitter:description" content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan." />
+        <meta name="twitter:title" content="Jack Gaffney — Systems Software" />
+        <meta name="twitter:description" content="Portfolio of Jack Gaffney, a University of Michigan CS student building kernels, game engines, and production backend infrastructure." />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -32,7 +32,7 @@
         />
         <link rel="canonical" href="https://jack-chaudier.github.io/" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <title>Jack Gaffney — Systems Engineer</title>
+        <title>Jack Gaffney — Systems Software</title>
         <script>
             (function () {
                 const root = document.documentElement;
@@ -77,7 +77,7 @@
             "@type": "Person",
             "name": "Jack Gaffney",
             "url": "https://jack-chaudier.github.io/",
-            "jobTitle": "Systems & Infrastructure Engineer",
+            "jobTitle": "Systems Software Engineer",
             "sameAs": [
                 "https://github.com/jack-chaudier",
                 "https://linkedin.com/in/jackgaffney23",
@@ -150,7 +150,7 @@
                         </svg>
                     </button>
                 </div>
-                <p class="role">Systems & Infrastructure Engineer</p>
+                <p class="role">Kernels, Engines, and Production Infrastructure</p>
                 <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
 
                 <nav class="links" aria-label="Contact links">
@@ -199,12 +199,11 @@
             <section class="intro" aria-labelledby="intro-title">
                 <h2 id="intro-title" class="visually-hidden">Overview</h2>
                 <p>
-                    I build high-performance systems, kernels, and production
-                    data infrastructure. I am interested in software that works
-                    under pressure—where latency, correctness, and resilience
-                    are non-negotiable design requirements.
+                    I build systems software end to end: operating systems and
+                    runtime projects in C/C++, plus production backend tooling
+                    shipped in internship environments.
                 </p>
-                <p class="subtle">Seeking Systems SWE and Forward Deployed Software Engineer (FDSE) roles.</p>
+                <p class="subtle">Seeking Systems SWE and Forward Deployed Software Engineer (FDSE) roles for 2026.</p>
             </section>
 
             <hr />
@@ -282,12 +281,6 @@
                             significantly reducing downtime across simultaneous
                             job sites.
                         </li>
-                        <li>
-                            Transitioned from carpentry to logistics and
-                            pre-construction project planning after identifying
-                            workflow inefficiencies, demonstrating adaptability
-                            and process improvement.
-                        </li>
                     </ul>
                 </div>
 
@@ -323,66 +316,7 @@
             <hr />
 
             <section id="projects" aria-labelledby="projects-title">
-                <h2 id="projects-title" class="section-title">Projects & Research</h2>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Validity Mirage (MirageKit)</h3>
-                        <span class="date">LLM Reliability / Context Compression</span>
-                    </div>
-                    <p>
-                        A public research program showing that answer validity can remain high while semantic intent silently drifts under naive context compression.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Built an interactive demo with a deterministic witness, policy comparisons, and memory-safety certificate diagnostics for first-pass research review.
-                        </li>
-                        <li>
-                            Published reproducible replay artifacts showing L2-guarded retention preserves pivot identity under pressure while recency degrades at matched budgets.
-                        </li>
-                        <li>
-                            Published links:
-                            <a href="https://dreams-dun.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a>,
-                            <a href="https://github.com/jack-chaudier/dreams/tree/main/papers" target="_blank" rel="noopener noreferrer">Paper Bundle</a>,
-                            <a href="https://github.com/jack-chaudier/tropical-mcp" target="_blank" rel="noopener noreferrer">MCP Implementation</a>.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier/dreams"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >View Source (dreams) →</a
-                    >
-                </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>tropical-mcp</h3>
-                        <span class="date">Python / MCP / Context Safety</span>
-                    </div>
-                    <p>
-                        A production MCP server that applies L2 tropical-algebra compaction with guarded retention contracts and auditable safety signals.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Implemented policy tools (`inspect`, `compact`, `compact_auto`, `retention_floor`) for feasibility inspection and safe context reduction.
-                        </li>
-                        <li>
-                            Added explicit audit semantics (`contract_satisfied`, `guard_effective`, breach IDs) so downstream agents can verify safety, not just token count.
-                        </li>
-                        <li>
-                            Validated behavior with deterministic fixtures and replay harnesses to compare recency against guarded policies under equal token budgets.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier/tropical-mcp"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >View Source (tropical-mcp) →</a
-                    >
-                </div>
+                <h2 id="projects-title" class="section-title">Selected Projects</h2>
 
                 <div class="entry">
                     <div class="entry-header">
@@ -390,23 +324,24 @@
                         <span class="date">C11 / x86_64 Assembly</span>
                     </div>
                     <p>
-                        An educational x86_64 microkernel exploring OS concepts with the goal of becoming self-hosting.
+                        An educational x86_64 microkernel focused on memory
+                        safety, scheduling, and userspace isolation.
                     </p>
                     <ul class="tech-list">
                         <li>
-                            Designed a Unix-inspired microkernel where only essential
-                            services run in kernel space, with userspace servers
-                            communicating through capability-based message passing IPC.
+                            Implemented boot/runtime fundamentals: Limine boot
+                            path, GDT/IDT setup, fast interrupt handling, and a
+                            SYSCALL/SYSRET system call interface.
                         </li>
                         <li>
-                            Implemented memory management systems including a buddy
-                            allocator, 4-level paging, and slab allocator, along with
-                            a priority-based preemptive scheduler with per-CPU queues.
+                            Built kernel memory systems including a buddy
+                            allocator, 4-level paging, and slab allocation with
+                            explicit ownership boundaries.
                         </li>
                         <li>
-                            Built fast syscall paths using SYSCALL/SYSRET, ELF loading
-                            for process creation, and a minimal C runtime with custom
-                            libc implementation.
+                            Designed capability-based IPC and userspace server
+                            boundaries to keep policy outside kernel space while
+                            preserving performance.
                         </li>
                     </ul>
                     <a
@@ -421,31 +356,26 @@
                 <div class="entry">
                     <div class="entry-header">
                         <h3>High-Performance Game Engine</h3>
-                        <span class="date">C++17 / Lua / Rust Concepts</span>
+                        <span class="date">C++17 / Lua / SDL2 / Box2D</span>
                     </div>
                     <p>
-                        A real-time rendering engine optimized for strict
-                        frame-timing constraints.
+                        A C++17/Lua 2D engine built for predictable frame
+                        timing and scriptable gameplay systems.
                     </p>
                     <ul class="tech-list">
                         <li>
-                            Engineered a real-time rendering engine using C++17,
-                            optimizing for strict frame-timing constraints
-                            (16ms) and implementing custom memory allocators to
-                            prevent heap fragmentation.
+                            Built an ECS-style architecture with Lua scripting
+                            hooks, enabling fast gameplay iteration without
+                            recompiling core engine systems.
                         </li>
                         <li>
-                            Integrated Lua for high-level logic scripting,
-                            creating a "software-defined" architecture where
-                            core C++ systems expose functionality to flexible
-                            upper-level scripts, mirroring embedded control
-                            patterns.
+                            Integrated physics and rendering pipelines with
+                            careful memory-management patterns to reduce
+                            allocation churn during gameplay.
                         </li>
                         <li>
-                            Leveraged advanced STL features and pointer
-                            arithmetic to achieve massive performance
-                            improvements, maintaining consistent 60 fps when
-                            rendering millions of actors on large maps.
+                            Profiled hot paths and data layout to sustain 60 FPS
+                            in benchmark scenes with 10,000+ active entities.
                         </li>
                     </ul>
                     <a
@@ -454,6 +384,44 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         >View Source (fr-ocean-engine) →</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Validity Mirage (MirageKit + tropical-mcp)</h3>
+                        <span class="date">LLM Reliability / Context Compression</span>
+                    </div>
+                    <p>
+                        Research artifact showing that naive context compression
+                        can preserve answer form while silently drifting from
+                        original intent.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Built an interactive benchmark demo with
+                            deterministic witness tables and certificate views
+                            for policy-level comparison.
+                        </li>
+                        <li>
+                            Implemented companion MCP tooling (`tropical-mcp`)
+                            for guarded retention, feasibility inspection, and
+                            auditable compaction outcomes.
+                        </li>
+                        <li>
+                            Published reproducible artifacts for independent
+                            review:
+                            <a href="https://dreams-dun.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a>,
+                            <a href="https://github.com/jack-chaudier/dreams/tree/main/papers" target="_blank" rel="noopener noreferrer">Paper Bundle</a>,
+                            <a href="https://github.com/jack-chaudier/tropical-mcp" target="_blank" rel="noopener noreferrer">MCP Implementation</a>.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier/dreams"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View Source (dreams) →</a
                     >
                 </div>
             </section>
@@ -498,26 +466,6 @@
                             <span class="skill-tag">Multithreading</span>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <hr />
-
-            <section id="activities" aria-labelledby="activities-title">
-                <h2 id="activities-title" class="section-title">Activities</h2>
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Autonomous Robotic Vehicle Project Team</h3>
-                        <span class="date">Winter 2024 — Present</span>
-                    </div>
-                    <p class="role-title">Lights Team</p>
-                </div>
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Michigan Data Science Team</h3>
-                        <span class="date">Winter 2024 — Present</span>
-                    </div>
-                    <p class="role-title">Algorithm Development</p>
                 </div>
             </section>
 
