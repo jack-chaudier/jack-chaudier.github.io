@@ -283,7 +283,66 @@
             <hr />
 
             <section id="projects">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Projects & Research</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Validity Mirage (MirageKit)</h3>
+                        <span class="date">LLM Reliability / Context Compression</span>
+                    </div>
+                    <p>
+                        A public research program showing that answer validity can remain high while semantic intent silently drifts under naive context compression.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Built an interactive demo with a deterministic witness, policy comparisons, and memory-safety certificate diagnostics for first-pass research review.
+                        </li>
+                        <li>
+                            Published reproducible replay artifacts showing L2-guarded retention preserves pivot identity under pressure while recency degrades at matched budgets.
+                        </li>
+                        <li>
+                            Published links:
+                            <a href="https://dreams-dun.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a>,
+                            <a href="https://github.com/jack-chaudier/dreams/tree/main/papers" target="_blank" rel="noopener noreferrer">Paper Bundle</a>,
+                            <a href="https://github.com/jack-chaudier/tropical-mcp" target="_blank" rel="noopener noreferrer">MCP Implementation</a>.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier/dreams"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View Source (dreams) →</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>tropical-mcp</h3>
+                        <span class="date">Python / MCP / Context Safety</span>
+                    </div>
+                    <p>
+                        A production MCP server that applies L2 tropical-algebra compaction with guarded retention contracts and auditable safety signals.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Implemented policy tools (`inspect`, `compact`, `compact_auto`, `retention_floor`) for feasibility inspection and safe context reduction.
+                        </li>
+                        <li>
+                            Added explicit audit semantics (`contract_satisfied`, `guard_effective`, breach IDs) so downstream agents can verify safety, not just token count.
+                        </li>
+                        <li>
+                            Validated behavior with deterministic fixtures and replay harnesses to compare recency against guarded policies under equal token budgets.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jack-chaudier/tropical-mcp"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View Source (tropical-mcp) →</a
+                    >
+                </div>
 
                 <div class="entry">
                     <div class="entry-header">
