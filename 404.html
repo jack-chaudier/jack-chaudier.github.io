@@ -3,22 +3,62 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfdfc" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
+        <link rel="canonical" href="https://jack-chaudier.github.io/404.html" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <title>404 — Jack Gaffney</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
+        <script>
+            (function () {
+                const root = document.documentElement;
+                try {
+                    const storedTheme = localStorage.getItem("theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
+                }
+            })();
+        </script>
+        <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;JG&lt;/text&gt;&lt;/svg&gt;" />
+        <link rel="icon" type="image/png" sizes="1200x630" href="/og-image.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap&font-display=swap"
-            rel="stylesheet"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
         />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+            rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
+        />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
     </head>
     <body>
-        <div class="layout" id="main-content">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <main class="layout not-found-layout" id="main-content" tabindex="-1">
             <header>
                 <div class="header-top">
                     <h1 class="name">Jack Gaffney</h1>
-                    <button id="theme-toggle" aria-label="Toggle theme">
+                    <button id="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
                         <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -37,12 +77,12 @@
                 </div>
             </header>
 
-            <section class="intro" style="margin-top: 80px; text-align: center;">
-                <p style="font-size: 48px; font-family: var(--font-sans); font-weight: 600; color: var(--fg-dim); margin-bottom: 16px;">404</p>
-                <p style="font-size: 20px; margin-bottom: 32px;">This page doesn't exist.</p>
-                <a href="/" style="font-family: var(--font-sans); font-size: 14px; padding: 10px 20px; border: 1px solid var(--line); border-radius: 4px; color: var(--fg-dim);">Back to Portfolio</a>
+            <section class="not-found" aria-labelledby="not-found-title">
+                <h2 id="not-found-title" class="not-found-code">404</h2>
+                <p class="not-found-message">This page doesn't exist.</p>
+                <a href="/" class="not-found-link">Back to Portfolio</a>
             </section>
-        </div>
+        </main>
 
         <script src="script.js"></script>
     </body>

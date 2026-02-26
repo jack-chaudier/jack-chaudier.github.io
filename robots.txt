@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jack-chaudier.github.io/sitemap.xml

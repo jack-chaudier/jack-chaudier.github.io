@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfdfc" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
         <meta
             name="description"
             content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan."
@@ -15,6 +17,8 @@
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:site" content="@jackchaudier" />
@@ -22,16 +26,51 @@
         <meta name="twitter:title" content="Jack Gaffney — Systems Engineer" />
         <meta name="twitter:description" content="Portfolio of Jack Gaffney, a Systems & Infrastructure Engineer and CS student at the University of Michigan." />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
         <link rel="canonical" href="https://jack-chaudier.github.io/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <title>Jack Gaffney — Systems Engineer</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
+        <script>
+            (function () {
+                const root = document.documentElement;
+                try {
+                    const storedTheme = localStorage.getItem("theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
+                }
+            })();
+        </script>
+        <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;JG&lt;/text&gt;&lt;/svg&gt;" />
+        <link rel="icon" type="image/png" sizes="1200x630" href="/og-image.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap&font-display=swap"
-            rel="stylesheet"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
         />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+            rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
+        />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -54,11 +93,11 @@
     </head>
     <body>
         <a href="#main-content" class="skip-link">Skip to main content</a>
-        <div class="layout" id="main-content" tabindex="-1">
+        <main class="layout" id="main-content" tabindex="-1">
             <header>
                 <div class="header-top">
                     <h1 class="name">Jack Gaffney</h1>
-                    <button id="theme-toggle" aria-label="Toggle theme">
+                    <button id="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
                         <svg
                             class="icon sun-icon"
                             viewBox="0 0 24 24"
@@ -157,20 +196,21 @@
                 </nav>
             </header>
 
-            <section class="intro">
+            <section class="intro" aria-labelledby="intro-title">
+                <h2 id="intro-title" class="visually-hidden">Overview</h2>
                 <p>
                     I build high-performance systems, kernels, and production
                     data infrastructure. I am interested in software that works
                     under pressure—where latency, correctness, and resilience
                     are non-negotiable design requirements.
                 </p>
-                <p class="subtle">Seeking Systems SWE & FDSE roles.</p>
+                <p class="subtle">Seeking Systems SWE and Forward Deployed Software Engineer (FDSE) roles.</p>
             </section>
 
             <hr />
 
-            <section id="education">
-                <h2 class="section-title">Education</h2>
+            <section id="education" aria-labelledby="education-title">
+                <h2 id="education-title" class="section-title">Education</h2>
                 <div class="entry">
                     <div class="entry-header">
                         <h3>University of Michigan</h3>
@@ -188,8 +228,8 @@
 
             <hr />
 
-            <section id="experience">
-                <h2 class="section-title">Experience</h2>
+            <section id="experience" aria-labelledby="experience-title">
+                <h2 id="experience-title" class="section-title">Experience</h2>
 
                 <div class="entry">
                     <div class="entry-header">
@@ -282,8 +322,8 @@
 
             <hr />
 
-            <section id="projects">
-                <h2 class="section-title">Projects & Research</h2>
+            <section id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title" class="section-title">Projects & Research</h2>
 
                 <div class="entry">
                     <div class="entry-header">
@@ -420,8 +460,8 @@
 
             <hr />
 
-            <section id="skills">
-                <h2 class="section-title">Technical Skills</h2>
+            <section id="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title" class="section-title">Technical Skills</h2>
                 <div class="skills-container">
                     <div class="skill-group">
                         <span class="skill-head">Languages</span>
@@ -463,8 +503,8 @@
 
             <hr />
 
-            <section id="activities">
-                <h2 class="section-title">Activities</h2>
+            <section id="activities" aria-labelledby="activities-title">
+                <h2 id="activities-title" class="section-title">Activities</h2>
                 <div class="entry">
                     <div class="entry-header">
                         <h3>Autonomous Robotic Vehicle Project Team</h3>
@@ -492,7 +532,7 @@
                     </a>
                 </div>
             </footer>
-        </div>
+        </main>
 
         <script src="script.js"></script>
     </body>
