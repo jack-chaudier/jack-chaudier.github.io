@@ -36,6 +36,7 @@
         <script>
             (function () {
                 const root = document.documentElement;
+                root.classList.add("js");
                 try {
                     const storedTheme = localStorage.getItem("theme");
                     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -150,6 +151,10 @@
                         </svg>
                     </button>
                 </div>
+                <span class="status-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Available · 2026
+                </span>
                 <p class="role">Kernels, Engines, and Production Infrastructure</p>
                 <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
 
@@ -206,8 +211,6 @@
                 <p class="subtle">Seeking Systems SWE and Forward Deployed Software Engineer (FDSE) roles for 2026.</p>
             </section>
 
-            <hr />
-
             <section id="education" aria-labelledby="education-title">
                 <h2 id="education-title" class="section-title">Education</h2>
                 <div class="entry">
@@ -224,8 +227,6 @@
                     </p>
                 </div>
             </section>
-
-            <hr />
 
             <section id="experience" aria-labelledby="experience-title">
                 <h2 id="experience-title" class="section-title">Experience</h2>
@@ -307,8 +308,6 @@
                 </div>
             </section>
 
-            <hr />
-
             <section id="projects" aria-labelledby="projects-title">
                 <h2 id="projects-title" class="section-title">Selected Projects</h2>
 
@@ -343,7 +342,7 @@
                         class="source-link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >View Source (ocean-linux) →</a
+                        >ocean-linux</a
                     >
                 </div>
 
@@ -377,7 +376,7 @@
                         class="source-link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >View Source (fr-ocean-engine) →</a
+                        >fr-ocean-engine</a
                     >
                 </div>
 
@@ -414,12 +413,88 @@
                         class="source-link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >View Source (dreams) →</a
+                        >dreams</a
                     >
                 </div>
             </section>
 
-            <hr />
+            <section id="hackathons" aria-labelledby="hackathons-title">
+                <h2 id="hackathons-title" class="section-title">Hackathons</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Tether</h3>
+                        <span class="date">Go / React / AWS Bedrock</span>
+                    </div>
+                    <p>
+                        A caregiver-controlled voice companion that orchestrates
+                        scheduled check-in calls with elderly patients and
+                        surfaces AI-driven insights after each conversation.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Built a Go backend with WebSocket voice streaming and
+                            PostgreSQL persistence, wired to Amazon Bedrock (Nova)
+                            for live transcription and post-call analysis.
+                        </li>
+                        <li>
+                            Shipped a React/TypeScript admin dashboard and a
+                            companion prompt lab for tuning voice flows, plus an
+                            automated pipeline that generates next-call
+                            recommendations from prior transcripts.
+                        </li>
+                        <li>
+                            Designed a modular 40+ endpoint API surface supporting
+                            auth, session management, and caregiver/patient
+                            orchestration end-to-end.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/jackgaff/tether"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >tether</a
+                    >
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>VulcanAI</h3>
+                        <span class="date">Pi Hacks · March 2026</span>
+                    </div>
+                    <p>
+                        Turns construction jobsite photos into branded PDF daily
+                        reports in under 60 seconds, eliminating manual paperwork
+                        for field contractors.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            Built a FastAPI + SQLAlchemy backend with a Groq
+                            (LLaMA vision) pipeline for photo analysis and
+                            Deepgram for voice-based intake transcription.
+                        </li>
+                        <li>
+                            Shipped a React 19 / Tailwind frontend with
+                            drag-and-drop uploads, a guided voice Q&amp;A for
+                            crew/safety/next-day notes, and on-demand PDF
+                            generation via ReportLab.
+                        </li>
+                        <li>
+                            Integrated visual analysis, voice intake, and branded
+                            PDF export into a single full-stack pipeline built
+                            during the hackathon window.
+                        </li>
+                    </ul>
+                    <a
+                        href="https://github.com/montben/VulcanAI"
+                        class="source-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >VulcanAI</a
+                    >
+                </div>
+            </section>
 
             <section id="skills" aria-labelledby="skills-title">
                 <h2 id="skills-title" class="section-title">Technical Skills</h2>

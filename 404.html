@@ -16,6 +16,7 @@
         <script>
             (function () {
                 const root = document.documentElement;
+                root.classList.add("js");
                 try {
                     const storedTheme = localStorage.getItem("theme");
                     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
