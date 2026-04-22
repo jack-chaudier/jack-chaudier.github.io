@@ -5,3 +5,12 @@
 
 # macOS
 .DS_Store
+
+# Claude Code local workspace
+.claude/
+
+# Design iteration scratch (not shipped)
+design-previews/
+
+# Orphaned local copy (same content as headshot.jpg)
+portrait.jpg
