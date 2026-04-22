@@ -1,6 +1,6 @@
 # Jack Gaffney
 
-**Systems & Infrastructure Engineer** based in Ann Arbor, MI.
+**Software Engineer** based in Ann Arbor, MI.
 CS @ University of Michigan (Class of 2026).
 
 **Live Site:** [jack-chaudier.github.io](https://jack-chaudier.github.io)
@@ -8,28 +8,28 @@ CS @ University of Michigan (Class of 2026).
 ---
 
 ### Philosophy
-I build high-performance systems, kernels, and production-grade data infrastructure. I am interested in software that works under pressure—where latency, correctness, and resilience are non-negotiable design requirements.
+AI-native workflows, real-time voice systems, and full-stack product backends. Plus a kernel and a game engine because I like knowing how things work underneath. I'm drawn to software where latency, reliability, and LLM behavior all have to hold at the same time.
 
-Currently seeking **Systems SWE** & **Forward-Deployed SWE** roles for 2026.
+Graduating May 2026 — open to full-time across AI workflow, voice, and full-stack product roles.
 
 ### Selected Engineering
 
 | Project | Stack | Description |
 | :--- | :--- | :--- |
-| **[fr-ocean-engine](https://github.com/jack-chaudier/fr-ocean-engine)** | C++17, SDL2, Lua | Cross-platform 2D game engine. Features SoA particle systems (60FPS @ 1M+ actors), custom memory pools, and Lua scripting bindings. |
-| **[Custom Kernel](https://github.com/jack-chaudier)** | C, x86 Assembly | Minimal OS kernel. Implements round-robin scheduling, virtual memory (paging/IDT), and synchronization primitives. |
-| **Production Data Platform** | Go, Postgres, Docker | Internal infrastructure for manufacturing workflows. Automated ingestion pipelines and normalized schema design. |
+| **[Tether](https://github.com/jackgaff/tether)** | Go, React/TS, AWS Bedrock (Nova), PostgreSQL | Caregiver voice-agent platform. WebSocket voice streaming, 40+ endpoint API, prompt lab, post-call insight pipeline. |
+| **[VulcanAI](https://github.com/montben/VulcanAI)** | FastAPI, Groq vision, Deepgram, React 19 | Jobsite photos → branded PDF reports in <60s. Full-stack pipeline combining vision, voice intake, and PDF export. Built at Pi Hacks, March 2026. |
+| **PGAI Voice Bot** | Nova Sonic, Twilio, Python | Low-latency phone voice assistant with streaming audio and tool-using agent loop. Second voice pipeline in the portfolio, different stack from Tether. |
+| **Assist / PickupPlay** | SwiftUI, Firebase, FastAPI | Capstone iOS product for coordinating pickup games. Active through graduation. |
+| **[fr-ocean-engine](https://github.com/jack-chaudier/fr-ocean-engine)** | C++17, Lua, SDL2, Box2D | 2D game engine. ECS-style architecture, Lua scripting, 60 FPS with 10k+ entities. |
+| **[ocean-linux](https://github.com/jack-chaudier/ocean-linux)** | C11, x86_64 Assembly | Educational microkernel. Buddy allocator, 4-level paging, capability-based IPC. |
 
 ### Technical Stack
-* **Languages:** C++ (Advanced), C, Go, Python, Rust, x86 Assembly, Lua
-* **Systems:** Linux/Unix, Docker, CMake, GDB, Valgrind, QEMU
-* **Interests:** Kernel Dev, Real-time Rendering, Distributed Systems
+* **Focus Areas:** LLM workflows & agent tooling, real-time voice / multimodal, full-stack product engineering, systems programming
+* **Languages:** Python, TypeScript, Go, Swift, Rust, C++, C, Lua, SQL
+* **Stack & Tools:** FastAPI, Next.js, PostgreSQL, Docker, AWS Bedrock, Twilio, Deepgram, Groq, Firebase, Linux, Git
 
 ### About This Site
-This portfolio is built with **zero dependencies**.
-* **Stack:** Vanilla HTML5, CSS3, JavaScript.
-* **Fonts:** IBM Plex Mono (Headers) & Newsreader (Body).
-* **Theme:** System-aware Light/Dark mode with persistent local storage.
+Built with zero dependencies — vanilla HTML, CSS, and JavaScript. IBM Plex Mono + Newsreader. System-aware light/dark mode.
 
 ---
 [Resume](jack_gaffney_resume.pdf) · [Email](mailto:jackgaff@umich.edu) · [LinkedIn](https://linkedin.com/in/jackgaffney23)
