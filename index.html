@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfdfc" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161618" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f2e8" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d0e11" />
         <meta
             name="description"
-            content="Portfolio of Jack Gaffney — AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
+            content="Jack Gaffney — AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine, because I like knowing how things work underneath."
         />
-        <meta property="og:title" content="Jack Gaffney — AI Workflows & Systems" />
+        <meta property="og:title" content="Jack Gaffney — AI systems, real-time voice, full-stack" />
         <meta
             property="og:description"
-            content="Portfolio of Jack Gaffney — AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
+            content="AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
@@ -23,8 +23,11 @@
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:site" content="@jackchaudier" />
         <meta name="twitter:creator" content="@jackchaudier" />
-        <meta name="twitter:title" content="Jack Gaffney — AI Workflows & Systems" />
-        <meta name="twitter:description" content="Portfolio of Jack Gaffney — AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine." />
+        <meta name="twitter:title" content="Jack Gaffney — AI systems, real-time voice, full-stack" />
+        <meta
+            name="twitter:description"
+            content="AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
+        />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -32,7 +35,7 @@
         />
         <link rel="canonical" href="https://jack-chaudier.github.io/" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <title>Jack Gaffney — AI Workflows & Systems</title>
+        <title>Jack Gaffney — AI systems, real-time voice, full-stack</title>
         <script>
             (function () {
                 const root = document.documentElement;
@@ -49,26 +52,27 @@
                 }
             })();
         </script>
-        <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;JG&lt;/text&gt;&lt;/svg&gt;" />
-        <link rel="icon" type="image/png" sizes="1200x630" href="/og-image.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             rel="preload"
             as="style"
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap"
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap"
             rel="stylesheet"
             media="print"
             onload="this.media='all'"
         />
         <noscript>
             <link
-                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
+                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap"
                 rel="stylesheet"
             />
         </noscript>
@@ -79,6 +83,7 @@
             "name": "Jack Gaffney",
             "url": "https://jack-chaudier.github.io/",
             "jobTitle": "Software Engineer",
+            "description": "AI-native workflows, real-time voice systems, and full-stack backends.",
             "sameAs": [
                 "https://github.com/jack-chaudier",
                 "https://linkedin.com/in/jackgaffney23",
@@ -93,500 +98,590 @@
         </script>
     </head>
     <body>
-        <a href="#main-content" class="skip-link">Skip to main content</a>
-        <main class="layout" id="main-content" tabindex="-1">
-            <header>
-                <div class="header-top">
-                    <div class="header-identity">
-                        <img
-                            class="headshot"
-                            src="headshot.jpg"
-                            alt="Portrait of Jack Gaffney"
-                            width="88"
-                            height="88"
-                            loading="eager"
-                            decoding="async"
-                        />
-                        <h1 class="name">Jack Gaffney</h1>
-                    </div>
+        <a href="#main" class="skip-link">Skip to main content</a>
+
+        <main class="page" id="main" tabindex="-1">
+            <span class="frame-mark tl" aria-hidden="true">+</span>
+            <span class="frame-mark tr" aria-hidden="true">+</span>
+            <span class="frame-mark bl" aria-hidden="true">+</span>
+            <span class="frame-mark br" aria-hidden="true">+</span>
+
+            <div class="masthead">
+                <div class="masthead-left">
+                    <span class="wordmark">Jack Gaffney</span>
+                    <span class="masthead-sep" aria-hidden="true">·</span>
+                    <span class="masthead-meta">Portfolio № 04</span>
+                </div>
+                <div class="masthead-right">
+                    <span class="masthead-meta hide-sm">42.28° N / 83.74° W</span>
                     <button id="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg
-                            class="icon sun-icon"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            aria-hidden="true"
-                        >
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line
-                                x1="4.22"
-                                y1="4.22"
-                                x2="5.64"
-                                y2="5.64"
-                            ></line>
-                            <line
-                                x1="18.36"
-                                y1="18.36"
-                                x2="19.78"
-                                y2="19.78"
-                            ></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line
-                                x1="4.22"
-                                y1="19.78"
-                                x2="5.64"
-                                y2="18.36"
-                            ></line>
-                            <line
-                                x1="18.36"
-                                y1="5.64"
-                                x2="19.78"
-                                y2="4.22"
-                            ></line>
+                        <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <line x1="12" y1="2" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="22"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="2" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="22" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <svg
-                            class="icon moon-icon"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                            ></path>
+                        <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
                         </svg>
                     </button>
                 </div>
-                <span class="status-pill">
-                    <span class="status-dot" aria-hidden="true"></span>
-                    Graduating May 2026 · Open to full-time
-                </span>
-                <p class="role">AI-native workflows, real-time voice systems, and full-stack backends.</p>
-                <p class="role-sub">Plus a kernel and a game engine because I like knowing how things work underneath.</p>
-                <p class="meta">CS @ UMich '26 · Ann Arbor, MI</p>
+            </div>
 
-                <nav class="links" aria-label="Contact links">
-                    <a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <span>Resume</span>
-                    </a>
-                    <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer" title="GitHub">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="mailto:jackgaff@umich.edu" title="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://x.com/jackchaudier" target="_blank" rel="noopener noreferrer" title="X">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M4 4l11.5 16h4.5l-11.5-16z"></path>
-                            <path d="M4 20l6.5-6.5"></path>
-                            <path d="M20 4l-6.5 6.5"></path>
-                        </svg>
-                        <span>X</span>
-                    </a>
-                </nav>
+            <header class="hero">
+                <div class="hero-kicker">
+                    <span class="kicker-dot" aria-hidden="true"></span>
+                    <span>Software engineer · University of Michigan '26</span>
+                </div>
+
+                <h1 class="thesis">
+                    <span class="thesis-line">AI-native workflows,</span>
+                    <span class="thesis-line">real-time voice systems,</span>
+                    <span class="thesis-line">and full-stack <em>backends.</em></span>
+                </h1>
+
+                <p class="thesis-sub">
+                    Plus a kernel and a game engine, because I like knowing how things
+                    work underneath.
+                </p>
+
+                <div class="hero-bottom">
+                    <img
+                        class="portrait"
+                        src="headshot.jpg"
+                        alt="Portrait of Jack Gaffney"
+                        width="72"
+                        height="72"
+                        loading="eager"
+                        decoding="async"
+                    />
+                    <div class="hero-contact">
+                        <span class="status-pill">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            Graduating May 2026 · Open to full-time
+                        </span>
+                        <nav class="links" aria-label="Contact links">
+                            <a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">
+                                <span>Résumé</span>
+                                <span class="link-ext" aria-hidden="true">PDF</span>
+                            </a>
+                            <a href="mailto:jackgaff@umich.edu">
+                                <span>Email</span>
+                            </a>
+                            <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                                <span class="link-ext" aria-hidden="true">↗</span>
+                            </a>
+                            <a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">
+                                <span>LinkedIn</span>
+                                <span class="link-ext" aria-hidden="true">↗</span>
+                            </a>
+                            <a href="https://x.com/jackchaudier" target="_blank" rel="noopener noreferrer">
+                                <span>X</span>
+                                <span class="link-ext" aria-hidden="true">↗</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
             </header>
 
-            <section class="intro" aria-labelledby="intro-title">
-                <h2 id="intro-title" class="visually-hidden">About</h2>
-                <p>
-                    I came into software sideways &mdash; built decks and ran
-                    deliveries for seven crews before I wrote a line of Go. The
-                    systems instinct came from a microkernel and a game engine;
-                    the product instinct came from shipping internal tooling at
-                    Quantum Opus and voice/agent pipelines since. I like
-                    working where latency, reliability, and LLM behavior all
-                    have to hold at once.
-                </p>
-                <p>
-                    Most of 2026 has been agent tooling, real-time voice
-                    pipelines (Nova Sonic, Bedrock, Deepgram), and production
-                    API surfaces. On the side I keep poking at the layer
-                    underneath &mdash; understanding it makes me better at the
-                    layer on top.
-                </p>
-            </section>
-
-            <section id="education" aria-labelledby="education-title">
-                <h2 id="education-title" class="section-title">Education</h2>
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>University of Michigan</h3>
-                        <span class="date">Expected May 2026</span>
-                    </div>
-                    <p class="role-title">B.S.E. Computer Science</p>
+            <section class="section about" aria-labelledby="about-title">
+                <div class="section-head">
+                    <span class="section-num" aria-hidden="true">§ 01</span>
+                    <h2 id="about-title" class="section-title">About</h2>
+                </div>
+                <div class="section-body">
+                    <p class="lede">
+                        I came into software sideways &mdash; built decks and ran
+                        deliveries for seven crews before I wrote a line of Go.
+                        The systems instinct came from a microkernel and a game
+                        engine; the product instinct came from shipping internal
+                        tooling at Quantum Opus and voice and agent pipelines
+                        since. I like working where latency, reliability, and
+                        LLM behavior all have to hold at once.
+                    </p>
                     <p>
-                        <strong>Relevant Coursework:</strong> Operating Systems,
-                        Embedded Systems, Computer Organization, Artificial
-                        Intelligence, Data Structures & Algorithms, Linear
-                        Algebra, Multivariable Calculus, Physics I & II
+                        Most of 2026 has been agent tooling, real-time voice
+                        pipelines (Nova Sonic, Bedrock, Deepgram), and production
+                        API surfaces. On the side I keep poking at the layer
+                        underneath &mdash; understanding it makes me better at the
+                        layer on top.
                     </p>
                 </div>
             </section>
 
-            <section id="experience" aria-labelledby="experience-title">
-                <h2 id="experience-title" class="section-title">Experience</h2>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Quantum Opus LLC</h3>
-                        <span class="date">Summer 2025</span>
-                    </div>
-                    <p class="role-title">Software Engineering Intern</p>
-                    <ul class="tech-list">
-                        <li>
-                            Built and deployed a full-stack internal database
-                            (Go/Gin backend, Next.js frontend, PostgreSQL,
-                            Docker Compose) that centralized fragmented
-                            workflows and improved operational scalability for
-                            the engineering team.
-                        </li>
-                        <li>
-                            Designed modular Go API endpoints that could be
-                            consumed independently, enabling seamless
-                            integration with Python-based data generation
-                            pipelines and reducing redundant data transfers.
-                        </li>
-                        <li>
-                            Implemented automated data ingestion and validation
-                            pipelines with dynamic entity linking and
-                            relationship mapping, improving reliability and
-                            reducing manual intervention across complex
-                            datasets.
-                        </li>
-                    </ul>
+            <section class="section work" id="work" aria-labelledby="work-title">
+                <div class="section-head">
+                    <span class="section-num" aria-hidden="true">§ 02</span>
+                    <h2 id="work-title" class="section-title">Selected work</h2>
                 </div>
 
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Renewit Decking</h3>
-                        <span class="date">Summer 2024</span>
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 01</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>Go · React · Bedrock · Postgres</dd></div>
+                            <div><dt>Year</dt><dd>2025 — 2026</dd></div>
+                            <div><dt>Role</dt><dd>Full-stack + voice</dd></div>
+                        </dl>
+                        <a
+                            class="entry-source"
+                            href="https://github.com/jackgaff/tether"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            jackgaff/tether
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>Tether</h3>
+                            <span class="badge">Featured</span>
+                        </div>
+                        <p class="entry-role">Voice-agent platform for caregiver check-ins.</p>
+                        <p>
+                            A caregiver-controlled voice companion that
+                            orchestrates scheduled check-in calls with elderly
+                            patients and surfaces AI-driven insights after each
+                            conversation.
+                        </p>
+                        <ul>
+                            <li>
+                                Go backend with WebSocket voice streaming and
+                                PostgreSQL persistence, wired to Amazon Bedrock
+                                (Nova) for live transcription and post-call
+                                analysis.
+                            </li>
+                            <li>
+                                React and TypeScript admin dashboard with a
+                                prompt lab for tuning voice flows, plus an
+                                automated pipeline that generates next-call
+                                recommendations from prior transcripts.
+                            </li>
+                            <li>
+                                Designed a modular 40+ endpoint API surface for
+                                auth, session management, and caregiver /
+                                patient orchestration end to end.
+                            </li>
+                        </ul>
                     </div>
-                    <p class="role-title">Carpenter & Logistics Lead</p>
-                    <ul class="tech-list">
-                        <li>
-                            Constructed large-scale outdoor living spaces by
-                            applying precision carpentry techniques,
-                            coordinating multi-phase project planning, and
-                            adapting designs to structural constraints under
-                            limited resources.
-                        </li>
-                        <li>
-                            Coordinated logistics and scheduled material
-                            deliveries for seven distributed crews within a
-                            50-mile radius, optimizing resource allocation and
-                            significantly reducing downtime across simultaneous
-                            job sites.
-                        </li>
-                    </ul>
-                </div>
+                </article>
 
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Earlier</h3>
-                        <span class="date">2022</span>
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 02</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>FastAPI · Groq · Deepgram · React</dd></div>
+                            <div><dt>Year</dt><dd>March 2026</dd></div>
+                            <div><dt>Context</dt><dd>Built at Pi Hacks</dd></div>
+                        </dl>
+                        <a
+                            class="entry-source"
+                            href="https://github.com/montben/VulcanAI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            montben/VulcanAI
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>VulcanAI</h3>
+                            <span class="badge">Featured</span>
+                        </div>
+                        <p class="entry-role">Jobsite photo &rarr; branded PDF report in &lt;60 seconds.</p>
+                        <p>
+                            Turns construction jobsite photos into branded PDF
+                            daily reports, eliminating manual paperwork for
+                            field contractors.
+                        </p>
+                        <ul>
+                            <li>
+                                FastAPI + SQLAlchemy backend with a Groq
+                                (LLaMA vision) pipeline for photo analysis and
+                                Deepgram for voice-based intake transcription.
+                            </li>
+                            <li>
+                                React 19 / Tailwind frontend with drag-and-drop
+                                uploads, a guided voice Q&amp;A for crew, safety,
+                                and next-day notes, and on-demand PDF generation
+                                via ReportLab.
+                            </li>
+                            <li>
+                                Integrated visual analysis, voice intake, and
+                                branded PDF export into a single full-stack
+                                pipeline during the hackathon window.
+                            </li>
+                        </ul>
                     </div>
-                    <p>
-                        <strong>DTS Enterprises Inc.</strong> &middot;
-                        Engineering Intern &middot; 2D/3D CAD and technical
-                        documentation for mechanical systems.
-                    </p>
-                </div>
+                </article>
+
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 03</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>Python · Nova Sonic · Twilio</dd></div>
+                            <div><dt>Year</dt><dd>2026</dd></div>
+                            <div><dt>Role</dt><dd>Voice agent loop</dd></div>
+                        </dl>
+                        <a
+                            class="entry-source"
+                            href="https://github.com/jack-chaudier/pgai"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            jack-chaudier/pgai
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>PGAI Voice Bot</h3>
+                        </div>
+                        <p class="entry-role">Low-latency phone-based voice assistant.</p>
+                        <p>
+                            A voice assistant that takes live phone calls,
+                            streams audio through Nova Sonic for turn-taking
+                            and speech synthesis, and drives an agentic workflow
+                            against a product-specific knowledge base.
+                        </p>
+                        <ul>
+                            <li>
+                                Wired Twilio Media Streams to a bidirectional
+                                audio bridge feeding Nova Sonic, keeping
+                                round-trip latency tight enough for natural
+                                conversational turn-taking.
+                            </li>
+                            <li>
+                                Structured the agent loop around tool-use for
+                                knowledge lookups and action-taking, with
+                                graceful handling of partial transcripts and
+                                barge-in.
+                            </li>
+                            <li>
+                                Second full voice pipeline in this portfolio
+                                (alongside Tether) &mdash; same problem class,
+                                different stack, different constraints.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 04</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>SwiftUI · Firebase · MapKit</dd></div>
+                            <div><dt>Year</dt><dd>2026 — present</dd></div>
+                            <div><dt>Role</dt><dd>Planning &amp; MVP scoping</dd></div>
+                        </dl>
+                        <span class="entry-source entry-source-muted">Private · capstone team of 5</span>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>Assist</h3>
+                        </div>
+                        <p class="entry-role">
+                            A free iOS app helping parents organize youth
+                            pickup games.
+                        </p>
+                        <p>
+                            Assist addresses the barriers to youth sports
+                            participation &mdash; cost, transport, equipment
+                            access, scheduling &mdash; by letting guardians
+                            discover, host, and RSVP to nearby pickup games.
+                        </p>
+                        <ul>
+                            <li>
+                                SwiftUI (iOS 26, Swift 6 strict concurrency)
+                                with an @Observable MVVM architecture and
+                                protocol-based services wired through an
+                                <code>AppEnvironment</code> DI container.
+                            </li>
+                            <li>
+                                Firebase Auth for identity and Firestore for
+                                live state: event discovery, RSVPs with child
+                                assignments, group chat, ride coordination, and
+                                equipment checklists.
+                            </li>
+                            <li>
+                                MapKit-backed Discover and Event Detail surfaces
+                                for browsing nearby games by sport. Owned
+                                planning and MVP scoping on a five-person
+                                capstone team through graduation.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 05</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>C11 · x86_64 ASM · Limine</dd></div>
+                            <div><dt>Year</dt><dd>2024 — 2025</dd></div>
+                            <div><dt>Role</dt><dd>Solo, from scratch</dd></div>
+                        </dl>
+                        <a
+                            class="entry-source"
+                            href="https://github.com/jack-chaudier/ocean-linux"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            jack-chaudier/ocean-linux
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>Ocean Microkernel</h3>
+                        </div>
+                        <p class="entry-role">Memory, scheduling, and userspace isolation from scratch.</p>
+                        <p>
+                            An x86_64 microkernel focused on memory management,
+                            scheduling, and userspace isolation &mdash; built
+                            because I wanted to know exactly what was happening
+                            underneath my programs.
+                        </p>
+                        <ul>
+                            <li>
+                                Boot and runtime fundamentals: Limine boot path,
+                                GDT / IDT setup, fast interrupt handling, and a
+                                SYSCALL / SYSRET system call interface.
+                            </li>
+                            <li>
+                                Kernel memory systems including a buddy
+                                allocator, 4-level paging, and slab allocation
+                                with explicit ownership boundaries.
+                            </li>
+                            <li>
+                                Capability-based IPC and userspace server
+                                boundaries that keep policy outside kernel space
+                                while preserving performance.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <aside class="entry-meta">
+                        <span class="fig">fig. 06</span>
+                        <dl class="spec">
+                            <div><dt>Stack</dt><dd>C++17 · Lua · SDL2 · Box2D</dd></div>
+                            <div><dt>Year</dt><dd>2024</dd></div>
+                            <div><dt>Role</dt><dd>Engine + scripting</dd></div>
+                        </dl>
+                        <a
+                            class="entry-source"
+                            href="https://github.com/jack-chaudier/fr-ocean-engine"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            jack-chaudier/fr-ocean-engine
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </aside>
+                    <div class="entry-body">
+                        <div class="entry-head">
+                            <h3>High-Performance Game Engine</h3>
+                        </div>
+                        <p class="entry-role">60 FPS with 10k+ entities, Lua-scripted gameplay.</p>
+                        <p>
+                            A C++17 / Lua 2D engine built for predictable frame
+                            timing and scriptable gameplay systems.
+                        </p>
+                        <ul>
+                            <li>
+                                ECS-style architecture with Lua scripting hooks,
+                                enabling fast gameplay iteration without
+                                recompiling core engine systems.
+                            </li>
+                            <li>
+                                Physics and rendering pipelines with careful
+                                memory-management patterns to reduce allocation
+                                churn during gameplay.
+                            </li>
+                            <li>
+                                Profiled hot paths and data layout to sustain
+                                60 FPS in benchmark scenes with 10,000+ active
+                                entities.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
             </section>
 
-            <section id="projects" aria-labelledby="projects-title">
-                <h2 id="projects-title" class="section-title">Selected Projects</h2>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Tether</h3>
-                        <span class="date">Go / React / AWS Bedrock</span>
-                    </div>
-                    <p class="role-title">Voice-agent platform for caregiver check-ins</p>
-                    <p>
-                        A caregiver-controlled voice companion that orchestrates
-                        scheduled check-in calls with elderly patients and
-                        surfaces AI-driven insights after each conversation.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Built a Go backend with WebSocket voice streaming and
-                            PostgreSQL persistence, wired to Amazon Bedrock (Nova)
-                            for live transcription and post-call analysis.
-                        </li>
-                        <li>
-                            Shipped a React/TypeScript admin dashboard and a
-                            companion prompt lab for tuning voice flows, plus an
-                            automated pipeline that generates next-call
-                            recommendations from prior transcripts.
-                        </li>
-                        <li>
-                            Designed a modular 40+ endpoint API surface supporting
-                            auth, session management, and caregiver/patient
-                            orchestration end-to-end.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jackgaff/tether"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >tether</a
-                    >
+            <section class="section experience" id="experience" aria-labelledby="exp-title">
+                <div class="section-head">
+                    <span class="section-num" aria-hidden="true">§ 03</span>
+                    <h2 id="exp-title" class="section-title">Experience</h2>
                 </div>
 
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>VulcanAI</h3>
-                        <span class="date">March 2026</span>
-                    </div>
-                    <p class="role-title">Jobsite photo &rarr; branded PDF report in &lt;60s &middot; Built at Pi Hacks</p>
-                    <p>
-                        Turns construction jobsite photos into branded PDF daily
-                        reports in under 60 seconds, eliminating manual paperwork
-                        for field contractors.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Built a FastAPI + SQLAlchemy backend with a Groq
-                            (LLaMA vision) pipeline for photo analysis and
-                            Deepgram for voice-based intake transcription.
-                        </li>
-                        <li>
-                            Shipped a React 19 / Tailwind frontend with
-                            drag-and-drop uploads, a guided voice Q&amp;A for
-                            crew/safety/next-day notes, and on-demand PDF
-                            generation via ReportLab.
-                        </li>
-                        <li>
-                            Integrated visual analysis, voice intake, and branded
-                            PDF export into a single full-stack pipeline during
-                            the hackathon window.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/montben/VulcanAI"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >VulcanAI</a
-                    >
-                </div>
+                <ol class="timeline">
+                    <li class="tl-item">
+                        <span class="tl-year">2025</span>
+                        <div class="tl-body">
+                            <div class="tl-head">
+                                <h3>Software Engineering Intern</h3>
+                                <span class="tl-org">Quantum Opus LLC</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    Built and deployed a full-stack internal
+                                    database (Go / Gin, Next.js, PostgreSQL,
+                                    Docker Compose) that centralized fragmented
+                                    workflows and improved operational
+                                    scalability for the engineering team.
+                                </li>
+                                <li>
+                                    Designed modular Go API endpoints consumable
+                                    independently, enabling seamless integration
+                                    with Python data-generation pipelines and
+                                    reducing redundant data transfers.
+                                </li>
+                                <li>
+                                    Implemented automated data ingestion and
+                                    validation pipelines with dynamic entity
+                                    linking and relationship mapping, improving
+                                    reliability across complex datasets.
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>PGAI Voice Bot</h3>
-                        <span class="date">Nova Sonic / Twilio / Python</span>
-                    </div>
-                    <p class="role-title">Real-time phone-based voice assistant</p>
-                    <p>
-                        A low-latency voice assistant that takes live phone
-                        calls, streams audio through Nova Sonic for turn-taking
-                        and speech synthesis, and drives an agentic workflow
-                        against a product-specific knowledge base.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Wired Twilio Media Streams to a bidirectional audio
-                            bridge feeding Nova Sonic, keeping round-trip
-                            latency tight enough for natural conversational
-                            turn-taking.
-                        </li>
-                        <li>
-                            Structured the agent loop around tool-use for
-                            knowledge lookups and action-taking, with graceful
-                            handling of partial transcripts and barge-in.
-                        </li>
-                        <li>
-                            Built as the second full voice pipeline in this
-                            portfolio (alongside Tether) &mdash; same problem
-                            class, different stack, different constraints.
-                        </li>
-                    </ul>
-                </div>
+                    <li class="tl-item">
+                        <span class="tl-year">2024</span>
+                        <div class="tl-body">
+                            <div class="tl-head">
+                                <h3>Carpenter &amp; Logistics Lead</h3>
+                                <span class="tl-org">Renewit Decking</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    Constructed large-scale outdoor living
+                                    spaces, applying precision carpentry and
+                                    adapting multi-phase project plans to
+                                    structural constraints under limited
+                                    resources.
+                                </li>
+                                <li>
+                                    Coordinated logistics and scheduled material
+                                    deliveries for seven distributed crews
+                                    within a 50-mile radius, significantly
+                                    reducing downtime across simultaneous job
+                                    sites.
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Assist &middot; PickupPlay</h3>
-                        <span class="date">SwiftUI / Firebase / FastAPI &middot; 2026</span>
-                    </div>
-                    <p class="role-title">Capstone mobile product, shipping now</p>
-                    <p>
-                        An iOS app that coordinates pickup games and drop-in
-                        sports, pairing SwiftUI on the client with a Firebase
-                        and FastAPI backend for auth, real-time updates, and
-                        server-side logic.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Iterating on mobile UX and auth flows in SwiftUI,
-                            with live data sync through Firebase for
-                            lobbies, RSVPs, and game state.
-                        </li>
-                        <li>
-                            Designed and deployed a FastAPI service for the
-                            features that need server-side logic &mdash; matching,
-                            notifications, and moderation.
-                        </li>
-                        <li>
-                            Team capstone: scoping, planning, and code review
-                            across a multi-person codebase, active through
-                            graduation in May 2026.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>Ocean Microkernel</h3>
-                        <span class="date">C11 / x86_64 Assembly</span>
-                    </div>
-                    <p class="role-title">Memory, scheduling, and userspace isolation from scratch</p>
-                    <p>
-                        An educational x86_64 microkernel focused on memory
-                        management, scheduling, and userspace isolation.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Implemented boot/runtime fundamentals: Limine boot
-                            path, GDT/IDT setup, fast interrupt handling, and a
-                            SYSCALL/SYSRET system call interface.
-                        </li>
-                        <li>
-                            Built kernel memory systems including a buddy
-                            allocator, 4-level paging, and slab allocation with
-                            explicit ownership boundaries.
-                        </li>
-                        <li>
-                            Designed capability-based IPC and userspace server
-                            boundaries to keep policy outside kernel space while
-                            preserving performance.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier/ocean-linux"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >ocean-linux</a
-                    >
-                </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <h3>High-Performance Game Engine</h3>
-                        <span class="date">C++17 / Lua / SDL2 / Box2D</span>
-                    </div>
-                    <p class="role-title">60 FPS with 10k+ entities &middot; Lua-scripted gameplay</p>
-                    <p>
-                        A C++17/Lua 2D engine built for predictable frame
-                        timing and scriptable gameplay systems.
-                    </p>
-                    <ul class="tech-list">
-                        <li>
-                            Built an ECS-style architecture with Lua scripting
-                            hooks, enabling fast gameplay iteration without
-                            recompiling core engine systems.
-                        </li>
-                        <li>
-                            Integrated physics and rendering pipelines with
-                            careful memory-management patterns to reduce
-                            allocation churn during gameplay.
-                        </li>
-                        <li>
-                            Profiled hot paths and data layout to sustain 60 FPS
-                            in benchmark scenes with 10,000+ active entities.
-                        </li>
-                    </ul>
-                    <a
-                        href="https://github.com/jack-chaudier/fr-ocean-engine"
-                        class="source-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >fr-ocean-engine</a
-                    >
-                </div>
+                    <li class="tl-item tl-earlier">
+                        <span class="tl-year">2022</span>
+                        <div class="tl-body">
+                            <div class="tl-head">
+                                <h3>Engineering Intern</h3>
+                                <span class="tl-org">DTS Enterprises</span>
+                            </div>
+                            <p class="tl-note">
+                                2D / 3D CAD and technical documentation for
+                                mechanical systems.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
             </section>
 
-            <section id="skills" aria-labelledby="skills-title">
-                <h2 id="skills-title" class="section-title">Technical Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-group">
-                        <span class="skill-head">Focus Areas</span>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">LLM workflows &amp; agent tooling</span>
-                            <span class="skill-tag primary">Real-time voice &amp; multimodal</span>
-                            <span class="skill-tag primary">Full-stack product engineering</span>
-                            <span class="skill-tag">Systems programming</span>
+            <section class="section stack" id="stack" aria-labelledby="stack-title">
+                <div class="section-head">
+                    <span class="section-num" aria-hidden="true">§ 04</span>
+                    <h2 id="stack-title" class="section-title">Education &amp; stack</h2>
+                </div>
+
+                <div class="index">
+                    <div class="index-row">
+                        <span class="index-label">Education</span>
+                        <div class="index-value">
+                            <p><strong>University of Michigan</strong> &middot; B.S.E. Computer Science &middot; May 2026</p>
+                            <p class="index-sub">
+                                Operating Systems · Embedded Systems · Computer
+                                Organization · Artificial Intelligence · Data
+                                Structures &amp; Algorithms · Linear Algebra
+                            </p>
                         </div>
                     </div>
-                    <div class="skill-group">
-                        <span class="skill-head">Languages</span>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">Python</span>
-                            <span class="skill-tag primary">TypeScript</span>
-                            <span class="skill-tag primary">Go</span>
-                            <span class="skill-tag">Swift</span>
-                            <span class="skill-tag">Rust</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">C</span>
-                            <span class="skill-tag">Lua</span>
-                            <span class="skill-tag">SQL</span>
+
+                    <div class="index-row">
+                        <span class="index-label">Focus</span>
+                        <div class="index-value index-focus">
+                            <p><strong>LLM workflows &amp; agent tooling</strong><span>context engineering, tool-use loops, multi-agent orchestration</span></p>
+                            <p><strong>Real-time voice &amp; multimodal</strong><span>low-latency pipelines, turn-taking, barge-in, transcription</span></p>
+                            <p><strong>Full-stack product engineering</strong><span>API design, ingestion, auth, dashboard surfaces</span></p>
+                            <p><strong>Systems programming</strong><span>kernels, allocators, engines, memory models</span></p>
                         </div>
                     </div>
-                    <div class="skill-group">
-                        <span class="skill-head">Stack &amp; Tools</span>
-                        <div class="skill-tags">
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS Bedrock</span>
-                            <span class="skill-tag">Twilio</span>
-                            <span class="skill-tag">Deepgram</span>
-                            <span class="skill-tag">Groq</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Git</span>
+
+                    <div class="index-row">
+                        <span class="index-label">Languages</span>
+                        <div class="index-value">
+                            <p class="index-primary">Python &middot; TypeScript &middot; Go</p>
+                            <p class="index-sub">Swift · Rust · C++ · C · Lua · SQL</p>
+                        </div>
+                    </div>
+
+                    <div class="index-row">
+                        <span class="index-label">Tools</span>
+                        <div class="index-value">
+                            <p>
+                                FastAPI · Next.js · AWS Bedrock · Twilio ·
+                                Deepgram · Groq · Firebase · PostgreSQL · Docker
+                                · Linux · Git
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <footer>
-                <div class="footer-content">
-                    <p>© <span id="year"></span> Jack Gaffney</p>
-                    <a href="#main-content" class="back-to-top">
+            <footer class="colophon">
+                <div class="colophon-rule" aria-hidden="true"></div>
+                <div class="colophon-grid">
+                    <div>
+                        <span class="colophon-label">Colophon</span>
+                        <p>
+                            Set in <em>Newsreader</em> and <em>IBM Plex Mono</em>.
+                            No frameworks; hand-written HTML, CSS, and JavaScript.
+                        </p>
+                    </div>
+                    <div>
+                        <span class="colophon-label">Last filed</span>
+                        <p>22 April 2026 &middot; Ann Arbor, MI</p>
+                    </div>
+                    <div>
+                        <span class="colophon-label">Source</span>
+                        <p>
+                            <a href="https://github.com/jack-chaudier/jack-chaudier.github.io" target="_blank" rel="noopener noreferrer">
+                                github.com/jack-chaudier/jack-chaudier.github.io
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="colophon-bottom">
+                    <p>© <span id="year"></span> Jack Gaffney.</p>
+                    <p class="colophon-hint">
+                        Press <kbd>T</kbd> for theme.
+                    </p>
+                    <a href="#main" class="back-to-top">
+                        <span>Top</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <polyline points="18 15 12 9 6 15"></polyline>
                         </svg>
-                        <span>Top</span>
                     </a>
                 </div>
             </footer>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <style>
+        :root {
+            --bg: #f6f2e8;
+            --fg: #a04521;
+            --line: #d8cfbe;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d0e11;
+                --fg: #e4966e;
+                --line: #26272b;
+            }
+        }
+        .plate { fill: var(--bg); stroke: var(--line); }
+        .mark { fill: var(--fg); }
+        .mono { fill: var(--fg); opacity: 0.55; }
+    </style>
+    <rect class="plate" x="2" y="2" width="60" height="60" rx="10" stroke-width="1.5" />
+    <text
+        class="mark"
+        x="32"
+        y="46"
+        text-anchor="middle"
+        font-family="Newsreader, 'Source Serif Pro', 'Georgia', serif"
+        font-style="italic"
+        font-weight="500"
+        font-size="38"
+        letter-spacing="-1.5"
+    >jg</text>
+    <text
+        class="mono"
+        x="54"
+        y="13"
+        text-anchor="end"
+        font-family="IBM Plex Mono, ui-monospace, monospace"
+        font-size="5.4"
+        letter-spacing="0.6"
+    >§</text>
+</svg>

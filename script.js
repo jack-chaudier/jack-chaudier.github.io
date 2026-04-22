@@ -44,7 +44,6 @@ function applyTheme(theme) {
 }
 
 function setTheme(theme) {
-    // Use the View Transitions API for a smooth cross-fade when supported.
     if (
         typeof document.startViewTransition !== "function" ||
         motionQuery.matches
@@ -56,20 +55,37 @@ function setTheme(theme) {
     document.startViewTransition(() => applyTheme(theme));
 }
 
+function toggleTheme() {
+    const currentTheme =
+        html.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    writeStoredTheme(nextTheme);
+}
+
 applyTheme(preferredTheme());
 
 if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        const currentTheme =
-            html.getAttribute("data-theme") === "dark" ? "dark" : "light";
-        const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-        setTheme(nextTheme);
-        writeStoredTheme(nextTheme);
-    });
+    themeToggle.addEventListener("click", toggleTheme);
 }
 
-// Keep the theme in sync with the OS when the user hasn't chosen manually.
+// Keyboard shortcut: T toggles theme (ignoring inputs & modifier-heavy combos).
+document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    const target = event.target;
+    const tag = target && target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+    if (target && target.isContentEditable) return;
+
+    if (event.key === "t" || event.key === "T") {
+        event.preventDefault();
+        toggleTheme();
+    }
+});
+
+// Keep theme in sync with the OS when the user hasn't chosen manually.
 function handleSystemThemeChange(event) {
     if (readStoredTheme()) {
         return;
@@ -84,11 +100,11 @@ if (typeof darkQuery.addEventListener === "function") {
 }
 
 // Reveal entries as they scroll into view (progressive enhancement).
-const entryNodes = document.querySelectorAll(".entry");
+const revealNodes = document.querySelectorAll(".entry, .tl-item, .index-row");
 
-if (entryNodes.length > 0) {
+if (revealNodes.length > 0) {
     if (motionQuery.matches || !("IntersectionObserver" in window)) {
-        entryNodes.forEach((node) => node.classList.add("is-visible"));
+        revealNodes.forEach((node) => node.classList.add("is-visible"));
     } else {
         const observer = new IntersectionObserver(
             (observed) => {
@@ -99,9 +115,9 @@ if (entryNodes.length > 0) {
                     }
                 });
             },
-            { rootMargin: "0px 0px -48px 0px", threshold: 0.05 }
+            { rootMargin: "0px 0px -40px 0px", threshold: 0.04 }
         );
-        entryNodes.forEach((node) => observer.observe(node));
+        revealNodes.forEach((node) => observer.observe(node));
     }
 }
 
