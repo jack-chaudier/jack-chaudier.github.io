@@ -1,21 +1,29 @@
 {
-  "name": "Jack Gaffney Portfolio",
+  "name": "Jack Gaffney — Portfolio",
   "short_name": "Jack Gaffney",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#fdfdfc",
-  "theme_color": "#111111",
+  "background_color": "#f6f2e8",
+  "theme_color": "#a04521",
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
