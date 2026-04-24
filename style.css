@@ -521,6 +521,8 @@ section {
     white-space: nowrap;
 }
 .project .visual {
+    width: 100%;
+    min-width: 0;
     height: 120px;
     margin-bottom: 24px;
     position: relative;
@@ -539,6 +541,9 @@ section {
 }
 .viz-waveform span {
     display: block;
+    flex: 1 1 3px;
+    min-width: 1px;
+    max-width: 3px;
     width: 3px;
     background: var(--accent);
     border-radius: 1px;
@@ -626,6 +631,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 16px;
     font-family: var(--mono);
     color: var(--ink-2);
@@ -644,10 +650,14 @@ section {
     animation: wav 1.3s ease-in-out infinite;
 }
 .viz-phone .tag {
+    display: block;
+    margin: 0;
     font-size: 11px;
     color: var(--ink-3);
     letter-spacing: .06em;
     text-transform: uppercase;
+    white-space: normal;
+    text-align: center;
 }
 
 /* =============== STACK / SKILLS cloud =============== */
@@ -1002,5 +1012,33 @@ footer.colophon .fineprint {
     .topnav { width: 100%; justify-content: space-between; }
     .hero .meta { font-size: 12px; gap: 12px; }
     .hero .meta .sep { display: none; }
+    .project {
+        padding: 26px 20px;
+        min-width: 0;
+    }
+    .project .visual {
+        height: 108px;
+        margin-bottom: 20px;
+    }
+    .project .tag {
+        flex-direction: column;
+        gap: 4px;
+    }
+    .project p,
+    .project .source {
+        overflow-wrap: anywhere;
+    }
+    .viz-waveform {
+        gap: 2px;
+        padding: 0 14px;
+    }
+    .viz-kernel {
+        grid-template-columns: repeat(24, 1fr);
+        padding: 12px;
+    }
+    .viz-phone {
+        gap: 8px 12px;
+        padding: 0 12px;
+    }
     .hint { display: none; }
 }
