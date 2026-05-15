@@ -288,11 +288,11 @@ builds ai-native backends & real-time voice pipelines.
 bias: ship > perfect. values: simple systems, good typography, long runs.`,
         projects: () =>
             `tether       — real-time voice companion (go, bedrock)
-mirage-mcp   — MCP server for consistent agentic coding
 vulcanai     — multimodal construction reports (fastapi, llama)
 pgai         — low-latency phone voice bot (nova sonic, twilio)
 ocean-linux  — x86_64 microkernel (c11, limine)
-fr-ocean     — 2d c++17 engine, 16ms budget`,
+fr-ocean     — 2d c++17 engine, 16ms budget
+mirage-mcp   — MCP server for consistent agentic coding`,
         work: () =>
             `2025  quantum opus     — full-stack swe intern (go · next · postgres)
 2024  renewit decking  — carpenter & logistics lead
