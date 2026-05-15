@@ -1,6 +1,6 @@
 # Jack Gaffney
 
-**Software Engineer** · Ann Arbor, MI · CS @ University of Michigan ('26)
+**Software Engineer** · Ann Arbor, MI · B.S.E. Computer Science, University of Michigan ('26)
 
 **Live site:** [jack-chaudier.github.io](https://jack-chaudier.github.io)
 
@@ -8,16 +8,16 @@
 
 ## Thesis
 
-Backend and AI-native plumbing — real-time voice systems, multimodal AI workflows, and the production backends that make them work. Plus a kernel and a game engine, because I like knowing how things work underneath.
+Backend and AI-native systems — real-time voice systems, multimodal AI workflows, and the production backends that make them work. Plus a kernel and a game engine, because I like knowing how things work underneath.
 
-Graduating May 2026 — open to full-time across AI workflow, voice, and full-stack product roles.
+Graduated May 2026 — open to full-time roles across AI workflow, voice, and full-stack product engineering.
 
 ## Selected Work
 
 | Project | Stack | Description |
 | :--- | :--- | :--- |
+| **[Tether](https://github.com/jackgaff/tether)** *(in progress)* | Go · React/TS · AWS Bedrock (Nova) · PostgreSQL | Caregiver-controlled voice-agent platform. 40+ endpoint API, prompt lab, post-call insight pipeline. |
 | **[mirage-mcp](https://github.com/jack-chaudier/mirage-mcp)** | MCP · TypeScript · LLM agents | MCP server exploring how to make LLM coding agents behave more deterministically. |
-| **[Tether](https://github.com/jackgaff/tether)** | Go · React/TS · AWS Bedrock (Nova) · PostgreSQL | Caregiver-controlled voice-agent platform. 40+ endpoint API, prompt lab, post-call insight pipeline. |
 | **[VulcanAI](https://github.com/montben/VulcanAI)** | FastAPI · Groq vision · Deepgram · React 19 | Jobsite photos → branded PDF reports in <60s. Built at Pi Hacks, March 2026. |
 | **[PGAI Voice Bot](https://github.com/jack-chaudier/pgai)** | Python · Nova Sonic · Twilio | Low-latency phone voice assistant with streaming audio and a tool-using agent loop. |
 | **[ocean-linux](https://github.com/jack-chaudier/ocean-linux)** | C11 · x86_64 ASM · Limine | Educational microkernel. Buddy allocator, 4-level paging, capability-based IPC. |

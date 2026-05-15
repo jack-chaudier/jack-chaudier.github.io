@@ -283,12 +283,12 @@
     const COMMANDS = {
         help: () => "available: about · projects · work · skills · contact · theme · whoami · matrix · joke · clear · exit",
         about: () =>
-            `jack gaffney. cs senior @ umich, graduating may 2026.
+            `jack gaffney. bse cs @ umich, graduated may 2026.
 builds ai-native backends & real-time voice pipelines.
 bias: ship > perfect. values: simple systems, good typography, long runs.`,
         projects: () =>
-            `mirage-mcp   — MCP server for consistent agentic coding
-tether       — real-time voice companion (go, bedrock)
+            `tether       — real-time voice companion (go, bedrock)
+mirage-mcp   — MCP server for consistent agentic coding
 vulcanai     — multimodal construction reports (fastapi, llama)
 pgai         — low-latency phone voice bot (nova sonic, twilio)
 ocean-linux  — x86_64 microkernel (c11, limine)
