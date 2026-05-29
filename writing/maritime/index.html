@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
+        <meta
+            name="description"
+            content="Case study: a Palantir Foundry maritime intelligence prototype. Modeling a high-volume AIS vessel stream into an Ontology and shipping a map-based analyst triage workflow in Workshop."
+        />
+        <meta property="og:title" content="Turning an AIS firehose into an analyst's triage queue — Maritime Intelligence" />
+        <meta property="og:description" content="Forward-deployed engineering reasoning: validating a noisy live vessel stream, modeling it as an Ontology of vessels and anomalies, and building triage analysts can trust." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://jack-chaudier.github.io/writing/maritime/" />
+        <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
+        <link rel="canonical" href="https://jack-chaudier.github.io/writing/maritime/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <title>Turning an AIS firehose into an analyst's triage queue — Jack Gaffney</title>
+        <script>
+            (function () {
+                const root = document.documentElement;
+                root.classList.add("js");
+                try {
+                    const storedTheme = localStorage.getItem("jg-theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                }
+            })();
+        </script>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <div class="shell" id="main">
+            <nav class="top" aria-label="Primary">
+                <div class="wordmark">
+                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
+                    <span class="mono">/ writing</span>
+                </div>
+                <div class="topnav mono">
+                    <a href="/">home</a>
+                    <a href="/writing/">writing</a>
+                    <a href="/#contact">contact</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+                        <span class="knob" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <article class="case">
+                <a class="case-back" href="/writing/">← all case studies</a>
+                <span class="case-kicker">Forward-deployed · Palantir Foundry</span>
+                <h1>Turning an AIS firehose into an <em>analyst's triage queue</em></h1>
+                <p class="dek">
+                    A Palantir Foundry prototype that takes a noisy, high-volume stream of vessel
+                    positions and turns it into something an analyst can actually work: a short
+                    queue of "look at this" instead of an ocean of dots.
+                </p>
+                <div class="case-meta">
+                    <span>Foundry prototype · 2025</span>
+                    <span>Palantir Foundry · Python · PySpark · Ontology · Workshop</span>
+                </div>
+
+                <div class="case-callout">
+                    <span class="caps">Note on scope</span>
+                    <p>
+                        This was a private build in a Foundry environment. What follows is the engineering
+                        reasoning and architecture — the parts I can speak to generally — with environment
+                        and data specifics deliberately left out.
+                    </p>
+                </div>
+
+                <h2>The problem</h2>
+                <p>
+                    AIS is the automatic identification signal that ships broadcast — position, heading,
+                    speed, identity. In aggregate it's a firehose: high volume, irregular, and messy, with
+                    dropped fields, duplicate messages, and the occasional impossible coordinate. An analyst
+                    staring at every vessel learns nothing. The job was to compress that stream into
+                    <strong>the handful of events worth a human's attention.</strong>
+                </p>
+
+                <h2>Architecture</h2>
+                <p>
+                    Ingest the live stream, parse and validate it with PySpark, model the cleaned world as an
+                    Ontology of vessels and anomaly events, then surface that to an analyst as map-based
+                    triage in Workshop. The Ontology is the hinge: it turns rows into domain objects an
+                    analyst can navigate and an application can build on.
+                </p>
+                <figure class="architecture-diagram" aria-label="Maritime pipeline diagram">
+                    <div class="arch-node">Live AIS stream · high-volume vessel messages</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">PySpark parse + validate · drop / flag bad records</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Ontology · Vessel + AnomalyEvent objects</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Workshop · map-based analyst triage</div>
+                </figure>
+
+                <h2>Decisions &amp; tradeoffs</h2>
+                <table class="case-table">
+                    <thead>
+                        <tr><th>Decision</th><th>Why</th><th>What I traded away</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Model the domain as an Ontology of Vessel / AnomalyEvent objects, not raw tables</td>
+                            <td>Analysts think in vessels and incidents, not joins. Objects make a vessel's track and its anomalies first-class, and give the Workshop app something stable to build on.</td>
+                            <td>More modeling work upfront than dumping the stream into flat tables.</td>
+                        </tr>
+                        <tr>
+                            <td>Validate and normalize aggressively at ingest with PySpark</td>
+                            <td>The stream is genuinely dirty; if bad coordinates and duplicates reach the Ontology, every downstream triage decision inherits the noise. Better to drop or flag at the boundary.</td>
+                            <td>Risk of discarding edge-case-but-real signals — so questionable records get flagged, not silently dropped.</td>
+                        </tr>
+                        <tr>
+                            <td>Ship a triage queue in Workshop, not a generic dashboard</td>
+                            <td>The deliverable is a workflow, not a chart. Matching how an analyst actually triages — surface, inspect, decide — is what makes it usable.</td>
+                            <td>Less general-purpose than an open-ended explorer; tuned to one job.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>What was hard</h2>
+                <div class="case-callout">
+                    <span class="caps">Signal vs. noise</span>
+                    <p>
+                        The interesting tension is that "anomaly" is a judgment call. Too sensitive and the
+                        triage queue is as useless as the raw firehose; too strict and you miss the thing
+                        that mattered. Getting validation and anomaly logic to where the queue was short
+                        enough to act on and honest about what it flagged — that was the real work, far
+                        more than wiring the pipeline together.
+                    </p>
+                </div>
+
+                <h2>Why it's the forward-deployed pattern in miniature</h2>
+                <p>
+                    It has the shape of the work I want to do: a messy real-world domain, a high-volume
+                    data problem, and a person who has to make decisions from the result. Modeling the world
+                    into objects someone can act on — and being honest about the data's limits — is exactly
+                    the judgment forward-deployed engineering runs on.
+                </p>
+
+                <div class="case-nextprev">
+                    <a href="/writing/quantum-opus/">← previous: Quantum Opus</a>
+                    <a href="/writing/">all case studies →</a>
+                </div>
+            </article>
+
+            <footer class="colophon" id="contact">
+                <div class="section-num-footer">§ end</div>
+                <div><h3>Say<br/><em>hello</em>.</h3></div>
+                <div class="col">
+                    <span class="caps">Elsewhere</span>
+                    <p><a href="mailto:jackgaff@umich.edu">jackgaff@umich.edu</a></p>
+                    <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
+                    <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
+                    <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
+                    <p><a href="/">← back to portfolio</a></p>
+                </div>
+                <div class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
+                    <span>press <kbd>/</kbd> for secrets</span>
+                </div>
+            </footer>
+        </div>
+
+        <div class="hint" aria-hidden="true">press <kbd>/</kbd> · <kbd>?</kbd></div>
+        <div class="term" id="term" role="dialog" aria-label="Terminal">
+            <div class="hd">
+                <span>jack@portfolio ~ %</span>
+                <button class="close" id="termClose" type="button" aria-label="Close terminal">[esc]</button>
+            </div>
+            <div class="body" id="termBody"><p class="line">type 'help' for commands. type 'exit' to leave.</p></div>
+            <div class="in"><input id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal input"/></div>
+        </div>
+        <canvas class="rain-canvas" id="rain" aria-hidden="true"></canvas>
+        <div class="trophy" id="trophy" aria-hidden="true">
+            <div class="big">↑↑↓↓←→←→ B A</div>
+            <div class="small">you found it. 60fps guaranteed.</div>
+        </div>
+        <script src="/script.js"></script>
+    </body>
+</html>

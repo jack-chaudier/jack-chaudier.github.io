@@ -14,3 +14,7 @@ design-previews/
 
 # Orphaned local copy (same content as headshot.jpg)
 portrait.jpg
+
+# Local authoring toolkit (runs on your machine; generated pages are committed)
+tools/
+drafts/

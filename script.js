@@ -133,20 +133,6 @@
         el.innerHTML = svg;
     })();
 
-    /* ================= PROJECT VIZ: WAVEFORM ================= */
-    (function () {
-        const w = document.getElementById("viz-wave");
-        if (!w) return;
-        const N = 60;
-        for (let i = 0; i < N; i++) {
-            const s = document.createElement("span");
-            const h = 10 + Math.abs(Math.sin(i * 0.4)) * 48 + Math.random() * 8;
-            s.style.setProperty("--h", h + "px");
-            s.style.animationDelay = i * 0.04 + "s";
-            w.appendChild(s);
-        }
-    })();
-
     /* ================= PROJECT VIZ: PHONE BARS ================= */
     (function () {
         const el = document.getElementById("viz-phone-bars");
@@ -281,18 +267,54 @@
     }
 
     const COMMANDS = {
-        help: () => "available: about · projects · work · skills · contact · theme · whoami · matrix · joke · clear · exit",
+        help: () => "available: about · projects · writing · read · work · skills · contact · resume · theme · whoami · matrix · joke · clear · exit",
         about: () =>
             `jack gaffney. bse cs @ umich, graduated may 2026.
-builds ai-native backends & real-time voice pipelines.
-bias: ship > perfect. values: simple systems, good typography, long runs.`,
+software / forward-deployed engineer.
+embeds with a team and ships software for messy real-world operations.
+bias: inspectable ai, useful dashboards, simple systems, good typography.`,
         projects: () =>
-            `tether       — real-time voice companion (go, bedrock)
-vulcanai     — multimodal construction reports (fastapi, llama)
-pgai         — low-latency phone voice bot (nova sonic, twilio)
+            `featured:
+tether       — caregiver-controlled ai voice companion (go, bedrock)
+quantum opus — forward-deployed internal data platform (go, next, postgres)
+maritime     — palantir foundry: ais streams -> analyst triage
+
+more:
+pgai         — phone-based patient simulator (nova sonic, twilio, gemini)
+vulcan ai    — jobsite photos + voice -> pdf report in <60s
 ocean-linux  — x86_64 microkernel (c11, limine)
 fr-ocean     — 2d c++17 engine, 16ms budget
-mirage-mcp   — MCP server for consistent agentic coding`,
+miragekit    — repo-local memory runtime for coding agents (python)`,
+        writing: () =>
+            `case studies (jack-chaudier.github.io/writing/):
+1. designing trust into an ai voice companion   -> /writing/tether/
+2. replacing spreadsheets with a data platform   -> /writing/quantum-opus/
+3. an ais firehose into an analyst triage queue  -> /writing/maritime/
+
+type 'read tether | quantum | maritime' to open one.`,
+        read: (arg) => {
+            const map = {
+                tether: "/writing/tether/",
+                quantum: "/writing/quantum-opus/",
+                "quantum-opus": "/writing/quantum-opus/",
+                maritime: "/writing/maritime/",
+                writing: "/writing/",
+                all: "/writing/",
+                /* writing:read-map */
+            };
+            const dest = map[(arg || "").trim().toLowerCase()];
+            if (dest) {
+                window.location.href = dest;
+                return "opening " + dest + " …";
+            }
+            return "usage: read tether | quantum | maritime";
+        },
+        resume: () => {
+            window.open("/jack_gaffney_resume.pdf", "_blank", "noopener");
+            return "opening résumé…";
+        },
+        walkthroughs: () =>
+            `renamed -> try 'writing'`,
         work: () =>
             `2025  quantum opus     — full-stack swe intern (go · next · postgres)
 2024  renewit decking  — carpenter & logistics lead
@@ -305,7 +327,7 @@ llm pipelines · mcp · multimodal · vision · transcription`,
             `email: jackgaff@umich.edu
 gh:    github.com/jack-chaudier
 li:    linkedin.com/in/jackgaffney23
-phone: (231) 675-9844`,
+resume: jack-chaudier.github.io/jack_gaffney_resume.pdf`,
         theme: (arg) => {
             const t = (arg || "").trim();
             if (t === "light" || t === "dark") {
@@ -327,7 +349,9 @@ phone: (231) 675-9844`,
                 "a sql query walks into a bar, sees two tables, asks: may i join you?",
                 "why did the dev go broke? he used up all his cache.",
                 "i'd tell you a udp joke but you might not get it.",
-                "the best thing about a boolean is even if you're wrong, you're only off by a bit."
+                "the best thing about a boolean is even if you're wrong, you're only off by a bit.",
+                "tried to barge in on nova sonic mid-sentence. it handled the interruption better than i do.",
+                "a microkernel walks into a bar, passes a message, and leaves. policy stays outside."
             ];
             return j[Math.floor(Math.random() * j.length)];
         },
@@ -339,7 +363,7 @@ phone: (231) 675-9844`,
             closeTerm();
             return "";
         },
-        ls: () => "about/  projects/  work/  skills/  contact.txt  secrets.⊕",
+        ls: () => "about/  projects/  writing/  work/  skills/  contact.txt  secrets.⊕",
         cat: (a) =>
             a === "secrets.⊕"
                 ? "try: ↑ ↑ ↓ ↓ ← → ← → b a"
@@ -367,6 +391,10 @@ phone: (231) 675-9844`,
     /* global keys */
     document.addEventListener("keydown", (e) => {
         const tag = e.target && e.target.tagName;
+        if (e.key === "Escape") {
+            closeTerm();
+            return;
+        }
         if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
         if (e.target && e.target.isContentEditable) return;
         if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -381,8 +409,6 @@ phone: (231) 675-9844`,
                 termInput.value = "help";
                 termInput.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
             }
-        } else if (e.key === "Escape") {
-            closeTerm();
         } else if (e.key === "t" || e.key === "T") {
             e.preventDefault();
             toggleTheme();

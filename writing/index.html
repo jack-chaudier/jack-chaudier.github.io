@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
+        <meta
+            name="description"
+            content="Case studies by Jack Gaffney — the decisions, tradeoffs, and architecture behind Tether, the Quantum Opus data platform, and a Palantir Foundry maritime prototype."
+        />
+        <meta property="og:title" content="Writing & case studies — Jack Gaffney" />
+        <meta property="og:description" content="Long-form engineering notes on the systems I've built: decisions, tradeoffs, and what I'd do differently." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jack-chaudier.github.io/writing/" />
+        <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
+        <link rel="canonical" href="https://jack-chaudier.github.io/writing/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <title>Writing & case studies — Jack Gaffney</title>
+        <script>
+            (function () {
+                const root = document.documentElement;
+                root.classList.add("js");
+                try {
+                    const storedTheme = localStorage.getItem("jg-theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
+                }
+            })();
+        </script>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <div class="shell" id="main">
+            <nav class="top" aria-label="Primary">
+                <div class="wordmark">
+                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
+                    <span class="mono">/ writing</span>
+                </div>
+                <div class="topnav mono">
+                    <a href="/">home</a>
+                    <a href="/#projects">projects</a>
+                    <a href="/#contact">contact</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+                        <span class="knob" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <section aria-labelledby="writing-title">
+                <div class="section-head">
+                    <div class="num">§ writing</div>
+                    <h2 id="writing-title">Case <em>studies</em>.</h2>
+                </div>
+                <div class="walkthrough-intro">
+                    <p>
+                        Long-form notes on the systems that taught me the most — the decisions, the
+                        tradeoffs I'd defend in an interview, and what I'd change next time. Hand-written,
+                        like the rest of this site.
+                    </p>
+                </div>
+
+                <div class="writing-grid">
+                    <!-- writing:cards (new posts inserted below this line, newest first) -->
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Trust in AI voice systems</div>
+                        <h3>Designing trust into an AI voice companion</h3>
+                        <p>
+                            Tether: real-time audio over a Go WebSocket API, transcript-backed summaries,
+                            and the product decisions that keep distance care from turning into surveillance.
+                        </p>
+                        <a class="source" href="/writing/tether/">read case study →</a>
+                    </article>
+
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Forward-deployed · internal tooling</div>
+                        <h3>Replacing spreadsheets with a production data platform</h3>
+                        <p>
+                            Quantum Opus: embedding with engineering and ops, mapping how teams actually
+                            moved data, then shipping ingestion, validation, and dashboards that fit them.
+                        </p>
+                        <a class="source" href="/writing/quantum-opus/">read case study →</a>
+                    </article>
+
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Forward-deployed · Palantir Foundry</div>
+                        <h3>Turning an AIS firehose into an analyst's triage queue</h3>
+                        <p>
+                            A maritime intelligence prototype: modeling messy, high-volume vessel data into
+                            an Ontology, validating the stream, and shipping a triage view analysts trust.
+                        </p>
+                        <a class="source" href="/writing/maritime/">read case study →</a>
+                    </article>
+                </div>
+            </section>
+
+            <footer class="colophon" id="contact">
+                <div class="section-num-footer">§ end</div>
+                <div>
+                    <h3>Say<br/><em>hello</em>.</h3>
+                </div>
+                <div class="col">
+                    <span class="caps">Elsewhere</span>
+                    <p><a href="mailto:jackgaff@umich.edu">jackgaff@umich.edu</a></p>
+                    <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
+                    <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
+                    <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
+                    <p><a href="/">← back to portfolio</a></p>
+                </div>
+                <div class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
+                    <span>press <kbd>/</kbd> for secrets</span>
+                </div>
+            </footer>
+        </div>
+
+        <div class="hint" aria-hidden="true">press <kbd>/</kbd> · <kbd>?</kbd></div>
+        <div class="term" id="term" role="dialog" aria-label="Terminal">
+            <div class="hd">
+                <span>jack@portfolio ~ %</span>
+                <button class="close" id="termClose" type="button" aria-label="Close terminal">[esc]</button>
+            </div>
+            <div class="body" id="termBody">
+                <p class="line">type 'help' for commands. type 'exit' to leave.</p>
+            </div>
+            <div class="in">
+                <input id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal input"/>
+            </div>
+        </div>
+        <canvas class="rain-canvas" id="rain" aria-hidden="true"></canvas>
+        <div class="trophy" id="trophy" aria-hidden="true">
+            <div class="big">↑↑↓↓←→←→ B A</div>
+            <div class="small">you found it. 60fps guaranteed.</div>
+        </div>
+        <script src="/script.js"></script>
+    </body>
+</html>

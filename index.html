@@ -7,12 +7,12 @@
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
         <meta
             name="description"
-            content="Jack Gaffney — AI-native workflows, real-time voice systems, and the production backends that make them work. BSE Computer Science, University of Michigan (graduated May 2026)."
+            content="Jack Gaffney — software and forward-deployed engineer. Builds production AI systems close to users: real-time voice, internal data platforms, and operational dashboards. University of Michigan CS, 2026."
         />
-        <meta property="og:title" content="Jack Gaffney — builds things" />
+        <meta property="og:title" content="Jack Gaffney — Software & Forward-Deployed Engineer" />
         <meta
             property="og:description"
-            content="AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
+            content="Production AI systems close to users — voice, internal data platforms, and operational dashboards — built by embedding with the team and shipping. Plus a microkernel and a game engine."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/" />
@@ -23,10 +23,10 @@
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:site" content="@jackchaudier" />
         <meta name="twitter:creator" content="@jackchaudier" />
-        <meta name="twitter:title" content="Jack Gaffney — builds things" />
+        <meta name="twitter:title" content="Jack Gaffney — Software & Forward-Deployed Engineer" />
         <meta
             name="twitter:description"
-            content="AI-native workflows, real-time voice systems, and full-stack backends. Plus a kernel and a game engine."
+            content="Production AI systems close to users — voice, internal data platforms, and operational dashboards — built by embedding with the team and shipping. Plus a microkernel and a game engine."
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
@@ -35,7 +35,7 @@
         />
         <link rel="canonical" href="https://jack-chaudier.github.io/" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <title>Jack Gaffney — builds things</title>
+        <title>Jack Gaffney — Software & Forward-Deployed Engineer</title>
         <script>
             (function () {
                 const root = document.documentElement;
@@ -82,10 +82,11 @@
             "@type": "Person",
             "name": "Jack Gaffney",
             "url": "https://jack-chaudier.github.io/",
-            "jobTitle": "Software Engineer",
-            "description": "AI-native workflows, real-time voice systems, and full-stack backends.",
+            "jobTitle": "Software Engineer / Forward-Deployed Engineer",
+            "description": "Software and forward-deployed engineer building production systems close to users: real-time voice, internal data platforms, and operational dashboards.",
             "sameAs": [
                 "https://github.com/jack-chaudier",
+                "https://github.com/jackgaff",
                 "https://linkedin.com/in/jackgaffney23",
                 "https://x.com/jackchaudier"
             ],
@@ -93,7 +94,7 @@
                 "@type": "CollegeOrUniversity",
                 "name": "University of Michigan"
             },
-            "knowsAbout": ["LLM Agents", "Voice AI", "Full-Stack Engineering", "Systems Programming", "Python", "TypeScript", "Go", "C++"]
+            "knowsAbout": ["Forward-Deployed Engineering", "Palantir Foundry", "LLM Agents", "Voice AI", "Data Platforms", "Full-Stack Engineering", "Systems Programming", "Python", "TypeScript", "Go", "C++"]
         }
         </script>
     </head>
@@ -112,6 +113,7 @@
                     <a href="#now"><span class="dot" aria-hidden="true"></span>now</a>
                     <a href="#work">work</a>
                     <a href="#projects">projects</a>
+                    <a href="#writing">writing</a>
                     <a href="#stack">stack</a>
                     <a href="#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
@@ -125,13 +127,17 @@
             <!-- ========== HERO ========== -->
             <header class="hero">
                 <div>
-                    <h1>AI&#8209;native<br/><em>systems.</em></h1>
+                    <p class="hero-eyebrow mono">Software / forward-deployed engineer · Michigan CS '26 · open to full-time</p>
+                    <h1>Messy workflows.<br/><em>Shipped systems.</em></h1>
                     <p class="lede">
-                        BSE Computer Science, Michigan '26. I build real-time
-                        voice systems, multimodal AI workflows, and the
-                        production backends that make them work.
-                        Python, TypeScript, Go — bias toward shipping.
+                        I build production software for messy, real-world operations:
+                        real-time voice, internal data platforms, and operational dashboards.
+                        I do my best work embedded with a team — turning ambiguous workflows
+                        into systems people actually use. Go, TypeScript, and Python.
                     </p>
+                    <div class="hero-cta">
+                        <a class="btn" href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">Résumé ↗</a>
+                    </div>
                     <div class="meta">
                         <span>Ann&nbsp;Arbor,&nbsp;MI</span>
                         <span class="sep" aria-hidden="true">·</span>
@@ -140,8 +146,6 @@
                         <a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github</a>
                         <span class="sep" aria-hidden="true">·</span>
                         <a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin</a>
-                        <span class="sep" aria-hidden="true">·</span>
-                        <a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé</a>
                     </div>
                 </div>
                 <figure class="portrait-frame" id="portraitFrame">
@@ -171,11 +175,9 @@
 
                     <div class="now-col">
                         <span class="caps">Building</span>
-                        <p>Tether — caregiver-controlled AI voice companion with real-time WebSocket sessions.</p>
+                        <p>Tether — gentle voice check-ins for aging parents, built around consent, useful summaries, and concrete caregiver follow-up.</p>
                         <p class="sub">
-                            <a href="https://github.com/jackgaff/tether" target="_blank" rel="noopener noreferrer">
-                                github.com/jackgaff/tether ↗
-                            </a>
+                            <a href="https://tetherai.vercel.app/" target="_blank" rel="noopener noreferrer">tetherai.vercel.app ↗</a>
                         </p>
                     </div>
 
@@ -194,7 +196,7 @@
                             </div>
                             <div>
                                 <p style="font-style:italic;">The Count of Monte Cristo — Dumas</p>
-                                <p class="sub">a narrative has never been more intriguing.</p>
+                                <p class="sub">the most patient revenge plot ever written.</p>
                             </div>
                         </div>
                     </div>
@@ -209,6 +211,13 @@
                         </ol>
                     </div>
                 </div>
+
+                <div class="operating-notes" aria-label="Operating notes">
+                    <span class="caps">How I think</span>
+                    <p>I like problems where the workflow is messier than the code.</p>
+                    <p>I care about interfaces that make AI inspectable, not magical.</p>
+                    <p>I grew up between rural northern Michigan and Ann Arbor; good software has to fit the context people actually live in.</p>
+                </div>
             </section>
 
             <!-- ========== WORK ========== -->
@@ -218,7 +227,7 @@
                     <h2 id="work-title">Work <em>history</em>.</h2>
                 </div>
 
-                <div class="work-row" tabindex="0" role="button" aria-expanded="false" data-detail="Built and deployed a full-stack internal data platform (Go/Gin · Next.js · PostgreSQL · Docker Compose) that replaced fragmented spreadsheet workflows. Designed modular Go REST endpoints consumed by Python data-generation pipelines, and shipped automated ingestion and validation with dynamic entity linking across complex datasets.">
+                <div class="work-row" tabindex="0" role="button" aria-expanded="false" data-detail="Built and deployed a full-stack internal data platform (Go/Gin · Next.js · PostgreSQL · Docker Compose) that replaced fragmented spreadsheet workflows for engineering and operations teams. Mapped ambiguous operational processes into scoped requirements, API contracts, guided dashboard flows, ingestion/validation pipelines, and iterative UX improvements with stakeholder feedback.">
                     <div class="when">Summer 2025</div>
                     <h3>Quantum Opus <span class="role">— Full-Stack SWE Intern</span></h3>
                     <div class="where">Plymouth, MI<br/><span>Go · Next · Postgres</span></div>
@@ -251,53 +260,107 @@
             <section id="projects" aria-labelledby="projects-title">
                 <div class="section-head">
                     <div class="num">§ 03</div>
-                    <h2 id="projects-title">Things I've <em>built</em>.</h2>
+                    <h2 id="projects-title">Featured <em>work</em>.</h2>
+                </div>
+
+                <div class="featured-intro">
+                    <p>
+                        The three I'd open first — each a real system with real users and real
+                        constraints. Two are the closest thing I have to forward-deployed work.
+                    </p>
+                </div>
+
+                <div class="featured-work">
+                    <article class="feature-row lead">
+                        <div class="feature-num" aria-hidden="true">01</div>
+                        <div class="feature-body">
+                            <div class="feature-meta mono">real-time voice AI</div>
+                            <h3>Tether</h3>
+                            <p class="subtitle">Caregiver-controlled AI voice companion for aging parents.</p>
+                            <p class="feature-desc">
+                                Built around consent, transcript visibility, and reviewable AI summaries
+                                that turn into concrete caregiver follow-ups — not black-box monitoring.
+                            </p>
+                            <p class="feature-flow mono" aria-hidden="true">browser voice <span class="arr">→</span> Go API <span class="arr">→</span> Nova Sonic <span class="arr">→</span> <span class="out">caregiver dashboard</span></p>
+                            <div class="feature-foot">
+                                <div class="stack">
+                                    <span class="chip">Go</span>
+                                    <span class="chip">React</span>
+                                    <span class="chip">PostgreSQL</span>
+                                    <span class="chip">Bedrock</span>
+                                    <span class="chip">WebSockets</span>
+                                </div>
+                                <div class="feature-links mono" aria-label="Tether links">
+                                    <a class="link-primary" href="https://tetherai.vercel.app/" target="_blank" rel="noopener noreferrer">live product ↗</a>
+                                    <a href="writing/tether/">read case study →</a>
+                                    <a href="https://github.com/jackgaff/tether" target="_blank" rel="noopener noreferrer">github ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="feature-row">
+                        <div class="feature-num" aria-hidden="true">02</div>
+                        <div class="feature-body">
+                            <div class="feature-meta mono">forward-deployed · internal data platform</div>
+                            <h3>Quantum Opus</h3>
+                            <p class="subtitle">Embedding with engineering &amp; ops to replace spreadsheet chaos with a production data platform.</p>
+                            <p class="feature-desc">
+                                Worked directly with technical stakeholders to turn messy operational
+                                processes into scoped requirements, then shipped modular Go APIs, validation
+                                and entity-linking pipelines, and dashboards iterated from real feedback.
+                            </p>
+                            <p class="feature-flow mono" aria-hidden="true">spreadsheets <span class="arr">→</span> validation + entity linking <span class="arr">→</span> <span class="out">operator dashboard</span></p>
+                            <div class="feature-foot">
+                                <div class="stack">
+                                    <span class="chip">Go/Gin</span>
+                                    <span class="chip">Next.js</span>
+                                    <span class="chip">PostgreSQL</span>
+                                    <span class="chip">Docker</span>
+                                </div>
+                                <div class="feature-links mono" aria-label="Quantum Opus links">
+                                    <a href="writing/quantum-opus/">read case study →</a>
+                                    <a href="#work">work context ↑</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="feature-row">
+                        <div class="feature-num" aria-hidden="true">03</div>
+                        <div class="feature-body">
+                            <div class="feature-meta mono">forward-deployed · Palantir Foundry</div>
+                            <h3>Maritime Intelligence</h3>
+                            <p class="subtitle">Palantir Foundry prototype: a live AIS firehose, turned into analyst triage.</p>
+                            <p class="feature-desc">
+                                Modeled messy, high-volume vessel data into an Ontology of vessels and
+                                anomaly events, validated the stream with PySpark, and shipped a map-based
+                                triage view an analyst could actually work from.
+                            </p>
+                            <p class="feature-flow mono" aria-hidden="true">live AIS streams <span class="arr">→</span> Ontology model <span class="arr">→</span> <span class="out">analyst triage</span></p>
+                            <div class="feature-foot">
+                                <div class="stack">
+                                    <span class="chip">Foundry</span>
+                                    <span class="chip">Python</span>
+                                    <span class="chip">PySpark</span>
+                                    <span class="chip">Ontology</span>
+                                    <span class="chip">Workshop</span>
+                                </div>
+                                <div class="feature-links mono" aria-label="Maritime Intelligence links">
+                                    <a href="writing/maritime/">read case study →</a>
+                                    <span class="muted">private build · architecture in the case study</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-subhead">
+                    <span class="caps">More systems &amp; experiments</span>
+                    <p>More range — voice, multimodal, low-level systems, and agent tooling.</p>
                 </div>
 
                 <div class="projects">
-
-                    <article class="project">
-                        <div class="visual viz-waveform" id="viz-wave" aria-hidden="true"></div>
-                        <div class="tag"><span>— 2025 · in progress</span><span>// wip</span></div>
-                        <h3>Tether</h3>
-                        <p class="subtitle">Caregiver-controlled AI voice companion.</p>
-                        <p>
-                            A Go API serving real-time WebSocket voice sessions
-                            backed by Amazon Bedrock (Nova). Post-call LLM
-                            pipelines transcribe, extract structured health
-                            insights, and surface next-call recommendations
-                            through a React admin dashboard with a prompt lab.
-                        </p>
-                        <a class="source" href="https://github.com/jackgaff/tether" target="_blank" rel="noopener noreferrer">jackgaff/tether ↗</a>
-                        <div class="stack">
-                            <span class="chip">Go</span>
-                            <span class="chip">React</span>
-                            <span class="chip">PostgreSQL</span>
-                            <span class="chip">Bedrock</span>
-                            <span class="chip">WebSockets</span>
-                        </div>
-                    </article>
-
-                    <article class="project">
-                        <div class="visual viz-photo-grid" id="viz-photogrid" aria-hidden="true"></div>
-                        <div class="tag"><span>— Pi Hacks, Mar 2026</span><span>// multimodal</span></div>
-                        <h3>VulcanAI</h3>
-                        <p class="subtitle">Multimodal jobsite → branded PDF in &lt;60s.</p>
-                        <p>
-                            Jobsite photos (LLaMA vision) + voice intake (Deepgram)
-                            → branded daily construction reports (LLaMA 3.3).
-                            FastAPI/SQLAlchemy backend, React 19 frontend with
-                            drag-and-drop uploads and on-demand PDF export.
-                        </p>
-                        <a class="source" href="https://github.com/montben/VulcanAI" target="_blank" rel="noopener noreferrer">montben/VulcanAI ↗</a>
-                        <div class="stack">
-                            <span class="chip">Python</span>
-                            <span class="chip">FastAPI</span>
-                            <span class="chip">Deepgram</span>
-                            <span class="chip">LLaMA</span>
-                            <span class="chip">React</span>
-                        </div>
-                    </article>
 
                     <article class="project">
                         <div class="visual viz-phone" aria-hidden="true">
@@ -306,20 +369,31 @@
                         </div>
                         <div class="tag"><span>— 2026</span><span>// voice</span></div>
                         <h3>PGAI Voice Bot</h3>
-                        <p class="subtitle">Low-latency phone-based voice assistant.</p>
-                        <p>
-                            Takes live phone calls via Twilio Media Streams,
-                            bridges bidirectional audio into Nova Sonic for
-                            turn-taking and speech, and drives an agentic loop
-                            over a product knowledge base. Same problem class as
-                            Tether, different stack, different constraints.
-                        </p>
+                        <p class="subtitle">Phone-based AI patient simulator.</p>
+                        <p>Outbound Twilio calls that role-play a patient via Nova Sonic, with Gemini flagging bugs in the tested healthcare line.</p>
+                        <a class="source" href="https://www.loom.com/share/a90aece04a4b4eaa8a6c4e8034c57ef6" target="_blank" rel="noopener noreferrer">demo video (Loom) ↗</a>
                         <a class="source" href="https://github.com/jack-chaudier/pgai" target="_blank" rel="noopener noreferrer">jack-chaudier/pgai ↗</a>
                         <div class="stack">
                             <span class="chip">Python</span>
                             <span class="chip">Nova&nbsp;Sonic</span>
                             <span class="chip">Twilio</span>
-                            <span class="chip">agent&nbsp;loop</span>
+                            <span class="chip">Gemini</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="visual viz-photo-grid" id="viz-photogrid" aria-hidden="true"></div>
+                        <div class="tag"><span>— Pi Hacks · 2026</span><span>// multimodal</span></div>
+                        <h3>Vulcan AI</h3>
+                        <p class="subtitle">Jobsite photos + voice → a branded PDF report in under 60 seconds.</p>
+                        <p>Team hackathon build — I owned the voice-agent and report-generation pipeline that turns photos + voice into a branded PDF.</p>
+                        <a class="source" href="https://github.com/montben/VulcanAI" target="_blank" rel="noopener noreferrer">montben/VulcanAI ↗</a>
+                        <div class="stack">
+                            <span class="chip">Python</span>
+                            <span class="chip">FastAPI</span>
+                            <span class="chip">Deepgram</span>
+                            <span class="chip">Groq</span>
+                            <span class="chip">React</span>
                         </div>
                     </article>
 
@@ -328,13 +402,7 @@
                         <div class="tag"><span>— 2024 — 2025</span><span>// systems</span></div>
                         <h3>Ocean Microkernel</h3>
                         <p class="subtitle">Memory, scheduling, and userspace from scratch.</p>
-                        <p>
-                            An x86_64 microkernel with a Limine boot path,
-                            GDT/IDT setup, SYSCALL/SYSRET, a buddy allocator,
-                            4-level paging, and slab allocation. Capability-based
-                            IPC keeps policy outside the kernel while preserving
-                            performance.
-                        </p>
+                        <p>An x86_64 microkernel from scratch: buddy allocator, 4-level paging, a preemptive scheduler, capability-based IPC, and a tiny userspace shell.</p>
                         <a class="source" href="https://github.com/jack-chaudier/ocean-linux" target="_blank" rel="noopener noreferrer">jack-chaudier/ocean-linux ↗</a>
                         <div class="stack">
                             <span class="chip">C11</span>
@@ -351,13 +419,7 @@
                         <div class="tag"><span>— 2024</span><span>// 16ms budget</span></div>
                         <h3>Game Engine</h3>
                         <p class="subtitle">2D in C++17 / Lua, built to hold 60fps.</p>
-                        <p>
-                            ECS-style architecture with Lua scripting hooks for
-                            fast gameplay iteration without recompiling. Careful
-                            memory layout to reduce allocation churn, sustaining
-                            60 FPS at 10k+ entities under a strict 16ms frame
-                            budget.
-                        </p>
+                        <p>ECS-style C++17/Lua engine with custom allocators, holding 60 FPS at 10k+ entities under a strict 16ms frame budget.</p>
                         <a class="source" href="https://github.com/jack-chaudier/fr-ocean-engine" target="_blank" rel="noopener noreferrer">jack-chaudier/fr-ocean-engine ↗</a>
                         <div class="stack">
                             <span class="chip">C++17</span>
@@ -369,64 +431,101 @@
 
                     <article class="project">
                         <div class="visual viz-mcp" id="viz-mcp" aria-hidden="true"></div>
-                        <div class="tag"><span>— 2026</span><span>// exploration</span></div>
-                        <h3>mirage-mcp</h3>
-                        <p class="subtitle">Consistency &amp; reliability for agentic coding.</p>
-                        <p>
-                            An MCP server exploring how to make LLM coding agents
-                            behave more deterministically — structured tool
-                            surfaces, tighter feedback loops, and repeatable edits
-                            so the agent gets the same answer twice.
-                        </p>
+                        <div class="tag"><span>— 2026</span><span>// agent memory</span></div>
+                        <h3>MirageKit / mirage-runtime</h3>
+                        <p class="subtitle">Repo-local memory runtime for coding agents.</p>
+                        <p>An early experiment in durable, inspectable memory for coding agents — a SQLite event vault with Claude Code / Codex projections.</p>
                         <a class="source" href="https://github.com/jack-chaudier/mirage-mcp" target="_blank" rel="noopener noreferrer">jack-chaudier/mirage-mcp ↗</a>
                         <div class="stack">
-                            <span class="chip">MCP</span>
-                            <span class="chip">TypeScript</span>
-                            <span class="chip">LLM&nbsp;agents</span>
-                            <span class="chip">tooling</span>
+                            <span class="chip">Python</span>
+                            <span class="chip">SQLite</span>
+                            <span class="chip">agent&nbsp;memory</span>
+                            <span class="chip">CLI</span>
                         </div>
                     </article>
 
                 </div>
             </section>
 
+            <!-- ========== WRITING ========== -->
+            <section id="writing" aria-labelledby="writing-title">
+                <div class="section-head">
+                    <div class="num">§ 04</div>
+                    <h2 id="writing-title">Writing <em>&amp; case studies</em>.</h2>
+                </div>
+
+                <div class="walkthrough-intro">
+                    <p>
+                        Long-form notes on the systems that taught me the most — the decisions, the
+                        tradeoffs I'd defend in an interview, and what I'd change next time. More
+                        notes live in each project's repo.
+                    </p>
+                </div>
+
+                <div class="writing-grid">
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Trust in AI voice systems</div>
+                        <h3>Designing trust into an AI voice companion</h3>
+                        <p>
+                            Why Tether is built to make AI inspectable, not magical: real-time audio
+                            over a Go WebSocket API, transcript-backed summaries, and the product
+                            decisions that keep distance care from turning into surveillance.
+                        </p>
+                        <a class="source" href="writing/tether/">read case study →</a>
+                    </article>
+
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Forward-deployed · internal tooling</div>
+                        <h3>Replacing spreadsheets with a production data platform</h3>
+                        <p>
+                            Embedding with engineering and ops at Quantum Opus: mapping how teams
+                            actually moved data, then shipping ingestion, validation, entity-linking,
+                            and dashboards that fit the organization instead of fighting it.
+                        </p>
+                        <a class="source" href="writing/quantum-opus/">read case study →</a>
+                    </article>
+
+                    <article class="walkthrough-card">
+                        <div class="walkthrough-kicker mono">Forward-deployed · Palantir Foundry</div>
+                        <h3>Turning an AIS firehose into an analyst's triage queue</h3>
+                        <p>
+                            The engineering reasoning behind the maritime prototype: modeling messy,
+                            high-volume vessel data into an Ontology, validating the stream, and
+                            shipping a triage view an analyst could trust.
+                        </p>
+                        <a class="source" href="writing/maritime/">read case study →</a>
+                    </article>
+                </div>
+            </section>
+
             <!-- ========== STACK ========== -->
             <section id="stack" aria-labelledby="stack-title">
                 <div class="section-head">
-                    <div class="num">§ 04</div>
+                    <div class="num">§ 05</div>
                     <h2 id="stack-title">The <em>stack</em>.</h2>
                 </div>
                 <div class="cloud">
                     <span data-w="3">Python</span>
                     <span data-w="3">TypeScript</span>
                     <span data-w="3">Go</span>
+                    <span data-w="2">C++</span>
+                    <span data-w="1">Rust</span>
+                    <span data-w="1">Swift</span>
+                    <span data-w="1">Lua</span>
                     <span data-w="2">React</span>
                     <span data-w="2">Next.js</span>
                     <span data-w="2">FastAPI</span>
                     <span data-w="2">PostgreSQL</span>
                     <span data-w="1">Docker</span>
-                    <span data-w="1">Swift</span>
-                    <span data-w="1">Rust</span>
-                    <span data-w="1">C++</span>
-                    <span data-w="1">C</span>
-                    <span data-w="1">Lua</span>
-                    <span data-w="1">SQL</span>
-                    <span data-w="2">WebSockets</span>
-                    <span data-w="1">REST</span>
+                    <span data-w="1">WebSockets</span>
                     <span data-w="2">LLM pipelines</span>
                     <span data-w="2">MCP</span>
                     <span data-w="2">multimodal</span>
-                    <span data-w="1">transcription</span>
-                    <span data-w="1">vision</span>
-                    <span data-w="1">prompt iteration</span>
                     <span data-w="2">AWS Bedrock</span>
                     <span data-w="1">Twilio</span>
-                    <span data-w="1">Deepgram</span>
-                    <span data-w="1">Firebase</span>
                     <span data-w="1">Linux</span>
                     <span data-w="1">Git</span>
                     <span data-w="1">kernels</span>
-                    <span data-w="1">allocators</span>
                 </div>
                 <div class="stack-foot">
                     <span><strong>Education</strong> · University of Michigan · B.S.E. Computer Science · Graduated May 2026</span>
@@ -436,7 +535,7 @@
 
             <!-- ========== FOOTER ========== -->
             <footer class="colophon" id="contact">
-                <div class="section-num-footer">§ 05</div>
+                <div class="section-num-footer">§ 06</div>
                 <div>
                     <h3>Say<br/><em>hello</em>.</h3>
                 </div>
@@ -446,8 +545,11 @@
                     <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
                     <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
                     <p><a href="https://x.com/jackchaudier" target="_blank" rel="noopener noreferrer">x.com/jackchaudier</a></p>
-                    <p><a href="tel:+12316759844">+1 (231) 675-9844</a></p>
-                    <p class="availability">Open to 2026 new-grad SWE &amp; AI&#8209;infra roles.</p>
+                    <p><a href="jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
+                    <div class="looking-for">
+                        <span class="caps">Looking for</span>
+                        <p>New-grad software engineering and forward-deployed / customer-facing engineering roles — embedding with a team to turn messy operational workflows into production software. Strongest on AI workflows, internal tools, data platforms, and real-time voice.</p>
+                    </div>
                 </div>
 
                 <div class="fineprint">
