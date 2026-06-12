@@ -2,34 +2,35 @@
 
 Hand-written static portfolio for Jack Gaffney. **Zero build step, zero
 dependencies.** Plain HTML/CSS/JS deployed by GitHub Pages on push to `main`.
-Design: Fraunces (serif) + JetBrains Mono, warm ink on near-black, rust accent.
+Design: minimal editorial — Fraunces (serif) + JetBrains Mono, warm paper,
+rust accent, a single readable column (`.shell`, max-width 880px). No
+decorative animation, no easter eggs — keep it that way. The only JS is the
+theme toggle and the footer year (`script.js`).
 Always theme via CSS variables (`--ink`, `--ink-2`, `--ink-3`, `--accent`,
 `--rule`, `--bg`, `--bg-2`, `--serif`, `--mono`) — never hardcode colors, so
 light + dark both work.
 
 ## Layout of the site
-- `index.html` — the one-page portfolio (hero, now, work, **projects**, **writing**, stack, contact).
+- `index.html` — the one-page portfolio (hero, now, experience, projects, writing, stack, contact).
 - `writing/index.html` — the writing/case-study **hub** (lists all posts).
 - `writing/<slug>/index.html` — one case study / post each (committed, deployed).
 - `style.css`, `script.js` — shared by every page (linked as `/style.css`, `/script.js`).
 - `sitemap.xml` — includes every writing URL.
-- `tools/`, `drafts/` — **gitignored** local authoring toolkit (see `tools/README.md`).
+- `tools/`, `drafts/` — **gitignored** local authoring toolkit (may predate the
+  2026 simplification; verify generated markup against the current templates).
 
 ## Adding a writing post — the workflow
 
 The author (Jack) will usually **paste raw content** or point to a file in
 `drafts/`. Turn it into a polished, on-brand page:
 
-1. **Scaffold** from the template, which guarantees consistent head / nav /
-   footer / terminal / theme:
-   - Easiest: `node tools/new-post.mjs --draft drafts/<file>.md`
-     (or `--title "…" --kicker "…" --dek "…" --stack "…" --links "…"`).
-   - This creates `writing/<slug>/index.html` and **auto-wires** three things
-     via marker comments — do not wire them by hand:
-     - the hub card in `writing/index.html`  (`<!-- writing:cards … -->`)
-     - the `sitemap.xml` entry              (`<!-- writing:urls -->`)
-     - the terminal `read <slug>` target     (`/* writing:read-map */` in `script.js`)
-   - If you build the page without the script, replicate those three insertions.
+1. **Scaffold** by copying an existing post (`writing/tether/index.html` is the
+   reference) — head / nav / footer / theme bootstrap must match. Then wire:
+   - a hub card in `writing/index.html` (`<!-- writing:cards … -->` marker,
+     newest first, using `.walkthrough-card`),
+   - a `sitemap.xml` entry (`<!-- writing:urls -->` marker),
+   - optionally a card on the home page `§ writing` list (curated — only the
+     top few posts; uses `.writing-item`).
 
 2. **Format the body** using the site's case-study components (all already
    styled in `style.css`):
@@ -51,20 +52,13 @@ The author (Jack) will usually **paste raw content** or point to a file in
    detail is private (e.g. the Maritime/Foundry build), write generic engineering
    reasoning and say so. Cross-check technical claims against the actual repo.
 
-5. **Optionally feature on the home page:** the home `index.html` `§ writing`
-   grid (`.writing-grid`) is curated — only add a new card there if it's strong
-   enough to be one of the top few. The hub always lists everything.
-
-6. **Preview, don't deploy:** `python3 -m http.server 8765`, open the page, check
+5. **Preview, don't deploy:** `python3 -m http.server 8765`, open the page, check
    light + dark + mobile. Only commit/push when Jack asks.
 
-## Editing the Featured projects (index.html `§ projects`)
-Featured projects are full-width **`.feature-row`** editorial rows (gutter
-numeral + big serif name + mono meta + subtitle + one-line `.feature-flow` mono
-pipeline + `.feature-foot` with chips and links). The flagship row adds `.lead`.
-Secondary projects live in the `.projects` grid below.
-
-## Easter eggs (script.js)
-Terminal (`/` or `?`), Konami code, matrix rain, portrait clicks, `t` theme
-toggle. Terminal commands live in the `COMMANDS` object; keep `projects`,
-`writing`, and the `read` map in sync with the site when content changes.
+## Editing projects (index.html `§ projects`)
+Every project — featured or secondary — is a `.feature` block: mono
+`.feature-meta` kicker, serif `h3`, optional italic `.subtitle`, a `.desc`
+paragraph, and a `.feature-foot` with `.feature-links` and `.stack` chips.
+The three featured projects come first and link to their case studies; the
+`.subhead` divider introduces the secondary list. Keep descriptions to one
+short paragraph — no decorative visuals.

@@ -33,9 +33,7 @@ Graduated May 2026 — open to new-grad software engineering and forward-deploye
 
 ## About this site
 
-Hand-written HTML, CSS, and JavaScript — zero dependencies. Set in **Fraunces** and **JetBrains Mono** on a warm paper palette with a rust accent. Light and dark modes with a circle-wipe view transition.
-
-There are a few easter eggs. Press `/` or `?` to open the terminal. Try `help`. The Konami code does something. Tapping the portrait a few times does something else.
+Hand-written HTML, CSS, and JavaScript — zero dependencies, zero build step. Set in **Fraunces** and **JetBrains Mono** on a warm paper palette with a rust accent. A single readable column, light and dark modes, and long-form case studies under `/writing/`.
 
 ---
 
