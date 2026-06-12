@@ -769,8 +769,13 @@ footer.colophon .fineprint {
     .foot-grid { grid-template-columns: 1fr; gap: 32px; }
 
     .case-meta .case-links { margin-left: 0; }
-    .case-table { font-size: 14px; }
-    .case-table th, .case-table td { padding: 10px; }
+    .case-table {
+        font-size: 14px;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .case-table th, .case-table td { padding: 10px; min-width: 180px; }
 }
 
 @media (max-width: 520px) {
