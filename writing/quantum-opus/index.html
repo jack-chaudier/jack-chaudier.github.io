@@ -5,17 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
-        <meta
-            name="description"
-            content="Case study: embedding with engineering and operations teams at Quantum Opus to replace fragmented spreadsheet workflows with a production internal data platform — Go/Gin, Next.js, PostgreSQL, Docker."
-        />
+        <meta name="description" content="Case study: embedding with engineering and operations at Quantum Opus to replace fragmented spreadsheets with a Go/Next.js internal data platform — ingestion, validation, entity linking, and dashboards." />
         <meta property="og:title" content="Replacing spreadsheets with a production data platform — Quantum Opus" />
-        <meta property="og:description" content="Forward-deployed internal tooling: mapping how teams actually moved data, then shipping ingestion, validation, entity-linking, and dashboards that fit them." />
+        <meta property="og:description" content="Forward-deployed internal tooling: mapping how teams actually moved data, then shipping ingestion, validation, and dashboards that fit the organization." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://jack-chaudier.github.io/writing/quantum-opus/" />
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:site" content="@Jack_Gaffney_" />
+        <meta name="twitter:creator" content="@Jack_Gaffney_" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -33,7 +32,10 @@
                     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                     root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
                 } catch (error) {
-                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
                 }
             })();
         </script>
@@ -42,156 +44,245 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0,0;1,9..144,300..700,0,0&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Replacing spreadsheets with a production data platform",
+            "description": "Case study: embedding with engineering and operations at Quantum Opus to replace fragmented spreadsheets with a Go/Next.js internal data platform — ingestion, validation, entity linking, and dashboards.",
+            "datePublished": "2026-05-29",
+            "url": "https://jack-chaudier.github.io/writing/quantum-opus/",
+            "author": { "@type": "Person", "name": "Jack Gaffney", "url": "https://jack-chaudier.github.io/" }
+        }
+        </script>
     </head>
     <body>
         <a href="#main" class="skip-link">Skip to main content</a>
-        <div class="shell" id="main">
+
+        <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="1.6"/><path d="m3.5 6.3 8.5 6.5 8.5-6.5"/></g></symbol>
+            <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.5v-1.77c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .25.21.61.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.68l-5.21-6.82-5.97 6.82H1.65l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></symbol>
+            <symbol id="i-substack" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 8.24H1.46V5.4h21.08v2.84ZM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46ZM22.54 0H1.46v2.84h21.08V0Z"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.9 2.8H6.8a1.6 1.6 0 0 0-1.6 1.6v15.2a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6V7.4Z"/><path d="M13.8 2.9v4.6h4.7"/><path d="M8.6 13.2h6.8M8.6 16.6h6.8"/></g></symbol>
+            <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 16.4 16.4 7.6"/><path d="M9.4 7.6h7v7"/></g></symbol>
+            <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M10.2 8.6 15.6 12l-5.4 3.4Z"/></g></symbol>
+            <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.8h14.8v16.4H4.6Z"/><path d="M7.8 8h8.4M7.8 11.6h8.4M7.8 15.2h5.2"/></g></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 1.8v2.6M12 19.6v2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M1.8 12h2.6M19.6 12h2.6M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9"/></g></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></symbol>
+        </svg>
+
+        <div class="shell">
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
-                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
+                    <a href="/"><b>Jack Gaffney</b></a>
+                    <span class="crumb">/ writing</span>
                 </div>
-                <div class="topnav mono">
+                <div class="topnav">
                     <a href="/">home</a>
-                    <a href="/writing/">writing</a>
+                    <a href="/#work">work</a>
+                    <a href="/writing/" aria-current="page">writing</a>
                     <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
-                        <span class="knob" aria-hidden="true"></span>
+                        <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                        <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
                     </button>
                 </div>
             </nav>
 
-            <article class="case">
-                <a class="case-back" href="/writing/">← all case studies</a>
-                <span class="case-kicker">Forward-deployed · internal tooling</span>
-                <h1>Replacing spreadsheets with a <em>production data platform</em></h1>
-                <p class="dek">
-                    My summer at Quantum Opus was the most forward-deployed work I've done: sitting with
-                    engineering and operations teams, learning how data actually moved between them, and
-                    replacing a tangle of spreadsheets with a real internal platform — one shaped by their
-                    feedback, not my assumptions.
-                </p>
-                <div class="case-meta">
-                    <span>Full-Stack SWE Intern · Summer 2025 · Plymouth, MI</span>
-                    <span>Go/Gin · Next.js · PostgreSQL · Docker Compose · Python pipelines</span>
-                    <span class="case-links">
-                        <a href="/#work">work history ↑</a>
-                    </span>
-                </div>
+            <main id="main">
+                <article class="doc">
+                <p class="doc-crumb"><a href="/writing/">← Writing</a> <span aria-hidden="true">·</span> Case study</p>
 
-                <h2>The problem</h2>
-                <p>
-                    Engineering and operations were running on fragmented spreadsheets. Data was copied
-                    between teams by hand, the same records were reconciled in multiple places, and "the
-                    source of truth" depended on who you asked. The cost wasn't just wasted time — it was
-                    the quiet errors that creep in whenever humans are the integration layer.
-                </p>
-
-                <h2>The forward-deployed part</h2>
-                <p>
-                    There was no clean spec. The real requirements lived in people's heads and in the
-                    shape of the spreadsheets they'd built to cope. So the first job wasn't code — it was
-                    <strong>sitting with the people doing the work</strong>, watching how they actually moved
-                    data, and translating those messy operational processes into scoped requirements. Then I
-                    built against that, put it in front of them, and let real feedback redraw the plan when my
-                    first read was wrong.
-                </p>
-
-                <h2>What I built</h2>
-                <p>
-                    A full-stack internal data platform: a Go/Gin backend with a Next.js dashboard,
-                    PostgreSQL for storage, and Docker Compose to make the whole thing reproducible. The
-                    backend exposed modular REST endpoints that Python data-generation pipelines could
-                    consume independently, and I shipped automated ingestion, validation, and dynamic entity
-                    linking so data quality stopped depending on manual cleanup.
-                </p>
-
-                <h2>Decisions &amp; tradeoffs</h2>
-                <table class="case-table">
-                    <thead>
-                        <tr><th>Decision</th><th>Why</th><th>What I traded away</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Modular REST endpoints, consumed independently by the Python pipelines</td>
-                            <td>It cut redundant cross-service data movement and let each pipeline pull exactly what it needed, so integrations stayed flexible as requirements shifted.</td>
-                            <td>More endpoints to design and keep coherent than a single monolithic interface.</td>
-                        </tr>
-                        <tr>
-                            <td>Automated ingestion + validation + dynamic entity linking</td>
-                            <td>The whole point was to remove manual cleanup loops; validating and linking entities at ingest meant the dashboard could be trusted.</td>
-                            <td>Real upfront complexity in the pipeline versus just importing rows and hoping.</td>
-                        </tr>
-                        <tr>
-                            <td>Scope from stakeholder conversations, then iterate from real feedback</td>
-                            <td>The accurate spec only existed in how the team worked; building, demoing, and revising surfaced the edge cases a requirements doc never would.</td>
-                            <td>A slower start and a lot of conversations before the first line of durable code.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>What was hard</h2>
-                <div class="case-callout">
-                    <span class="caps">The messy middle</span>
-                    <p>
-                        The code was rarely the hard part. The hard part was ambiguity — undocumented
-                        exceptions, two teams using the same word for different things, processes that
-                        existed only as habits. Getting that wrong early meant re-scoping later, so I learned
-                        to ship a thin slice to real users fast and treat their reaction as the actual
-                        requirements gathering.
+                <header class="doc-head">
+                    <p class="doc-kind">Case study · Forward-deployed · internal tooling</p>
+                    <h1>Replacing spreadsheets with a <em>production data platform</em></h1>
+                    <p class="doc-byline">Jack Gaffney</p>
+                    <p class="doc-dateline">
+                        May 2026
+                        <span class="sep" aria-hidden="true">·</span>
+                        3 min read
+                        <span class="sep" aria-hidden="true">·</span>
+                        Quantum Opus, Summer 2025
                     </p>
-                </div>
+                </header>
 
-                <h2>What I'd do differently</h2>
-                <div class="case-callout">
-                    <span class="caps">Next time</span>
+                <section class="abstract">
+                    <h2 class="abstract-title">Abstract</h2>
                     <p>
-                        Invest in validation and a little observability even earlier — the moments that cost
-                        the most trust were silent data-quality issues, and catching them at the boundary is
-                        cheaper than explaining them after. And I'd push to put the very first rough version
-                        in front of one team sooner, before generalizing across both.
+                        My summer at Quantum Opus was the most forward-deployed work I've done: sitting with
+                        engineering and operations teams, learning how data actually moved between them, and
+                        replacing a tangle of spreadsheets with a real internal platform — one shaped by
+                        their feedback rather than my assumptions. The engineering was the easy half.
                     </p>
+                    <p class="keywords">
+                        <b>Stack</b> Go/Gin · Next.js · PostgreSQL · Docker Compose · Python pipelines
+                    </p>
+                </section>
+
+                <nav class="doc-toc" aria-label="Contents">
+                    <span class="caps">Contents</span>
+                    <ol>
+                        <li><a href="#problem">The problem</a></li>
+                        <li><a href="#forward-deployed">The forward-deployed part</a></li>
+                        <li><a href="#built">What I built</a></li>
+                        <li><a href="#decisions">Decisions &amp; tradeoffs</a></li>
+                        <li><a href="#hard">What was hard</a></li>
+                        <li><a href="#next">What I'd do differently</a></li>
+                    </ol>
+                </nav>
+
+                <div class="doc-body">
+                    <section id="problem">
+                        <h2>The problem</h2>
+                        <p>
+                            Engineering and operations were running on fragmented spreadsheets. Data was
+                            copied between teams by hand, the same records were reconciled in multiple
+                            places, and "the source of truth" depended on who you asked. The cost wasn't
+                            just wasted time — it was the quiet errors that creep in whenever humans are the
+                            integration layer.
+                        </p>
+                    </section>
+
+                    <section id="forward-deployed">
+                        <h2>The forward-deployed part</h2>
+                        <p>
+                            There was no clean spec. The real requirements lived in people's heads and in the
+                            shape of the spreadsheets they'd built to cope. So the first job wasn't code — it
+                            was <strong>sitting with the people doing the work</strong>, watching how they
+                            actually moved data, and translating those messy operational processes into
+                            scoped requirements. Then I built against that, put it in front of them, and let
+                            real feedback redraw the plan when my first read was wrong.
+                        </p>
+                    </section>
+
+                    <section id="built">
+                        <h2>What I built</h2>
+                        <p>
+                            A full-stack internal data platform: a Go/Gin backend with a Next.js dashboard,
+                            PostgreSQL for storage, and Docker Compose to make the whole thing reproducible.
+                            The backend exposed modular REST endpoints that Python data-generation pipelines
+                            could consume independently, and I shipped automated ingestion, validation, and
+                            dynamic entity linking so data quality stopped depending on manual cleanup.
+                        </p>
+                        <figure class="figure">
+                            <div class="flow">
+                                <div class="flow-node">Instrument output · lab process · legacy spreadsheets</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">Python pipelines → modular Go/Gin REST endpoints</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">Ingest · validate · dynamic entity linking</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">PostgreSQL — one source of truth</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">Next.js dashboards for engineering &amp; ops</div>
+                            </div>
+                            <figcaption>
+                                The shape that replaced hand-copying. The important boundary is the third
+                                box: validation and entity linking happen once, at ingest, so every
+                                downstream view inherits clean data instead of re-cleaning it.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section id="decisions">
+                        <h2>Decisions &amp; tradeoffs</h2>
+                        <table class="tabular">
+                            <caption>Three decisions that mattered more than the framework choices.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Decision</th>
+                                    <th scope="col">Why</th>
+                                    <th scope="col">What I traded away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Decision">Modular REST endpoints, consumed independently by the Python pipelines</td>
+                                    <td data-label="Why">It cut redundant cross-service data movement and let each pipeline pull exactly what it needed, so integrations stayed flexible as requirements shifted.</td>
+                                    <td data-label="Traded away">More endpoints to design and keep coherent than a single monolithic interface.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Automated ingestion, validation, and dynamic entity linking</td>
+                                    <td data-label="Why">The whole point was to remove manual cleanup loops; validating and linking entities at ingest meant the dashboard could be trusted.</td>
+                                    <td data-label="Traded away">Real upfront complexity in the pipeline versus just importing rows and hoping.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Scope from stakeholder conversations, then iterate from real feedback</td>
+                                    <td data-label="Why">The accurate spec only existed in how the team worked; building, demoing, and revising surfaced the edge cases a requirements doc never would.</td>
+                                    <td data-label="Traded away">A slower start, and a lot of conversations before the first line of durable code.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="hard">
+                        <h2>What was hard</h2>
+                        <div class="env">
+                            <p>
+                                <span class="env-label">The messy middle.</span>
+                                The code was rarely the hard part. The hard part was ambiguity —
+                                undocumented exceptions, two teams using the same word for different things,
+                                processes that existed only as habits. Getting that wrong early meant
+                                re-scoping later, so I learned to ship a thin slice to real users fast and
+                                treat their reaction as the actual requirements gathering.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="next">
+                        <h2>What I'd do differently</h2>
+                        <div class="env">
+                            <p>
+                                <span class="env-label">Next time.</span>
+                                Invest in validation and a little observability even earlier — the moments
+                                that cost the most trust were silent data-quality issues, and catching them
+                                at the boundary is cheaper than explaining them after. And I'd push to put
+                                the very first rough version in front of one team sooner, before
+                                generalizing across both.
+                            </p>
+                        </div>
+                    </section>
                 </div>
 
-                <p class="case-note">
-                    Internal/proprietary codebase, so this is the engineering reasoning rather than the code.
-                    The work and stack are summarized on my résumé.
-                </p>
-
-                <div class="case-nextprev">
-                    <a href="/writing/tether/">← previous: Tether</a>
-                    <a href="/writing/maritime/">next: Maritime Intelligence →</a>
-                </div>
-            </article>
+                <footer>
+                    <p class="note">
+                        Internal and proprietary codebase, so this is the engineering reasoning rather than
+                        the code. The origin story of this project is in
+                        <a href="/writing/deck-building-to-dev-building/">Deck building to dev building</a>.
+                    </p>
+                    <nav class="doc-nav" aria-label="More writing">
+                        <a href="/writing/tether/">← Designing trust into an AI voice companion</a>
+                        <a href="/writing/maritime/">Turning an AIS firehose into a triage queue →</a>
+                    </nav>
+                </footer>
+                </article>
+            </main>
 
             <footer class="colophon" id="contact">
-                <div class="foot-grid">
-                    <div>
-                        <h2>Contact</h2>
-                        <p class="looking-for">
-                            Looking for new-grad software engineering and forward-deployed /
-                            customer-facing engineering roles. Strongest on AI workflows, internal
-                            tools, data platforms, and real-time voice.
-                        </p>
-                    </div>
-                    <div class="col">
-                        <span class="caps">Elsewhere</span>
-                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
-                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
-                        <p><a href="/">← back to portfolio</a></p>
-                    </div>
+                <h2>Contact</h2>
+                <p class="looking-for">
+                    Open to new-grad software engineering and forward-deployed / customer-facing
+                    engineering roles. Strongest on AI workflows, internal tools, data platforms, and
+                    real-time voice.
+                </p>
+                <div class="linkrow">
+                    <a class="ilink" href="mailto:jackchaudier@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg><span>jackchaudier@gmail.com</span></a>
+                    <a class="ilink" href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>github.com/jack-chaudier</span></a>
+                    <a class="ilink" href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>in/jackgaffney23</span></a>
+                    <a class="ilink" href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg><span>@Jack_Gaffney_</span></a>
+                    <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>jackgaffney0.substack.com</span></a>
+                    <a class="ilink" href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-file" /></svg><span>résumé.pdf</span></a>
                 </div>
-                <div class="fineprint">
-                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
-                </div>
+                <p class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · Ann Arbor, Michigan</span>
+                    <span><a href="/writing/">← all writing</a></span>
+                </p>
             </footer>
         </div>
 

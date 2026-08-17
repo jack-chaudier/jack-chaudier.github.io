@@ -5,17 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
-        <meta
-            name="description"
-            content="Case study: a Palantir Foundry maritime intelligence prototype. Modeling a high-volume AIS vessel stream into an Ontology and shipping a map-based analyst triage workflow in Workshop."
-        />
-        <meta property="og:title" content="Turning an AIS firehose into an analyst's triage queue — Maritime Intelligence" />
-        <meta property="og:description" content="Forward-deployed engineering reasoning: validating a noisy live vessel stream, modeling it as an Ontology of vessels and anomalies, and building triage analysts can trust." />
+        <meta name="description" content="Case study: a Palantir Foundry prototype that models a live AIS vessel stream into an Ontology of vessels and anomaly events, then surfaces map-based triage an analyst can trust." />
+        <meta property="og:title" content="Turning an AIS firehose into an analyst's triage queue" />
+        <meta property="og:description" content="Modeling messy, high-volume vessel data into a Foundry Ontology, validating the stream with PySpark, and shipping a triage view instead of a dashboard." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://jack-chaudier.github.io/writing/maritime/" />
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:site" content="@Jack_Gaffney_" />
+        <meta name="twitter:creator" content="@Jack_Gaffney_" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -33,7 +32,10 @@
                     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                     root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
                 } catch (error) {
-                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
                 }
             })();
         </script>
@@ -42,152 +44,231 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0,0;1,9..144,300..700,0,0&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Turning an AIS firehose into an analyst's triage queue",
+            "description": "Case study: a Palantir Foundry prototype that models a live AIS vessel stream into an Ontology of vessels and anomaly events, then surfaces map-based triage an analyst can trust.",
+            "datePublished": "2026-05-29",
+            "url": "https://jack-chaudier.github.io/writing/maritime/",
+            "author": { "@type": "Person", "name": "Jack Gaffney", "url": "https://jack-chaudier.github.io/" }
+        }
+        </script>
     </head>
     <body>
         <a href="#main" class="skip-link">Skip to main content</a>
-        <div class="shell" id="main">
+
+        <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="1.6"/><path d="m3.5 6.3 8.5 6.5 8.5-6.5"/></g></symbol>
+            <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.5v-1.77c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .25.21.61.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.68l-5.21-6.82-5.97 6.82H1.65l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></symbol>
+            <symbol id="i-substack" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 8.24H1.46V5.4h21.08v2.84ZM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46ZM22.54 0H1.46v2.84h21.08V0Z"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.9 2.8H6.8a1.6 1.6 0 0 0-1.6 1.6v15.2a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6V7.4Z"/><path d="M13.8 2.9v4.6h4.7"/><path d="M8.6 13.2h6.8M8.6 16.6h6.8"/></g></symbol>
+            <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 16.4 16.4 7.6"/><path d="M9.4 7.6h7v7"/></g></symbol>
+            <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M10.2 8.6 15.6 12l-5.4 3.4Z"/></g></symbol>
+            <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.8h14.8v16.4H4.6Z"/><path d="M7.8 8h8.4M7.8 11.6h8.4M7.8 15.2h5.2"/></g></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 1.8v2.6M12 19.6v2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M1.8 12h2.6M19.6 12h2.6M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9"/></g></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></symbol>
+        </svg>
+
+        <div class="shell">
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
-                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
+                    <a href="/"><b>Jack Gaffney</b></a>
+                    <span class="crumb">/ writing</span>
                 </div>
-                <div class="topnav mono">
+                <div class="topnav">
                     <a href="/">home</a>
-                    <a href="/writing/">writing</a>
+                    <a href="/#work">work</a>
+                    <a href="/writing/" aria-current="page">writing</a>
                     <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
-                        <span class="knob" aria-hidden="true"></span>
+                        <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                        <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
                     </button>
                 </div>
             </nav>
 
-            <article class="case">
-                <a class="case-back" href="/writing/">← all case studies</a>
-                <span class="case-kicker">Forward-deployed · Palantir Foundry</span>
-                <h1>Turning an AIS firehose into an <em>analyst's triage queue</em></h1>
-                <p class="dek">
-                    A Palantir Foundry prototype that takes a noisy, high-volume stream of vessel
-                    positions and turns it into something an analyst can actually work: a short
-                    queue of "look at this" instead of an ocean of dots.
-                </p>
-                <div class="case-meta">
-                    <span>Foundry prototype · 2025</span>
-                    <span>Palantir Foundry · Python · PySpark · Ontology · Workshop</span>
-                </div>
+            <main id="main">
+                <article class="doc">
+                <p class="doc-crumb"><a href="/writing/">← Writing</a> <span aria-hidden="true">·</span> Case study</p>
 
-                <div class="case-callout">
-                    <span class="caps">Note on scope</span>
-                    <p>
-                        This was a private build in a Foundry environment. What follows is the engineering
-                        reasoning and architecture — the parts I can speak to generally — with environment
-                        and data specifics deliberately left out.
+                <header class="doc-head">
+                    <p class="doc-kind">Case study · Forward-deployed · Palantir Foundry</p>
+                    <h1>Turning an AIS firehose into an <em>analyst's triage queue</em></h1>
+                    <p class="doc-byline">Jack Gaffney</p>
+                    <p class="doc-dateline">
+                        May 2026
+                        <span class="sep" aria-hidden="true">·</span>
+                        3 min read
+                        <span class="sep" aria-hidden="true">·</span>
+                        Foundry prototype
                     </p>
-                </div>
+                </header>
 
-                <h2>The problem</h2>
-                <p>
-                    AIS is the automatic identification signal that ships broadcast — position, heading,
-                    speed, identity. In aggregate it's a firehose: high volume, irregular, and messy, with
-                    dropped fields, duplicate messages, and the occasional impossible coordinate. An analyst
-                    staring at every vessel learns nothing. The job was to compress that stream into
-                    <strong>the handful of events worth a human's attention.</strong>
-                </p>
-
-                <h2>Architecture</h2>
-                <p>
-                    Ingest the live stream, parse and validate it with PySpark, model the cleaned world as an
-                    Ontology of vessels and anomaly events, then surface that to an analyst as map-based
-                    triage in Workshop. The Ontology is the hinge: it turns rows into domain objects an
-                    analyst can navigate and an application can build on.
-                </p>
-                <figure class="architecture-diagram" aria-label="Maritime pipeline diagram">
-                    <div class="arch-node">Live AIS stream · high-volume vessel messages</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">PySpark parse + validate · drop / flag bad records</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Ontology · Vessel + AnomalyEvent objects</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Workshop · map-based analyst triage</div>
-                </figure>
-
-                <h2>Decisions &amp; tradeoffs</h2>
-                <table class="case-table">
-                    <thead>
-                        <tr><th>Decision</th><th>Why</th><th>What I traded away</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Model the domain as an Ontology of Vessel / AnomalyEvent objects, not raw tables</td>
-                            <td>Analysts think in vessels and incidents, not joins. Objects make a vessel's track and its anomalies first-class, and give the Workshop app something stable to build on.</td>
-                            <td>More modeling work upfront than dumping the stream into flat tables.</td>
-                        </tr>
-                        <tr>
-                            <td>Validate and normalize aggressively at ingest with PySpark</td>
-                            <td>The stream is genuinely dirty; if bad coordinates and duplicates reach the Ontology, every downstream triage decision inherits the noise. Better to drop or flag at the boundary.</td>
-                            <td>Risk of discarding edge-case-but-real signals — so questionable records get flagged, not silently dropped.</td>
-                        </tr>
-                        <tr>
-                            <td>Ship a triage queue in Workshop, not a generic dashboard</td>
-                            <td>The deliverable is a workflow, not a chart. Matching how an analyst actually triages — surface, inspect, decide — is what makes it usable.</td>
-                            <td>Less general-purpose than an open-ended explorer; tuned to one job.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>What was hard</h2>
-                <div class="case-callout">
-                    <span class="caps">Signal vs. noise</span>
+                <section class="abstract">
+                    <h2 class="abstract-title">Abstract</h2>
                     <p>
-                        The interesting tension is that "anomaly" is a judgment call. Too sensitive and the
-                        triage queue is as useless as the raw firehose; too strict and you miss the thing
-                        that mattered. Getting validation and anomaly logic to where the queue was short
-                        enough to act on and honest about what it flagged — that was the real work, far
-                        more than wiring the pipeline together.
+                        A Palantir Foundry prototype that takes a noisy, high-volume stream of vessel
+                        positions and turns it into something an analyst can actually work: a short queue of
+                        "look at this" instead of an ocean of dots. The interesting problem is not the
+                        pipeline — it's deciding what counts as worth a human's attention.
                     </p>
-                </div>
+                    <p class="keywords">
+                        <b>Stack</b> Palantir Foundry · Python · PySpark · Ontology · Workshop
+                    </p>
+                </section>
 
-                <h2>Why I built it</h2>
-                <p>
-                    It has the shape of the work I want to do: a messy real-world domain, a high-volume
-                    data problem, and a person who has to make decisions from the result. Modeling the world
-                    into objects someone can act on — and being honest about the data's limits — is exactly
-                    the judgment forward-deployed engineering runs on.
-                </p>
+                <nav class="doc-toc" aria-label="Contents">
+                    <span class="caps">Contents</span>
+                    <ol>
+                        <li><a href="#problem">The problem</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#decisions">Decisions &amp; tradeoffs</a></li>
+                        <li><a href="#hard">What was hard</a></li>
+                        <li><a href="#why">Why I built it</a></li>
+                    </ol>
+                </nav>
 
-                <div class="case-nextprev">
-                    <a href="/writing/quantum-opus/">← previous: Quantum Opus</a>
-                    <a href="/writing/">all case studies →</a>
-                </div>
-            </article>
-
-            <footer class="colophon" id="contact">
-                <div class="foot-grid">
-                    <div>
-                        <h2>Contact</h2>
-                        <p class="looking-for">
-                            Looking for new-grad software engineering and forward-deployed /
-                            customer-facing engineering roles. Strongest on AI workflows, internal
-                            tools, data platforms, and real-time voice.
+                <div class="doc-body">
+                    <div class="env">
+                        <p>
+                            <span class="env-label">Note on scope.</span>
+                            This was a private build in a Foundry environment. What follows is the
+                            engineering reasoning and architecture — the parts I can speak to generally —
+                            with environment and data specifics deliberately left out.
                         </p>
                     </div>
-                    <div class="col">
-                        <span class="caps">Elsewhere</span>
-                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
-                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
-                        <p><a href="/">← back to portfolio</a></p>
-                    </div>
+
+                    <section id="problem">
+                        <h2>The problem</h2>
+                        <p>
+                            AIS is the automatic identification signal that ships broadcast — position,
+                            heading, speed, identity. In aggregate it's a firehose: high volume, irregular,
+                            and messy, with dropped fields, duplicate messages, and the occasional
+                            impossible coordinate. An analyst staring at every vessel learns nothing. The
+                            job was to compress that stream into
+                            <strong>the handful of events worth a human's attention.</strong>
+                        </p>
+                    </section>
+
+                    <section id="architecture">
+                        <h2>Architecture</h2>
+                        <p>
+                            Ingest the live stream, parse and validate it with PySpark, model the cleaned
+                            world as an Ontology of vessels and anomaly events, then surface that to an
+                            analyst as map-based triage in Workshop. The Ontology is the hinge: it turns
+                            rows into domain objects an analyst can navigate and an application can build
+                            on.
+                        </p>
+                        <figure class="figure">
+                            <div class="flow">
+                                <div class="flow-node">Live AIS stream · high-volume vessel messages</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">PySpark parse + validate · drop or flag bad records</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">Ontology · Vessel and AnomalyEvent objects</div>
+                                <div class="flow-arrow" aria-hidden="true"></div>
+                                <div class="flow-node">Workshop · map-based analyst triage</div>
+                            </div>
+                            <figcaption>
+                                Rows become objects at the third step, and that's the step everything else
+                                depends on: an analyst navigates vessels and incidents, not joins.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section id="decisions">
+                        <h2>Decisions &amp; tradeoffs</h2>
+                        <table class="tabular">
+                            <caption>Modeling and product decisions, and their costs.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Decision</th>
+                                    <th scope="col">Why</th>
+                                    <th scope="col">What I traded away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Decision">Model the domain as an Ontology of Vessel and AnomalyEvent objects, not raw tables</td>
+                                    <td data-label="Why">Analysts think in vessels and incidents, not joins. Objects make a vessel's track and its anomalies first-class, and give the Workshop app something stable to build on.</td>
+                                    <td data-label="Traded away">More modeling work upfront than dumping the stream into flat tables.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Validate and normalize aggressively at ingest with PySpark</td>
+                                    <td data-label="Why">The stream is genuinely dirty; if bad coordinates and duplicates reach the Ontology, every downstream triage decision inherits the noise. Better to drop or flag at the boundary.</td>
+                                    <td data-label="Traded away">Risk of discarding edge-case-but-real signals — so questionable records get flagged, not silently dropped.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Ship a triage queue in Workshop, not a generic dashboard</td>
+                                    <td data-label="Why">The deliverable is a workflow, not a chart. Matching how an analyst actually triages — surface, inspect, decide — is what makes it usable.</td>
+                                    <td data-label="Traded away">Less general-purpose than an open-ended explorer; tuned to one job.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="hard">
+                        <h2>What was hard</h2>
+                        <div class="env">
+                            <p>
+                                <span class="env-label">Signal versus noise.</span>
+                                The interesting tension is that "anomaly" is a judgment call. Too sensitive
+                                and the triage queue is as useless as the raw firehose; too strict and you
+                                miss the thing that mattered. Getting validation and anomaly logic to where
+                                the queue was short enough to act on and honest about what it flagged — that
+                                was the real work, far more than wiring the pipeline together.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="why">
+                        <h2>Why I built it</h2>
+                        <p>
+                            It has the shape of the work I want to do: a messy real-world domain, a
+                            high-volume data problem, and a person who has to make decisions from the
+                            result. Modeling the world into objects someone can act on — and being honest
+                            about the data's limits — is exactly the judgment forward-deployed engineering
+                            runs on.
+                        </p>
+                    </section>
                 </div>
-                <div class="fineprint">
-                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
+
+                <footer>
+                    <nav class="doc-nav" aria-label="More writing">
+                        <a href="/writing/quantum-opus/">← Replacing spreadsheets with a data platform</a>
+                        <a href="/writing/">All writing →</a>
+                    </nav>
+                </footer>
+                </article>
+            </main>
+
+            <footer class="colophon" id="contact">
+                <h2>Contact</h2>
+                <p class="looking-for">
+                    Open to new-grad software engineering and forward-deployed / customer-facing
+                    engineering roles. Strongest on AI workflows, internal tools, data platforms, and
+                    real-time voice.
+                </p>
+                <div class="linkrow">
+                    <a class="ilink" href="mailto:jackchaudier@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg><span>jackchaudier@gmail.com</span></a>
+                    <a class="ilink" href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>github.com/jack-chaudier</span></a>
+                    <a class="ilink" href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>in/jackgaffney23</span></a>
+                    <a class="ilink" href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg><span>@Jack_Gaffney_</span></a>
+                    <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>jackgaffney0.substack.com</span></a>
+                    <a class="ilink" href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-file" /></svg><span>résumé.pdf</span></a>
                 </div>
+                <p class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · Ann Arbor, Michigan</span>
+                    <span><a href="/writing/">← all writing</a></span>
+                </p>
             </footer>
         </div>
 

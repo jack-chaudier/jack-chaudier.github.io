@@ -5,10 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
-        <meta
-            name="description"
-            content="Case study: designing trust into Tether, a caregiver-controlled AI voice companion. Real-time audio over a Go WebSocket API into Amazon Nova Sonic, with reviewable AI summaries instead of black-box monitoring."
-        />
+        <meta name="description" content="Case study: designing trust into Tether, a caregiver-controlled AI voice companion. Real-time audio over a Go WebSocket API into Amazon Nova Sonic, with reviewable AI summaries instead of black-box monitoring." />
         <meta property="og:title" content="Designing trust into an AI voice companion — Tether" />
         <meta property="og:description" content="Real-time voice over a Go WebSocket API into Bedrock Nova Sonic, transcript-backed summaries, and the product decisions behind keeping AI inspectable." />
         <meta property="og:type" content="article" />
@@ -16,6 +13,8 @@
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:site" content="@Jack_Gaffney_" />
+        <meta name="twitter:creator" content="@Jack_Gaffney_" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -33,7 +32,10 @@
                     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                     root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
                 } catch (error) {
-                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                    root.setAttribute(
+                        "data-theme",
+                        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+                    );
                 }
             })();
         </script>
@@ -42,175 +44,290 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0,0;1,9..144,300..700,0,0&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Designing trust into an AI voice companion",
+            "description": "Case study: designing trust into Tether, a caregiver-controlled AI voice companion. Real-time audio over a Go WebSocket API into Amazon Nova Sonic, with reviewable AI summaries instead of black-box monitoring.",
+            "datePublished": "2026-05-29",
+            "url": "https://jack-chaudier.github.io/writing/tether/",
+            "author": { "@type": "Person", "name": "Jack Gaffney", "url": "https://jack-chaudier.github.io/" }
+        }
+        </script>
     </head>
     <body>
         <a href="#main" class="skip-link">Skip to main content</a>
-        <div class="shell" id="main">
+
+        <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="1.6"/><path d="m3.5 6.3 8.5 6.5 8.5-6.5"/></g></symbol>
+            <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.5v-1.77c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .25.21.61.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.68l-5.21-6.82-5.97 6.82H1.65l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></symbol>
+            <symbol id="i-substack" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 8.24H1.46V5.4h21.08v2.84ZM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46ZM22.54 0H1.46v2.84h21.08V0Z"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.9 2.8H6.8a1.6 1.6 0 0 0-1.6 1.6v15.2a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6V7.4Z"/><path d="M13.8 2.9v4.6h4.7"/><path d="M8.6 13.2h6.8M8.6 16.6h6.8"/></g></symbol>
+            <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 16.4 16.4 7.6"/><path d="M9.4 7.6h7v7"/></g></symbol>
+            <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M10.2 8.6 15.6 12l-5.4 3.4Z"/></g></symbol>
+            <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.8h14.8v16.4H4.6Z"/><path d="M7.8 8h8.4M7.8 11.6h8.4M7.8 15.2h5.2"/></g></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 1.8v2.6M12 19.6v2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M1.8 12h2.6M19.6 12h2.6M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9"/></g></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></symbol>
+        </svg>
+
+        <div class="shell">
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
-                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
+                    <a href="/"><b>Jack Gaffney</b></a>
+                    <span class="crumb">/ writing</span>
                 </div>
-                <div class="topnav mono">
+                <div class="topnav">
                     <a href="/">home</a>
-                    <a href="/writing/">writing</a>
+                    <a href="/#work">work</a>
+                    <a href="/writing/" aria-current="page">writing</a>
                     <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
-                        <span class="knob" aria-hidden="true"></span>
+                        <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                        <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
                     </button>
                 </div>
             </nav>
 
-            <article class="case">
-                <a class="case-back" href="/writing/">← all case studies</a>
-                <span class="case-kicker">Trust in AI voice systems</span>
-                <h1>Designing trust into an <em>AI voice companion</em></h1>
-                <p class="dek">
-                    Tether places gentle, structured check-in calls with an aging parent, then turns
-                    each conversation into something a caregiver can actually act on. The hard part was
-                    never the audio — it was making the AI inspectable enough that a family would trust it.
-                </p>
-                <div class="case-meta">
-                    <span>Personal project · 2026</span>
-                    <span>Go · React/TS · WebSockets · AWS Bedrock (Nova Sonic / Nova Lite) · PostgreSQL · Docker</span>
-                    <span class="case-links">
-                        <a href="https://tetherai.vercel.app/" target="_blank" rel="noopener noreferrer">live ↗</a>
-                    </span>
-                </div>
+            <main id="main">
+                <article class="doc">
+                <p class="doc-crumb"><a href="/writing/">← Writing</a> <span aria-hidden="true">·</span> Case study</p>
 
-                <h2>The problem</h2>
-                <p>
-                    Caring for a parent from a distance generates a low, constant hum of anxiety: Are they
-                    eating? Did they sleep? Is something off today? The usual answers are a flurry of
-                    repeated phone calls or, worse, always-on monitoring that treats an adult like a
-                    patient. I wanted the opposite — something that helps a family <strong>follow up with
-                    more humanity, not automate suspicion.</strong>
-                </p>
-
-                <h2>Who it's for</h2>
-                <p>
-                    Two users with different needs. The older adult deserves a warm, low-pressure
-                    conversation and real control over the interaction. The caregiver needs a
-                    plain-language summary they can read in thirty seconds and one concrete follow-up —
-                    not a wall of transcript, and definitely not a dashboard that feels clinical.
-                </p>
-
-                <h2>Architecture</h2>
-                <p>
-                    A browser captures mono PCM16 microphone audio and streams it over a WebSocket to a Go
-                    API, which forwards it into Amazon Bedrock's bidirectional streaming runtime with
-                    Nova Sonic — one stream that handles speech-in and speech-out. Transcript, interruption,
-                    and usage events are relayed back to the browser and persisted to PostgreSQL. After the
-                    call, a separate analysis worker (Bedrock Converse with Nova Lite) builds a structured
-                    context envelope and produces the caregiver-facing output.
-                </p>
-                <figure class="architecture-diagram" aria-label="Tether architecture diagram">
-                    <div class="arch-node">Browser voice session · PCM16 over WebSocket</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Go WebSocket API</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Bedrock Nova Sonic · bidirectional speech-to-speech</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Transcript · interruption · usage events → PostgreSQL</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Analysis worker · Bedrock Converse (Nova Lite)</div>
-                    <div class="arch-arrow" aria-hidden="true">↓</div>
-                    <div class="arch-node">Caregiver dashboard · summary · risk flags · next call</div>
-                </figure>
-
-                <h2>Decisions &amp; tradeoffs</h2>
-                <table class="case-table">
-                    <thead>
-                        <tr><th>Decision</th><th>Why</th><th>What I traded away</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Nova Sonic speech-to-speech</td>
-                            <td>One bidirectional stream is the listener, the reasoner, and the voice at once — fewer hops means lower latency and far less glue than stitching separate STT, LLM, and TTS services.</td>
-                            <td>Less control over each stage and a hard dependency on one provider's streaming runtime.</td>
-                        </tr>
-                        <tr>
-                            <td>Go API forwarding raw PCM over WebSockets</td>
-                            <td>The audio path needed to push microphone frames straight into Bedrock and relay events back with predictable backpressure; Go's concurrency made the per-session lifecycle clean.</td>
-                            <td>More plumbing to own than a managed real-time SDK would have given me.</td>
-                        </tr>
-                        <tr>
-                            <td>Markdown prompt templates synced to Postgres at startup, plus a separate prompt lab</td>
-                            <td>Call prompts (check-in, reminiscence) carry patient profile, people, memory bank, and safety context — and I wanted to iterate on them without a redeploy.</td>
-                            <td>A bit of startup-sync machinery and a second small app to maintain.</td>
-                        </tr>
-                        <tr>
-                            <td>Prompt-enforced JSON + a repair pass + backend validation</td>
-                            <td>Got structured analyses shipping quickly without waiting on provider-native schema enforcement for every field.</td>
-                            <td>Not as bulletproof as provider-side schemas — it leans on a repair step (see below).</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>What broke</h2>
-                <div class="case-callout">
-                    <span class="caps">Failure → fix</span>
-                    <p>
-                        The post-call analysis asks the model for a structured object — summary, risk flags,
-                        reminders, a next-call recommendation, memory-bank entries. Early on, raw model output
-                        wasn't reliably valid JSON, which meant a malformed response could poison the one
-                        artifact the caregiver actually sees. Rather than trust the model, I added a repair
-                        pass plus backend validation before anything persists: parse, attempt repair, validate
-                        against the expected shape, and only then write. It's the unglamorous layer that makes
-                        the difference between "demo" and "I'd let my own family use this."
+                <header class="doc-head">
+                    <p class="doc-kind">Case study · Trust in AI voice systems</p>
+                    <h1>Designing trust into an <em>AI voice companion</em></h1>
+                    <p class="doc-byline">Jack Gaffney</p>
+                    <p class="doc-dateline">
+                        May 2026
+                        <span class="sep" aria-hidden="true">·</span>
+                        4 min read
+                        <span class="sep" aria-hidden="true">·</span>
+                        Personal project
                     </p>
-                </div>
+                    <div class="linkrow linkrow--center">
+                        <a class="ilink" href="https://tetherai.vercel.app/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-ext" /></svg><span>tetherai.vercel.app</span></a>
+                    </div>
+                </header>
 
-                <h2>What I'd do differently</h2>
-                <div class="case-callout">
-                    <span class="caps">Next version</span>
+                <section class="abstract">
+                    <h2 class="abstract-title">Abstract</h2>
                     <p>
-                        Move to provider-native schema enforcement where it fits the flow, so JSON correctness
-                        stops being a runtime gamble. Harden production auth. Add proper retry/backoff for
-                        failed analyses instead of leaning on the repair pass. And keep testing the one thing a
-                        table can't measure: whether the caregiver interface feels <em>helpful</em> rather than
-                        clinical.
+                        Tether places gentle, structured check-in calls with an aging parent, then turns
+                        each conversation into something a caregiver can actually act on. The hard part was
+                        never the audio. It was making the AI inspectable enough that a family would trust
+                        it — which turned out to be an argument about product surface and data validation
+                        far more than about models.
                     </p>
+                    <p class="keywords">
+                        <b>Stack</b> Go · React/TS · WebSockets · AWS Bedrock (Nova Sonic / Nova Lite) ·
+                        PostgreSQL · Docker
+                    </p>
+                </section>
+
+                <nav class="doc-toc" aria-label="Contents">
+                    <span class="caps">Contents</span>
+                    <ol>
+                        <li><a href="#problem">The problem</a></li>
+                        <li><a href="#users">Who it's for</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#decisions">Decisions &amp; tradeoffs</a></li>
+                        <li><a href="#failure">What broke</a></li>
+                        <li><a href="#next">What I'd do differently</a></li>
+                    </ol>
+                </nav>
+
+                <div class="doc-body">
+                    <section id="problem">
+                        <h2>The problem</h2>
+                        <p>
+                            Caring for a parent from a distance generates a low, constant hum of anxiety:
+                            Are they eating? Did they sleep? Is something off today? The usual answers are a
+                            flurry of repeated phone calls or, worse, always-on monitoring that treats an
+                            adult like a patient. I wanted the opposite — something that helps a family
+                            <strong>follow up with more humanity, not automate suspicion.</strong>
+                        </p>
+                    </section>
+
+                    <section id="users">
+                        <h2>Who it's for</h2>
+                        <p>
+                            Two users with different needs. The older adult deserves a warm, low-pressure
+                            conversation and real control over the interaction. The caregiver needs a
+                            plain-language summary they can read in thirty seconds and one concrete
+                            follow-up — not a wall of transcript, and definitely not a dashboard that feels
+                            clinical.
+                        </p>
+                        <p>
+                            That split is the whole design constraint. Anything that makes the call feel
+                            like surveillance fails the first user; anything that hides how a conclusion was
+                            reached fails the second.
+                        </p>
+                    </section>
+
+                    <section id="architecture">
+                        <h2>Architecture</h2>
+                        <p>
+                            A browser captures mono PCM16 microphone audio and streams it over a WebSocket
+                            to a Go API, which forwards it into Amazon Bedrock's bidirectional streaming
+                            runtime with Nova Sonic — one stream that handles speech-in and speech-out.
+                            Transcript, interruption, and usage events are relayed back to the browser and
+                            persisted to PostgreSQL. After the call, a separate analysis worker (Bedrock
+                            Converse with Nova Lite) builds a structured context envelope and produces the
+                            caregiver-facing output.
+                        </p>
+                        <figure class="figure figure--scroll">
+                            <svg viewBox="0 0 700 412" role="img" aria-label="Tether pipeline: browser voice session over WebSocket to a Go API, bidirectional streaming with Bedrock Nova Sonic, events persisted to PostgreSQL, then an analysis worker producing the caregiver dashboard." xmlns="http://www.w3.org/2000/svg">
+                                <rect class="svg-box--accent" x="8" y="8" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="154" y="35" text-anchor="middle">Browser voice session</text>
+
+                                <line class="svg-line" x1="154" y1="56" x2="154" y2="86" />
+                                <path class="svg-fill" d="M154 95l-4.5-9h9z" />
+                                <text class="svg-label--caps" x="172" y="77">PCM16 audio frames</text>
+
+                                <rect class="svg-box" x="8" y="96" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="154" y="123" text-anchor="middle">Go WebSocket API</text>
+
+                                <line class="svg-line--accent" x1="310" y1="118" x2="350" y2="118" />
+                                <path class="svg-fill--accent" d="M359 118l-9-4.5v9z" />
+                                <path class="svg-fill--accent" d="M301 118l9-4.5v9z" />
+                                <rect class="svg-box" x="360" y="96" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="506" y="123" text-anchor="middle">Bedrock Nova Sonic</text>
+                                <text class="svg-label--caps" x="506" y="86" text-anchor="middle">bidirectional speech-to-speech</text>
+
+                                <line class="svg-line" x1="154" y1="144" x2="154" y2="174" />
+                                <path class="svg-fill" d="M154 183l-4.5-9h9z" />
+                                <text class="svg-label--caps" x="172" y="165">transcript · interruption · usage events</text>
+
+                                <rect class="svg-box" x="8" y="184" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="154" y="211" text-anchor="middle">PostgreSQL</text>
+
+                                <line class="svg-line--dash" x1="154" y1="232" x2="154" y2="262" />
+                                <path class="svg-fill" d="M154 271l-4.5-9h9z" />
+                                <text class="svg-label--caps" x="172" y="253">after the call</text>
+
+                                <rect class="svg-box" x="8" y="272" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="154" y="299" text-anchor="middle">Analysis worker · Nova Lite</text>
+
+                                <line class="svg-line" x1="154" y1="320" x2="154" y2="350" />
+                                <path class="svg-fill" d="M154 359l-4.5-9h9z" />
+                                <text class="svg-label--caps" x="172" y="341">validated JSON · summary · risk flags</text>
+
+                                <rect class="svg-box--accent" x="8" y="360" width="292" height="44" rx="2" />
+                                <text class="svg-label" x="154" y="387" text-anchor="middle">Caregiver dashboard</text>
+                            </svg>
+                            <figcaption>
+                                The call path and the analysis path are deliberately separate. Audio latency
+                                lives in the top half; anything that needs to be correct rather than fast
+                                happens after the call ends.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section id="decisions">
+                        <h2>Decisions &amp; tradeoffs</h2>
+                        <table class="tabular">
+                            <caption>The four decisions that shaped the build, and what each one cost.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Decision</th>
+                                    <th scope="col">Why</th>
+                                    <th scope="col">What I traded away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Decision">Nova Sonic speech-to-speech</td>
+                                    <td data-label="Why">One bidirectional stream is the listener, the reasoner, and the voice at once — fewer hops means lower latency and far less glue than stitching separate STT, LLM, and TTS services.</td>
+                                    <td data-label="Traded away">Less control over each stage, and a hard dependency on one provider's streaming runtime.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Go API forwarding raw PCM over WebSockets</td>
+                                    <td data-label="Why">The audio path needed to push microphone frames straight into Bedrock and relay events back with predictable backpressure; Go's concurrency made the per-session lifecycle clean.</td>
+                                    <td data-label="Traded away">More plumbing to own than a managed real-time SDK would have given me.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Markdown prompt templates synced to Postgres at startup, plus a separate prompt lab</td>
+                                    <td data-label="Why">Call prompts (check-in, reminiscence) carry patient profile, people, memory bank, and safety context — and I wanted to iterate on them without a redeploy.</td>
+                                    <td data-label="Traded away">A bit of startup-sync machinery and a second small app to maintain.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Decision">Prompt-enforced JSON plus a repair pass and backend validation</td>
+                                    <td data-label="Why">Got structured analyses shipping quickly without waiting on provider-native schema enforcement for every field.</td>
+                                    <td data-label="Traded away">Not as bulletproof as provider-side schemas — it leans on a repair step (§5).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="failure">
+                        <h2>What broke</h2>
+                        <div class="env">
+                            <p>
+                                <span class="env-label">Failure → fix.</span>
+                                The post-call analysis asks the model for a structured object — summary,
+                                risk flags, reminders, a next-call recommendation, memory-bank entries.
+                                Early on, raw model output wasn't reliably valid JSON, which meant a
+                                malformed response could poison the one artifact the caregiver actually
+                                sees. Rather than trust the model, I added a repair pass plus backend
+                                validation before anything persists: parse, attempt repair, validate against
+                                the expected shape, and only then write. It's the unglamorous layer that
+                                makes the difference between "demo" and "I'd let my own family use this."
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="next">
+                        <h2>What I'd do differently</h2>
+                        <div class="env">
+                            <p>
+                                <span class="env-label">Next version.</span>
+                                Move to provider-native schema enforcement where it fits the flow, so JSON
+                                correctness stops being a runtime gamble. Harden production auth. Add proper
+                                retry and backoff for failed analyses instead of leaning on the repair pass.
+                                And keep testing the one thing a table can't measure: whether the caregiver
+                                interface feels <em>helpful</em> rather than clinical.
+                            </p>
+                        </div>
+                    </section>
                 </div>
 
-                <p class="case-note">
-                    Tether started as a hackathon build and is deployed at tetherai.vercel.app.
-                </p>
-
-                <div class="case-nextprev">
-                    <a href="/writing/">← all case studies</a>
-                    <a href="/writing/quantum-opus/">next: Quantum Opus →</a>
-                </div>
-            </article>
+                <footer>
+                    <p class="note">
+                        Tether started as a hackathon build and is deployed at tetherai.vercel.app.
+                    </p>
+                    <nav class="doc-nav" aria-label="More writing">
+                        <a href="/writing/deck-building-to-dev-building/">← Deck building to dev building</a>
+                        <a href="/writing/quantum-opus/">Quantum Opus data platform →</a>
+                    </nav>
+                </footer>
+                </article>
+            </main>
 
             <footer class="colophon" id="contact">
-                <div class="foot-grid">
-                    <div>
-                        <h2>Contact</h2>
-                        <p class="looking-for">
-                            Looking for new-grad software engineering and forward-deployed /
-                            customer-facing engineering roles. Strongest on AI workflows, internal
-                            tools, data platforms, and real-time voice.
-                        </p>
-                    </div>
-                    <div class="col">
-                        <span class="caps">Elsewhere</span>
-                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
-                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
-                        <p><a href="/">← back to portfolio</a></p>
-                    </div>
+                <h2>Contact</h2>
+                <p class="looking-for">
+                    Open to new-grad software engineering and forward-deployed / customer-facing
+                    engineering roles. Strongest on AI workflows, internal tools, data platforms, and
+                    real-time voice.
+                </p>
+                <div class="linkrow">
+                    <a class="ilink" href="mailto:jackchaudier@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg><span>jackchaudier@gmail.com</span></a>
+                    <a class="ilink" href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>github.com/jack-chaudier</span></a>
+                    <a class="ilink" href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>in/jackgaffney23</span></a>
+                    <a class="ilink" href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg><span>@Jack_Gaffney_</span></a>
+                    <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>jackgaffney0.substack.com</span></a>
+                    <a class="ilink" href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-file" /></svg><span>résumé.pdf</span></a>
                 </div>
-                <div class="fineprint">
-                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
-                </div>
+                <p class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · Ann Arbor, Michigan</span>
+                    <span><a href="/writing/">← all writing</a></span>
+                </p>
             </footer>
         </div>
 
