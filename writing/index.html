@@ -7,15 +7,17 @@
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
         <meta
             name="description"
-            content="Case studies by Jack Gaffney — the decisions, tradeoffs, and architecture behind Tether, the Quantum Opus data platform, and a Palantir Foundry maritime prototype."
+            content="Writing by Jack Gaffney — engineering case studies, product memos, and essays: Tether, the Quantum Opus data platform, a Foundry maritime prototype, and a data-journalism platform roadmap."
         />
-        <meta property="og:title" content="Writing & case studies — Jack Gaffney" />
-        <meta property="og:description" content="Long-form engineering notes on the systems I've built: decisions, tradeoffs, and what I'd do differently." />
+        <meta property="og:title" content="Writing — Jack Gaffney" />
+        <meta property="og:description" content="Case studies, product memos, and essays, set as documents: decisions, tradeoffs, and what I'd do differently." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/writing/" />
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:site" content="@Jack_Gaffney_" />
+        <meta name="twitter:creator" content="@Jack_Gaffney_" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             http-equiv="Content-Security-Policy"
@@ -23,7 +25,7 @@
         />
         <link rel="canonical" href="https://jack-chaudier.github.io/writing/" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <title>Writing & case studies — Jack Gaffney</title>
+        <title>Writing — Jack Gaffney</title>
         <script>
             (function () {
                 const root = document.documentElement;
@@ -45,99 +47,209 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0,0;1,9..144,300..700,0,0&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
     </head>
     <body>
         <a href="#main" class="skip-link">Skip to main content</a>
-        <div class="shell" id="main">
+
+        <!-- ===== icon sprite ===== -->
+        <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="1.6"/><path d="m3.5 6.3 8.5 6.5 8.5-6.5"/></g></symbol>
+            <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.5v-1.77c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .25.21.61.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.68l-5.21-6.82-5.97 6.82H1.65l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></symbol>
+            <symbol id="i-substack" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 8.24H1.46V5.4h21.08v2.84ZM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46ZM22.54 0H1.46v2.84h21.08V0Z"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.9 2.8H6.8a1.6 1.6 0 0 0-1.6 1.6v15.2a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6V7.4Z"/><path d="M13.8 2.9v4.6h4.7"/><path d="M8.6 13.2h6.8M8.6 16.6h6.8"/></g></symbol>
+            <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 16.4 16.4 7.6"/><path d="M9.4 7.6h7v7"/></g></symbol>
+            <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.8h14.8v16.4H4.6Z"/><path d="M7.8 8h8.4M7.8 11.6h8.4M7.8 15.2h5.2"/></g></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 1.8v2.6M12 19.6v2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M1.8 12h2.6M19.6 12h2.6M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9"/></g></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></symbol>
+        </svg>
+
+        <div class="shell">
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
-                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
+                    <a href="/"><b>Jack Gaffney</b></a>
+                    <span class="crumb">/ writing</span>
                 </div>
-                <div class="topnav mono">
+                <div class="topnav">
                     <a href="/">home</a>
-                    <a href="/#projects">projects</a>
+                    <a href="/#work">work</a>
+                    <a href="/writing/" aria-current="page">writing</a>
                     <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
-                        <span class="knob" aria-hidden="true"></span>
+                        <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                        <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
                     </button>
                 </div>
             </nav>
 
-            <section aria-labelledby="writing-title">
-                <div class="section-head">
-                    <h2 id="writing-title">Case studies</h2>
-                </div>
-                <div class="walkthrough-intro">
-                    <p>
-                        Long-form notes on the systems that taught me the most — the decisions,
-                        the tradeoffs, and what I'd change next time. Hand-written, like the rest
-                        of this site.
+            <main id="main" class="sheet">
+                <header class="titleblock">
+                    <p class="doc-class">Collected documents · five entries</p>
+                    <h1>Writing</h1>
+                    <p class="title-sub">Case studies, product memos, and essays on the systems I've built.</p>
+                    <p class="byline">
+                        Jack Gaffney
+                        <span class="sep" aria-hidden="true">·</span>
+                        Ann Arbor, Michigan
                     </p>
-                </div>
+                    <div class="linkrow linkrow--center">
+                        <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>substack</span></a>
+                        <a class="ilink" href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg><span>x</span></a>
+                        <a class="ilink" href="/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>portfolio</span></a>
+                    </div>
+                </header>
 
-                <div class="writing-grid">
-                    <!-- writing:cards (new posts inserted below this line, newest first) -->
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Trust in AI voice systems</div>
-                        <h3>Designing trust into an AI voice companion</h3>
-                        <p>
-                            Tether: real-time audio over a Go WebSocket API, transcript-backed summaries,
-                            and the product decisions that keep distance care from turning into surveillance.
-                        </p>
-                        <a class="source" href="/writing/tether/">read case study →</a>
-                    </article>
+                <section class="abstract unnumbered" aria-labelledby="preface-title">
+                    <h2 class="abstract-title" id="preface-title">Preface</h2>
+                    <p>
+                        Three kinds of document live here. <strong>Case studies</strong> take one system
+                        apart: the problem, the decisions and what each one cost, a concrete failure and
+                        its fix, and what I'd do differently. <strong>Memos</strong> are the recommendation
+                        memos I write after evaluating a product. <strong>Essays</strong> are the ones about
+                        how I got here. All hand-set — no CMS, no build step.
+                    </p>
+                </section>
 
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Forward-deployed · internal tooling</div>
-                        <h3>Replacing spreadsheets with a production data platform</h3>
-                        <p>
-                            Quantum Opus: embedding with engineering and ops, mapping how teams actually
-                            moved data, then shipping ingestion, validation, and dashboards that fit them.
-                        </p>
-                        <a class="source" href="/writing/quantum-opus/">read case study →</a>
-                    </article>
+                <section class="unnumbered" aria-labelledby="index-title" id="index">
+                    <h2 class="visually-hidden" id="index-title">Index</h2>
 
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Forward-deployed · Palantir Foundry</div>
-                        <h3>Turning an AIS firehose into an analyst's triage queue</h3>
-                        <p>
-                            A maritime intelligence prototype: modeling messy, high-volume vessel data into
-                            an Ontology, validating the stream, and shipping a triage view analysts trust.
-                        </p>
-                        <a class="source" href="/writing/maritime/">read case study →</a>
-                    </article>
-                </div>
-            </section>
+                    <div class="tabs" role="group" aria-label="Filter documents by type" id="writingFilters">
+                        <button class="tab-btn" type="button" data-filter="all" aria-pressed="true">All <span class="count">5</span></button>
+                        <button class="tab-btn" type="button" data-filter="case-study" aria-pressed="false">Case studies <span class="count">3</span></button>
+                        <button class="tab-btn" type="button" data-filter="memo" aria-pressed="false">Memos <span class="count">1</span></button>
+                        <button class="tab-btn" type="button" data-filter="essay" aria-pressed="false">Essays <span class="count">1</span></button>
+                    </div>
+
+                    <ol class="toc-list" id="writingIndex">
+                        <!-- writing:cards (new posts inserted below this line, newest first) -->
+                        <li class="toc-item" data-kind="memo">
+                            <div class="toc-line">
+                                <span class="toc-num">01</span>
+                                <a class="toc-title" href="/writing/research-platform-memo/">Data-journalism research platform roadmap</a>
+                                <span class="toc-fill" aria-hidden="true"></span>
+                                <span class="toc-date">Jul 2026</span>
+                            </div>
+                            <p class="toc-dek">
+                                A product memo written after evaluating a semantic-search platform for
+                                reporters: the authority-and-status layer it's missing, where synthesized
+                                reports drift from the statute, and which datasets would compound its value.
+                            </p>
+                            <p class="toc-meta">
+                                <span class="toc-kind">Memo</span>
+                                <span>Product · data journalism</span>
+                                <a class="ilink" href="/writing/research-platform-memo/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>read memo</span></a>
+                            </p>
+                        </li>
+
+                        <li class="toc-item" data-kind="essay">
+                            <div class="toc-line">
+                                <span class="toc-num">02</span>
+                                <a class="toc-title" href="/writing/deck-building-to-dev-building/">Deck building to dev building</a>
+                                <span class="toc-fill" aria-hidden="true"></span>
+                                <span class="toc-date">Jul 2026</span>
+                            </div>
+                            <p class="toc-dek">
+                                What a summer of building decks in northern Michigan taught me about
+                                specifications, mistakes, and the distance between a project spec and a
+                                real requirement.
+                            </p>
+                            <p class="toc-meta">
+                                <span class="toc-kind">Essay</span>
+                                <span>Charlevoix → Plymouth</span>
+                                <a class="ilink" href="/writing/deck-building-to-dev-building/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>read essay</span></a>
+                                <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>substack</span></a>
+                            </p>
+                        </li>
+
+                        <li class="toc-item" data-kind="case-study">
+                            <div class="toc-line">
+                                <span class="toc-num">03</span>
+                                <a class="toc-title" href="/writing/tether/">Designing trust into an AI voice companion</a>
+                                <span class="toc-fill" aria-hidden="true"></span>
+                                <span class="toc-date">May 2026</span>
+                            </div>
+                            <p class="toc-dek">
+                                Tether: real-time audio over a Go WebSocket API into Bedrock Nova Sonic,
+                                transcript-backed summaries, and the product decisions that keep distance
+                                care from turning into surveillance.
+                            </p>
+                            <p class="toc-meta">
+                                <span class="toc-kind">Case study</span>
+                                <span>Go · WebSockets · Bedrock</span>
+                                <a class="ilink" href="/writing/tether/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>read case study</span></a>
+                                <a class="ilink" href="https://tetherai.vercel.app/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-ext" /></svg><span>live</span></a>
+                            </p>
+                        </li>
+
+                        <li class="toc-item" data-kind="case-study">
+                            <div class="toc-line">
+                                <span class="toc-num">04</span>
+                                <a class="toc-title" href="/writing/quantum-opus/">Replacing spreadsheets with a production data platform</a>
+                                <span class="toc-fill" aria-hidden="true"></span>
+                                <span class="toc-date">May 2026</span>
+                            </div>
+                            <p class="toc-dek">
+                                Quantum Opus: embedding with engineering and ops, mapping how teams actually
+                                moved data, then shipping ingestion, validation, and dashboards that fit them.
+                            </p>
+                            <p class="toc-meta">
+                                <span class="toc-kind">Case study</span>
+                                <span>Go/Gin · Next.js · PostgreSQL</span>
+                                <a class="ilink" href="/writing/quantum-opus/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>read case study</span></a>
+                            </p>
+                        </li>
+
+                        <li class="toc-item" data-kind="case-study">
+                            <div class="toc-line">
+                                <span class="toc-num">05</span>
+                                <a class="toc-title" href="/writing/maritime/">Turning an AIS firehose into an analyst's triage queue</a>
+                                <span class="toc-fill" aria-hidden="true"></span>
+                                <span class="toc-date">May 2026</span>
+                            </div>
+                            <p class="toc-dek">
+                                A Palantir Foundry prototype: modeling messy, high-volume vessel data into an
+                                Ontology, validating the stream, and shipping a triage view analysts trust.
+                            </p>
+                            <p class="toc-meta">
+                                <span class="toc-kind">Case study</span>
+                                <span>Foundry · PySpark · Ontology</span>
+                                <a class="ilink" href="/writing/maritime/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>read case study</span></a>
+                            </p>
+                        </li>
+                    </ol>
+
+                    <p class="note">
+                        Essays are cross-posted from
+                        <a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer">jackgaffney0.substack.com</a>,
+                        where new ones land first.
+                    </p>
+                </section>
+            </main>
 
             <footer class="colophon" id="contact">
-                <div class="foot-grid">
-                    <div>
-                        <h2>Contact</h2>
-                        <p class="looking-for">
-                            Looking for new-grad software engineering and forward-deployed /
-                            customer-facing engineering roles. Strongest on AI workflows, internal
-                            tools, data platforms, and real-time voice.
-                        </p>
-                    </div>
-                    <div class="col">
-                        <span class="caps">Elsewhere</span>
-                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
-                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
-                        <p><a href="/">← back to portfolio</a></p>
-                    </div>
+                <h2>Contact</h2>
+                <p class="looking-for">
+                    Open to new-grad software engineering and forward-deployed / customer-facing
+                    engineering roles. Strongest on AI workflows, internal tools, data platforms, and
+                    real-time voice.
+                </p>
+                <div class="linkrow">
+                    <a class="ilink" href="mailto:jackchaudier@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg><span>jackchaudier@gmail.com</span></a>
+                    <a class="ilink" href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>github.com/jack-chaudier</span></a>
+                    <a class="ilink" href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>in/jackgaffney23</span></a>
+                    <a class="ilink" href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg><span>@Jack_Gaffney_</span></a>
+                    <a class="ilink" href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-substack" /></svg><span>jackgaffney0.substack.com</span></a>
+                    <a class="ilink" href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-file" /></svg><span>résumé.pdf</span></a>
                 </div>
-                <div class="fineprint">
-                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
-                </div>
+                <p class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · Ann Arbor, Michigan</span>
+                    <span><a href="/">← back to portfolio</a></span>
+                </p>
             </footer>
         </div>
 
