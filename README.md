@@ -33,8 +33,8 @@ Graduated May 2026 — open to new-grad software engineering and forward-deploye
 
 ## About this site
 
-Hand-written HTML, CSS, and JavaScript — zero dependencies, zero build step. Set in **Fraunces** and **JetBrains Mono** on a warm paper palette with a rust accent. A single readable column, light and dark modes, and long-form case studies under `/writing/`.
+Hand-written HTML, CSS, and JavaScript — zero dependencies, zero build step. LaTeX-inspired: set in **STIX Two Text** and **JetBrains Mono** on a warm paper palette with a rust accent. A single readable column, light and dark modes, and writing under `/writing/` typeset like article-class papers — numbered sections, abstracts, booktabs tables, and captioned figures.
 
 ---
 
-[Résumé](jack_gaffney_resume.pdf) · [Email](mailto:jackgaff@umich.edu) · [LinkedIn](https://linkedin.com/in/jackgaffney23) · [GitHub](https://github.com/jack-chaudier)
+[Résumé](jack_gaffney_resume.pdf) · [Email](mailto:jackgaff@umich.edu) · [LinkedIn](https://linkedin.com/in/jackgaffney23) · [GitHub](https://github.com/jack-chaudier) · [X](https://x.com/Jack_Gaffney_) · [Substack](https://jackgaffney0.substack.com)

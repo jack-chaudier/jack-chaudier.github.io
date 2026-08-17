@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f2ea" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
+        <meta
+            name="description"
+            content="Deck Building to Dev Building — what a summer construction job taught Jack Gaffney about specifications, mistakes, and building software in the real world."
+        />
+        <meta property="og:title" content="Deck building to dev building — Jack Gaffney" />
+        <meta property="og:description" content="What a summer construction job taught me about specifications, mistakes, and building software in the real world." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://jack-chaudier.github.io/writing/deck-building/" />
+        <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
+        <link rel="canonical" href="https://jack-chaudier.github.io/writing/deck-building/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <title>Deck building to dev building — Jack Gaffney</title>
+        <script>
+            (function () {
+                const root = document.documentElement;
+                root.classList.add("js");
+                try {
+                    const storedTheme = localStorage.getItem("jg-theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                }
+            })();
+        </script>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <div class="shell" id="main">
+            <nav class="top" aria-label="Primary">
+                <div class="wordmark">
+                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
+                </div>
+                <div class="topnav mono">
+                    <a href="/">home</a>
+                    <a href="/#projects">projects</a>
+                    <a href="/writing/" aria-current="page">writing</a>
+                    <a href="/#contact">contact</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+                        <span class="knob" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <article class="case paper-unnumbered">
+                <a class="case-back" href="/writing/">← all writing</a>
+
+                <header class="paper-head">
+                    <span class="case-kicker">Essay</span>
+                    <h1>Deck Building to Dev Building</h1>
+                    <p class="paper-byline">Jack Gaffney</p>
+                    <p class="paper-date">July 14, 2026</p>
+
+                    <div class="abstract">
+                        <span class="abstract-label">Abstract</span>
+                        <p>
+                            What a summer construction job taught me about specifications, mistakes,
+                            and building software in the real world.
+                        </p>
+                    </div>
+                </header>
+
+                <div class="case-meta">
+                    <span>Essay · first published on Substack</span>
+                    <span class="case-links">
+                        <a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>read on Substack ↗</a>
+                    </span>
+                </div>
+
+                <p>
+                    After my sophomore year in college, I left Ann Arbor and drove the four hours up
+                    I-75 North towards the Mackinac Bridge, before cutting west to my hometown of
+                    Charlevoix. I'd be spending the summer there. It turned out to be my last one at
+                    home. Every Charlevoix summer opened with the same question: what the job would be.
+                    In the past, in a town powered by tourism, I had undertaken a few of the many
+                    customer service jobs that littered the area. Golf courses, restaurants, and
+                    hotels, to name a few, would all be engulfed by new business and crowds which,
+                    until that point, had migrated south for the winter. Although those jobs were
+                    important, and I could jump into them without missing a beat, I couldn't shake the
+                    feeling of wanting to do something totally different. Thus, I began to look around
+                    the area for my next endeavor.
+                </p>
+                <p>
+                    Shortly thereafter, a decision was made. I was taking my talents to the south side
+                    of Charlevoix, and to a company that builds high-quality decks and outdoor living
+                    spaces all around Northern Michigan. The decision to work for Renewit Decking was
+                    simple at the time. Mostly, it was motivated by my dad; he said that there is
+                    nothing like manual labor and digging some holes to clear your head. That was
+                    exactly what I was looking for: a change of scenery, a way to not just help but to
+                    build as well. So there I was, someone used to building with the terminal and
+                    ready to start building with lumber.
+                </p>
+                <p>
+                    Before I could become a full-fledged carpenter assistant, I had to survive the
+                    trial week, odd jobs while they figured out where to put me. This turned out to be
+                    exactly what I wished for, a week straight of shoveling tons of mulch and
+                    organizing the shop. The work did clear my head, and there was satisfaction in
+                    working at something until it was complete. But by the end of that week, I was
+                    more than ready for a change, and ready to get out in the field. The owner said to
+                    me that one of the site managers could use an extra set of hands, and just like
+                    that, my days of peacefully shoveling were to be replaced by a whirlwind of
+                    learning. I only hoped to help my new team, and not hinder them with my lack of
+                    knowledge.
+                </p>
+                <p>
+                    Monday, I showed up to the site and felt calm. It was a beautiful location to
+                    work, right on Lake Charlevoix. I stood looking out over the still water as the
+                    dawn rays began to peer over the horizon. This idyllic scene was quickly shattered
+                    though, as I was pulled aside to learn the tools for the job. The site manager
+                    walked me through the multiple cabinets full of drills and impact drivers, chalk
+                    lines, speed squares, cat's paws, and, most importantly, knee pads. I also learned
+                    my place on the crew. Everyone had a role and mine was at the bottom. Know every
+                    tool and where it goes. Carry the material. Clean up the cut-offs. Polish the
+                    boards when a section was done. This project was building four identical decks.
+                    After watching the first two, the lead figured I'd seen enough to begin working on
+                    a few of the menial prepping tasks and some basic installation while they handled
+                    the more delicate work. So I began going through the motions. Lined all of the
+                    framing boards, and began to use the fasteners to install each deck board. I had
+                    gotten about halfway through when the lead came up and said one thing: "I see a
+                    lot of waterproofing tape down below." I peered over the edge and to the material
+                    area, and there they were: piles of unopened waterproofing tape. The particular
+                    deck we were building had two functions: one was to be a deck, and the other was
+                    to serve as a roof to the second deck below it. The waterproof tape under the
+                    boards of the top deck would help to redirect water to the gutters we had
+                    installed down the sides. Without the tape, it would not function as intended. I
+                    groaned, realizing that this meant all the work I had been doing that morning
+                    would have to be ripped up. "Alright, get to work," the lead said, and so I did.
+                    Un-fastening boards you have already installed is slow going, and it was hours
+                    before the project was back to where it was before my mistake. There was no use
+                    trying to deflect from a clean and obvious misstep on my part; the only thing I
+                    could do was try and work quickly, but not so quickly as to dig the hole I found
+                    myself in even deeper. Once done, I found the lead and apologized profusely for
+                    costing so much time and money, expecting this slip-up to lead to another week of
+                    mulching, or worse. He simply said, "It's alright, just don't do it again."
+                </p>
+                <p>
+                    The rest of the summer passed, and I never made that particular mistake again, but
+                    I did make a lot of others, though I never made them twice. I was given more
+                    responsibilities over time. I learned how to measure out foundations, deal with
+                    projects from scratch, and talk to the property owners. There was a lot more to
+                    this than I had originally thought. But by the end of the summer, I could look
+                    back to who I was at the beginning, and see how much I had grown. On top of all
+                    the hands-on skills, there were plenty of communication and planning skills that
+                    could be learned in this industry.
+                </p>
+                <p>
+                    The next school year passed. I took classes on game engines, computer
+                    architecture, and discrete math. My knowledge in my area of study increased, and I
+                    began to lose that impostor syndrome that had at times plagued me when walking
+                    through project showcases, or going to career fairs. I could now take a project
+                    spec, look at the different libraries or packages listed in the requirements,
+                    implement each function stub, and tie everything together beautifully in the
+                    driver. Each project I did or assignment I completed served to make me more
+                    confident and more sure that the woes of learning for-loops, structs, and hash
+                    maps were all behind me. If I could implement a SQL-style database, a custom
+                    shell, and optimized BST lookups, then I was ready for anything software
+                    engineering could throw at me.
+                </p>
+                <p>
+                    That summer, I was set up for my first job in industry, a SWE intern at Quantum
+                    Opus, a lab in Plymouth, Michigan, just 20 minutes away from my campus. Leading up
+                    to the start date, I was excited to get my start in the field; my start in
+                    actually helping people with the knowledge I had spent three whole years at school
+                    honing. Before I knew it, it was the first day, and upon talking to the CEO about
+                    the project I would be working on over the summer, this opportunity I was given
+                    began to feel even more daunting than last summer. On the surface, the problem was
+                    simple: build a company database system from scratch to replace the existing
+                    tangle of Excel spreadsheets and vast paper trail. Right away, a familiar feeling
+                    took hold of me. <em>I can't do this</em>, I thought, and began to feel slight
+                    panic swell up in me. In school we had a project spec, or an exam guide, a
+                    requirements.txt given to us. Up until that point, I always knew what was expected
+                    of me, and roughly how to implement it. This was a new challenge, and I was well
+                    over my head.
+                </p>
+                <p>
+                    To prevent the returning impostor syndrome that was beginning to creep back in
+                    from rising to the surface, I just got to work. I began to research, first by
+                    talking to the scientists there and finding out exactly what their current
+                    workflow was. I learned how the systems they were building worked, learned what
+                    data they collected, and how it all fit together. In the back of my mind and in my
+                    notes, a schema began to form. After learning everything I could about what they
+                    did, I then worked backwards. Taught myself how to set up a Postgres server and
+                    link that to a Go backend. I pored over the Gin documentation until I could pull
+                    data out of Postgres and put it on a screen in React. After a few weeks, I
+                    realized that instead of inadequate, I felt excited working through these new
+                    challenges, learning all the while. It was deck building, I thought. I had to
+                    learn the site, learn the tools, and how everything fit together. The database
+                    needed to be easy to use and easy to query, as well as integrate with the Python
+                    testing files they already used. This was no different than that first deck I
+                    built, exactly one year before. At Renewit I had watched the crew talk with
+                    homeowners, altering the blueprint on the fly to fit the site.
+                </p>
+                <p>
+                    "What do you think?" the lead asked me. This lead was a chip engineer, and we had
+                    just gone over a set of experiment results, working out how to store them long
+                    term. It was a normal day at work by then, and with each passing week the system
+                    that I was building got more mature and closer to completion. "Yeah," I replied,
+                    mind racing through several potential solutions. "I can see a way to implement
+                    that. Send me over a few files and I'll test it by the end of the day."
+                </p>
+
+                <p class="case-note">
+                    First published on
+                    <a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer">jackgaffney0.substack.com</a>,
+                    July 14, 2026. The Quantum Opus system this essay ends with has its own
+                    <a href="/writing/quantum-opus/">case study</a>.
+                </p>
+
+                <div class="case-nextprev">
+                    <a href="/writing/research-platform-memo/">← previous: Research platform roadmap</a>
+                    <a href="/writing/tether/">next: Tether →</a>
+                </div>
+            </article>
+
+            <footer class="colophon" id="contact">
+                <div class="foot-grid">
+                    <div>
+                        <h2>Contact</h2>
+                        <p class="looking-for">
+                            Looking for new-grad software engineering and forward-deployed /
+                            customer-facing engineering roles. Strongest on AI workflows, internal
+                            tools, data platforms, and real-time voice.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <span class="caps">Elsewhere</span>
+                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
+                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>github.com/jack-chaudier</a></p>
+                        <p><a href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>x.com/Jack_Gaffney_</a></p>
+                        <p><a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>jackgaffney0.substack.com</a></p>
+                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
+                        <p><a href="/">← back to portfolio</a></p>
+                    </div>
+                </div>
+                <div class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
+                </div>
+            </footer>
+        </div>
+
+        <script src="/script.js"></script>
+    </body>
+</html>

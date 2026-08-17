@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f2ea" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
         <meta
             name="description"
-            content="Case studies by Jack Gaffney — the decisions, tradeoffs, and architecture behind Tether, the Quantum Opus data platform, and a Palantir Foundry maritime prototype."
+            content="Writing by Jack Gaffney — case studies, essays, and memos on the systems he's built: decisions, tradeoffs, and what he'd do differently."
         />
-        <meta property="og:title" content="Writing & case studies — Jack Gaffney" />
-        <meta property="og:description" content="Long-form engineering notes on the systems I've built: decisions, tradeoffs, and what I'd do differently." />
+        <meta property="og:title" content="Writing — Jack Gaffney" />
+        <meta property="og:description" content="Case studies, essays, and memos: the decisions, tradeoffs, and architecture behind the systems I've built." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jack-chaudier.github.io/writing/" />
         <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
@@ -23,7 +23,7 @@
         />
         <link rel="canonical" href="https://jack-chaudier.github.io/writing/" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <title>Writing & case studies — Jack Gaffney</title>
+        <title>Writing — Jack Gaffney</title>
         <script>
             (function () {
                 const root = document.documentElement;
@@ -45,7 +45,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
@@ -56,12 +56,12 @@
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
                     <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
                 </div>
                 <div class="topnav mono">
                     <a href="/">home</a>
                     <a href="/#projects">projects</a>
-                    <a href="/#contact">contact</a>
+                    <a href="/writing/" aria-current="page">writing</a>
+                    <a href="#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
                         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                         <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
@@ -70,51 +70,85 @@
                 </div>
             </nav>
 
-            <section aria-labelledby="writing-title">
-                <div class="section-head">
-                    <h2 id="writing-title">Case studies</h2>
-                </div>
-                <div class="walkthrough-intro">
-                    <p>
-                        Long-form notes on the systems that taught me the most — the decisions,
-                        the tradeoffs, and what I'd change next time. Hand-written, like the rest
-                        of this site.
-                    </p>
-                </div>
+            <header class="hub-head">
+                <h1>Writing</h1>
+                <p class="hub-intro">
+                    Case studies, essays, and memos on the systems that taught me the most —
+                    the decisions, the tradeoffs, and what I'd change next time. Typeset here,
+                    hand-written like the rest of the site. Essays also appear on
+                    <a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>Substack</a>.
+                </p>
+            </header>
 
-                <div class="writing-grid">
-                    <!-- writing:cards (new posts inserted below this line, newest first) -->
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Trust in AI voice systems</div>
-                        <h3>Designing trust into an AI voice companion</h3>
+            <div class="writing-grid">
+                <!-- writing:cards (new posts inserted below this line, newest first) -->
+                <article class="walkthrough-card">
+                    <div class="card-date">Jul 19, 2026</div>
+                    <div>
+                        <div class="walkthrough-kicker">Product memo · data journalism</div>
+                        <h3><a href="/writing/research-platform-memo/">Data-journalism research platform roadmap</a></h3>
+                        <p>
+                            An anonymized product memo: how a semantic-search research platform becomes a
+                            full investigative workbench — authority-and-status context, claim
+                            verification, persistent workspaces, and which datasets to ingest next.
+                        </p>
+                        <a class="source" href="/writing/research-platform-memo/">read memo →</a>
+                    </div>
+                </article>
+
+                <article class="walkthrough-card">
+                    <div class="card-date">Jul 14, 2026</div>
+                    <div>
+                        <div class="walkthrough-kicker">Essay · Substack</div>
+                        <h3><a href="/writing/deck-building/">Deck building to dev building</a></h3>
+                        <p>
+                            What a summer construction job taught me about specifications, mistakes,
+                            and building software in the real world — from waterproofing tape on Lake
+                            Charlevoix to a Postgres schema in a photonics lab.
+                        </p>
+                        <a class="source" href="/writing/deck-building/">read essay →</a>
+                    </div>
+                </article>
+
+                <article class="walkthrough-card">
+                    <div class="card-date">2026</div>
+                    <div>
+                        <div class="walkthrough-kicker">Case study · voice AI</div>
+                        <h3><a href="/writing/tether/">Designing trust into an AI voice companion</a></h3>
                         <p>
                             Tether: real-time audio over a Go WebSocket API, transcript-backed summaries,
                             and the product decisions that keep distance care from turning into surveillance.
                         </p>
                         <a class="source" href="/writing/tether/">read case study →</a>
-                    </article>
+                    </div>
+                </article>
 
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Forward-deployed · internal tooling</div>
-                        <h3>Replacing spreadsheets with a production data platform</h3>
+                <article class="walkthrough-card">
+                    <div class="card-date">2025</div>
+                    <div>
+                        <div class="walkthrough-kicker">Case study · internal tooling</div>
+                        <h3><a href="/writing/quantum-opus/">Replacing spreadsheets with a production data platform</a></h3>
                         <p>
                             Quantum Opus: embedding with engineering and ops, mapping how teams actually
                             moved data, then shipping ingestion, validation, and dashboards that fit them.
                         </p>
                         <a class="source" href="/writing/quantum-opus/">read case study →</a>
-                    </article>
+                    </div>
+                </article>
 
-                    <article class="walkthrough-card">
-                        <div class="walkthrough-kicker mono">Forward-deployed · Palantir Foundry</div>
-                        <h3>Turning an AIS firehose into an analyst's triage queue</h3>
+                <article class="walkthrough-card">
+                    <div class="card-date">2025</div>
+                    <div>
+                        <div class="walkthrough-kicker">Case study · Palantir Foundry</div>
+                        <h3><a href="/writing/maritime/">Turning an AIS firehose into an analyst's triage queue</a></h3>
                         <p>
                             A maritime intelligence prototype: modeling messy, high-volume vessel data into
                             an Ontology, validating the stream, and shipping a triage view analysts trust.
                         </p>
                         <a class="source" href="/writing/maritime/">read case study →</a>
-                    </article>
-                </div>
-            </section>
+                    </div>
+                </article>
+            </div>
 
             <footer class="colophon" id="contact">
                 <div class="foot-grid">
@@ -129,8 +163,9 @@
                     <div class="col">
                         <span class="caps">Elsewhere</span>
                         <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
+                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>github.com/jack-chaudier</a></p>
+                        <p><a href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>x.com/Jack_Gaffney_</a></p>
+                        <p><a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>jackgaffney0.substack.com</a></p>
                         <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
                         <p><a href="/">← back to portfolio</a></p>
                     </div>

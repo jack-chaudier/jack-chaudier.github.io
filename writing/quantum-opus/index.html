@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe6" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f2ea" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
         <meta
             name="description"
@@ -42,7 +42,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/style.css" />
@@ -53,11 +53,11 @@
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
                     <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
-                    <span class="mono">/ writing</span>
                 </div>
                 <div class="topnav mono">
                     <a href="/">home</a>
-                    <a href="/writing/">writing</a>
+                    <a href="/#projects">projects</a>
+                    <a href="/writing/" aria-current="page">writing</a>
                     <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
                         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -68,18 +68,28 @@
             </nav>
 
             <article class="case">
-                <a class="case-back" href="/writing/">← all case studies</a>
-                <span class="case-kicker">Forward-deployed · internal tooling</span>
-                <h1>Replacing spreadsheets with a <em>production data platform</em></h1>
-                <p class="dek">
-                    My summer at Quantum Opus was the most forward-deployed work I've done: sitting with
-                    engineering and operations teams, learning how data actually moved between them, and
-                    replacing a tangle of spreadsheets with a real internal platform — one shaped by their
-                    feedback, not my assumptions.
-                </p>
+                <a class="case-back" href="/writing/">← all writing</a>
+
+                <header class="paper-head">
+                    <span class="case-kicker">Case study · forward-deployed · internal tooling</span>
+                    <h1>Replacing Spreadsheets with a Production Data Platform</h1>
+                    <p class="paper-byline">Jack Gaffney</p>
+                    <p class="paper-date">Summer 2025</p>
+
+                    <div class="abstract">
+                        <span class="abstract-label">Abstract</span>
+                        <p>
+                            My summer at Quantum Opus was the most forward-deployed work I've done:
+                            sitting with engineering and operations teams, learning how data actually
+                            moved between them, and replacing a tangle of spreadsheets with a real
+                            internal platform — one shaped by their feedback, not my assumptions.
+                        </p>
+                    </div>
+                </header>
+
                 <div class="case-meta">
-                    <span>Full-Stack SWE Intern · Summer 2025 · Plymouth, MI</span>
-                    <span>Go/Gin · Next.js · PostgreSQL · Docker Compose · Python pipelines</span>
+                    <span>Full-Stack SWE Intern · Plymouth, MI</span>
+                    <span>Go/Gin · Next.js · PostgreSQL · Docker Compose</span>
                     <span class="case-links">
                         <a href="/#work">work history ↑</a>
                     </span>
@@ -113,6 +123,8 @@
                 </p>
 
                 <h2>Decisions &amp; tradeoffs</h2>
+                <div class="table-wrap">
+                <p class="table-caption">Key design decisions and what each one traded away.</p>
                 <table class="case-table">
                     <thead>
                         <tr><th>Decision</th><th>Why</th><th>What I traded away</th></tr>
@@ -135,6 +147,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
 
                 <h2>What was hard</h2>
                 <div class="case-callout">
@@ -183,8 +196,9 @@
                     <div class="col">
                         <span class="caps">Elsewhere</span>
                         <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
-                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer">github.com/jack-chaudier</a></p>
-                        <p><a href="https://linkedin.com/in/jackgaffney23" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackgaffney23</a></p>
+                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>github.com/jack-chaudier</a></p>
+                        <p><a href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>x.com/Jack_Gaffney_</a></p>
+                        <p><a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>jackgaffney0.substack.com</a></p>
                         <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
                         <p><a href="/">← back to portfolio</a></p>
                     </div>

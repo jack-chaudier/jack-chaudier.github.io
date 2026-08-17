@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f2ea" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0b" />
+        <meta
+            name="description"
+            content="An anonymized product memo by Jack Gaffney: evolving a semantic-search research platform for data journalism into a full investigative workbench — tooling, data ingestion priorities, and editorial strategy."
+        />
+        <meta property="og:title" content="Data-journalism research platform roadmap — Jack Gaffney" />
+        <meta property="og:description" content="A product memo on data ingestion, tooling, and editorial strategy for an investigative research platform, built around a real EV tax-incentive case study." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://jack-chaudier.github.io/writing/research-platform-memo/" />
+        <meta property="og:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://jack-chaudier.github.io/og-image.png" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+        />
+        <link rel="canonical" href="https://jack-chaudier.github.io/writing/research-platform-memo/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <title>Data-journalism research platform roadmap — Jack Gaffney</title>
+        <script>
+            (function () {
+                const root = document.documentElement;
+                root.classList.add("js");
+                try {
+                    const storedTheme = localStorage.getItem("jg-theme");
+                    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    root.setAttribute("data-theme", storedTheme || (prefersDark ? "dark" : "light"));
+                } catch (error) {
+                    root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                }
+            })();
+        </script>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <div class="shell" id="main">
+            <nav class="top" aria-label="Primary">
+                <div class="wordmark">
+                    <a href="/" style="border:0;"><b>Jack Gaffney</b></a>
+                </div>
+                <div class="topnav mono">
+                    <a href="/">home</a>
+                    <a href="/#projects">projects</a>
+                    <a href="/writing/" aria-current="page">writing</a>
+                    <a href="/#contact">contact</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+                        <span class="knob" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <article class="case">
+                <a class="case-back" href="/writing/">← all writing</a>
+
+                <header class="paper-head">
+                    <span class="case-kicker">Product memo · data journalism</span>
+                    <h1>Data-Journalism Research Platform Roadmap: Data&nbsp;Ingestion, Tooling, and Editorial Strategy</h1>
+                    <p class="paper-byline">Jack Gaffney</p>
+                    <p class="paper-date">July 19, 2026</p>
+
+                    <div class="abstract">
+                        <span class="abstract-label">Abstract</span>
+                        <p>
+                            An anonymized product memo on a research platform for data journalism.
+                            The platform's semantic search already solves source discovery; this memo
+                            argues the next step is context — an authority-and-status layer, stronger
+                            claim verification in synthesized reports, and a persistent workspace —
+                            grounded in a real evaluation: reporting on whether federal EV tax
+                            incentives deliver uneven value by geography.
+                        </p>
+                    </div>
+                </header>
+
+                <div class="case-meta">
+                    <span>Memo · anonymized</span>
+                    <span>semantic search · legal corpora · report synthesis</span>
+                </div>
+
+                <h2>Context and evaluation</h2>
+                <p>
+                    To maximize its utility as a data journalism tool, the platform must evolve from a
+                    robust search engine into a comprehensive investigative workbench capable of tracing
+                    the full lifecycle of government action from proposal to result. The existing
+                    feature-set already solves the problem of finding high-quality primary sources
+                    without requiring much existing knowledge of corpora classification. Semantic
+                    querying is the cornerstone of this strength: even with only a rough understanding
+                    of the potentially relevant documents, a reporter can quickly amass an authoritative
+                    list of places to start. The next step toward a full-featured workbench is context —
+                    not just per-document context, but context that helps reporters understand how
+                    sources relate and test whether government policy produced its intended effects.
+                </p>
+                <p>
+                    My evaluation was built around a specific case study: using the platform to
+                    generate a report on whether federal tax incentives for electric vehicles offer
+                    varying levels of value depending on a consumer's geographic region. A semantic
+                    search surfaced a 2010 EV hearing, 2023 congressional testimony, EPA and NHTSA
+                    rulemakings, and the governing statutory and regulatory provisions. Exact searches
+                    for 26&nbsp;U.S.C.&nbsp;§&nbsp;30D and 40&nbsp;C.F.R.&nbsp;§&nbsp;600.116-12 then
+                    resolved to codified text and canonical sources. That pipeline is where the platform
+                    shines — a broad question to an exact result. It is also where the functionality
+                    could expand to let nuanced arguments be made more quickly.
+                </p>
+                <figure class="architecture-diagram" aria-label="Proposed platform layers">
+                    <div class="arch-node">Semantic query · broad question, rough topic knowledge</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Primary-source retrieval · hearings, rulemakings, statutes</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Proposed: authority-and-status layer · bill → actions → enacted descendants</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Report synthesis · with stronger claim verification</div>
+                    <div class="arch-arrow" aria-hidden="true">↓</div>
+                    <div class="arch-node">Proposed: persistent workspace · saved documents, reports, queries</div>
+                    <figcaption>
+                        The pipeline as evaluated (retrieval and synthesis) with the two proposed
+                        layers this memo argues for: authority-and-status context and a persistent
+                        workspace.
+                    </figcaption>
+                </figure>
+
+                <h2>Tools to build</h2>
+                <p>
+                    The highest-priority addition is an <strong>authority-and-status layer</strong>.
+                    One of my first semantic results was titled "Electric Vehicle Consumer Incentive
+                    Tax Act." At first glance the title sounds like enacted legislation, but the result
+                    was actually an Extension of Remarks from March 15, 1999, in which a member
+                    announced a proposal. If the full legislative history of that Act were easily
+                    available, a reporter could diagnose that instantly — and use it. Even a source
+                    whose story is stagnation or failure is a valuable result. The more of these
+                    results a reporter can access and analyze on one page, the more complete their
+                    understanding of a document's real impact on the piece.
+                </p>
+                <p>
+                    In an ideal world a reporter should not have to untangle these complications at
+                    all; the platform can bridge the gap. Connecting a congressional statement to the
+                    corresponding bill, committee actions, subsequent versions, enacted descendants,
+                    and current codified provisions would each be a massive addition as a native
+                    feature. Writers are the primary stakeholders: every second saved directly
+                    enhances the platform's utility, and as usefulness rises, expanded adoption
+                    naturally accelerates the system's overall maturity.
+                </p>
+                <p>
+                    The second layer — <strong>AI report creation</strong> — has the potential to be
+                    the time-saving difference. It already sifts the top connected results and presents
+                    them clearly. The room for improvement is claim verification. The reports are
+                    synthetic and can never be fully reliable, but steps exist in that direction. Two
+                    examples from testing: in one query, the generated report described the new, used,
+                    and commercial clean-vehicle credits as available "today" by relying on 2023 and
+                    2024 agency descriptions, although the current statutes terminate those credits for
+                    vehicles acquired after September 30, 2025. In another, the platform retrieved
+                    NHTSA's December 2025 SAFE Vehicles Rule III proposal, 90&nbsp;Fed.&nbsp;Reg.&nbsp;56,438,
+                    but concluded that no subsequent revision changed the treatment of the credits —
+                    when the proposal itself removed their availability from its analysis as
+                    de&nbsp;minimis. Neither is an argument against the synthesis layer; both are
+                    exactly what more user testing will surface. If reports pulled more context from
+                    the full, most semantically relevant documents, users would spend less time
+                    manually searching documents that turn out to be irrelevant.
+                </p>
+                <p>
+                    A broader recommendation: a dedicated, <strong>persistent workspace layer</strong>.
+                    Letting writers save documents, synthesized reports, and the queries that produced
+                    them supports a higher volume of searching, because a user can pick up where they
+                    left off when a research route doesn't pan out. That turns the platform from a
+                    place where research is found into a place where a story is planned and executed.
+                </p>
+
+                <h2>Data to prioritize</h2>
+                <p>
+                    Through the lens of my use case, the most valuable additions are IRS credit claims
+                    by state and income level, Department of Energy data on registrations, chargers,
+                    and state incentives, and EPA or National Renewable Energy Laboratory testing
+                    results. Those are places I went myself, and all have APIs available. They add the
+                    second layer of information: the platform gives me the federal and lawmaking side,
+                    but my research would have been exponentially faster if I could cross-reference
+                    climate, efficiency, and IRS data in the same place. Good stories take an
+                    overarching angle and strengthen it by looking for more; letting the overarching
+                    data be augmented by more specific data is very powerful.
+                </p>
+                <div class="table-wrap">
+                    <p class="table-caption">Candidate data sources, in the priority order argued in this memo.</p>
+                    <table class="case-table">
+                        <thead>
+                            <tr><th>Source</th><th>Why it matters</th><th>Priority</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IRS credit claims by state / income level</td>
+                                <td>Directly tests whether a blanket federal incentive delivers uneven value; API available.</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>DOE registrations, chargers, state incentives</td>
+                                <td>Cross-references the lawmaking record with on-the-ground adoption; API available.</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>EPA / NREL testing results</td>
+                                <td>Adds the climate-and-efficiency layer that contrasts fairness across regions.</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>Regulations.gov comments, OIRA review records, state legislation, PUC dockets</td>
+                                <td>Connects congressional records to results in the states; all have APIs.</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Police reports, journalism entries</td>
+                                <td>Useful for big-picture context but risks introducing bias that undercuts the primary-source foundation.</td>
+                                <td>Low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Stories to develop</h2>
+                <p>
+                    My story — a non-partisan look at EV tax incentives — is, to my mind, what this
+                    platform was built for. There is a layer beyond the front-facing appearance: one
+                    that looks for unavoidable differences in climate that contrast the fairness of a
+                    blanket policy. The platform made that angle natural, and with the features above,
+                    the process could be easier still.
+                </p>
+                <p>
+                    The deeper benefit of a semantic system like this is that it separates technical
+                    knowledge from understanding of a topic. I am not an expert in tax law, but the
+                    platform gives me confidence that primary-source collection can be done
+                    efficiently through natural-language queries. That is how it becomes valuable to
+                    anyone writing evidence-backed, non-partisan reports: effort shifts toward the
+                    report itself, and away from hunting for one proposed bill buried in a database
+                    where keyword search is the only option.
+                </p>
+
+                <p class="case-note">
+                    This memo is anonymized — written about a real platform evaluation, with the
+                    product and client details removed.
+                </p>
+
+                <div class="case-nextprev">
+                    <a href="/writing/">← all writing</a>
+                    <a href="/writing/deck-building/">next: Deck building to dev building →</a>
+                </div>
+            </article>
+
+            <footer class="colophon" id="contact">
+                <div class="foot-grid">
+                    <div>
+                        <h2>Contact</h2>
+                        <p class="looking-for">
+                            Looking for new-grad software engineering and forward-deployed /
+                            customer-facing engineering roles. Strongest on AI workflows, internal
+                            tools, data platforms, and real-time voice.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <span class="caps">Elsewhere</span>
+                        <p><a href="mailto:jackchaudier@gmail.com">jackchaudier@gmail.com</a></p>
+                        <p><a href="https://github.com/jack-chaudier" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>github.com/jack-chaudier</a></p>
+                        <p><a href="https://x.com/Jack_Gaffney_" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>x.com/Jack_Gaffney_</a></p>
+                        <p><a href="https://jackgaffney0.substack.com" target="_blank" rel="noopener noreferrer"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>jackgaffney0.substack.com</a></p>
+                        <p><a href="/jack_gaffney_resume.pdf" target="_blank" rel="noopener noreferrer">résumé.pdf</a></p>
+                        <p><a href="/">← back to portfolio</a></p>
+                    </div>
+                </div>
+                <div class="fineprint">
+                    <span>© <span id="year"></span> Jack Gaffney · handcrafted in Ann Arbor.</span>
+                </div>
+            </footer>
+        </div>
+
+        <script src="/script.js"></script>
+    </body>
+</html>

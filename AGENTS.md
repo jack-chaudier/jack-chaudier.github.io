@@ -2,8 +2,11 @@
 
 Hand-written static portfolio for Jack Gaffney. **Zero build step, zero
 dependencies.** Plain HTML/CSS/JS deployed by GitHub Pages on push to `main`.
-Design: minimal editorial — Fraunces (serif) + JetBrains Mono, warm paper,
-rust accent, a single readable column (`.shell`, max-width 880px). No
+Design: LaTeX-inspired minimal — STIX Two Text (serif) + JetBrains Mono, warm
+paper, rust accent, a single readable column (`.shell`, max-width 760px).
+Writing pages are typeset like article-class papers: centered title block,
+small-caps byline, an abstract, numbered sections (CSS counters), booktabs
+tables, and captioned figures. No
 decorative animation, no easter eggs — keep it that way. The only JS is the
 theme toggle and the footer year (`script.js`).
 Always theme via CSS variables (`--ink`, `--ink-2`, `--ink-3`, `--accent`,
@@ -11,9 +14,9 @@ Always theme via CSS variables (`--ink`, `--ink-2`, `--ink-3`, `--accent`,
 light + dark both work.
 
 ## Layout of the site
-- `index.html` — the one-page portfolio (hero, now, experience, projects, writing, stack, contact).
-- `writing/index.html` — the writing/case-study **hub** (lists all posts).
-- `writing/<slug>/index.html` — one case study / post each (committed, deployed).
+- `index.html` — the one-page portfolio (hero, experience, projects, writing, contact).
+- `writing/index.html` — the writing **hub** (lists all posts, newest first, with dates).
+- `writing/<slug>/index.html` — one case study / essay / memo each (committed, deployed).
 - `style.css`, `script.js` — shared by every page (linked as `/style.css`, `/script.js`).
 - `sitemap.xml` — includes every writing URL.
 - `tools/`, `drafts/` — **gitignored** local authoring toolkit (may predate the
@@ -24,23 +27,31 @@ light + dark both work.
 The author (Jack) will usually **paste raw content** or point to a file in
 `drafts/`. Turn it into a polished, on-brand page:
 
-1. **Scaffold** by copying an existing post (`writing/tether/index.html` is the
-   reference) — head / nav / footer / theme bootstrap must match. Then wire:
+1. **Scaffold** by copying an existing post (`writing/tether/index.html` for a
+   numbered case study; `writing/deck-building/index.html` for an unnumbered
+   essay — add `paper-unnumbered` to `.case`) — head / nav / footer / theme
+   bootstrap must match. Then wire:
    - a hub card in `writing/index.html` (`<!-- writing:cards … -->` marker,
-     newest first, using `.walkthrough-card`),
+     newest first, using `.walkthrough-card` with a `.card-date`),
    - a `sitemap.xml` entry (`<!-- writing:urls -->` marker),
-   - optionally a card on the home page `§ writing` list (curated — only the
-     top few posts; uses `.writing-item`).
+   - an entry in the home page `§ writing` references list (`.pub-list`),
+   - update the `.case-nextprev` chain on the neighboring posts.
 
-2. **Format the body** using the site's case-study components (all already
+2. **Format the body** using the site's paper components (all already
    styled in `style.css`):
-   - `<h2>` section headings, `<p>` prose, `<ul><li>`.
-   - **Decision/tradeoff table:** `<table class="case-table"><thead><tr><th>…</th></tr></thead><tbody>…</tbody></table>`.
+   - Title block: `.paper-head` with `.case-kicker`, `<h1>`, `.paper-byline`,
+     `.paper-date`, and an `.abstract` (`<span class="abstract-label">Abstract</span><p>…</p>`).
+   - `<h2>` section headings (auto-numbered by CSS counters), `<p>` prose
+     (justified with LaTeX-style paragraph indents), `<ul><li>`.
+   - **Decision/tradeoff table (booktabs):** wrap in
+     `<div class="table-wrap"><p class="table-caption">…</p><table class="case-table">…</table></div>`
+     — captions are auto-numbered "Table n:".
    - **Callout** (failure→fix, "what I'd do differently", asides):
      `<div class="case-callout"><span class="caps">Label</span><p>…</p></div>`.
-   - **Architecture diagram:** `<figure class="architecture-diagram"><div class="arch-node">A</div><div class="arch-arrow" aria-hidden="true">↓</div><div class="arch-node">B</div></figure>`.
-   - Page scaffold uses `.case`, `.case-kicker`, `.dek`, `.case-meta`,
-     `.case-back`, `.case-nextprev` — keep them.
+   - **Architecture diagram:** `<figure class="architecture-diagram"><div class="arch-node">A</div><div class="arch-arrow" aria-hidden="true">↓</div><div class="arch-node">B</div><figcaption>…</figcaption></figure>`
+     — figcaptions are auto-numbered "Figure n:".
+   - Page scaffold uses `.case`, `.paper-head`, `.case-meta`, `.case-back`,
+     `.case-note`, `.case-nextprev` — keep them.
 
 3. **Add good visuals** — favor a real architecture diagram and a decision table
    per substantial post; they're the highest-signal elements for SWE/FDE readers.
@@ -56,9 +67,10 @@ The author (Jack) will usually **paste raw content** or point to a file in
    light + dark + mobile. Only commit/push when Jack asks.
 
 ## Editing projects (index.html `§ projects`)
-Every project — featured or secondary — is a `.feature` block: mono
-`.feature-meta` kicker, serif `h3`, optional italic `.subtitle`, a `.desc`
-paragraph, and a `.feature-foot` with `.feature-links` and `.stack` chips.
-The three featured projects come first and link to their case studies; the
-`.subhead` divider introduces the secondary list. Keep descriptions to one
-short paragraph — no decorative visuals.
+The three **featured** projects are `.feature` blocks: mono `.feature-meta`
+kicker, serif `h3`, optional italic `.subtitle`, a `.desc` paragraph, and a
+`.feature-foot` with `.feature-links` and `.stack` chips. They come first and
+link to their case studies. The `.subhead` divider introduces the **secondary**
+projects, which are compact `.mini-list` items (`.mini-name`, `.mini-links`,
+one-line `.mini-desc`). Keep descriptions to one short paragraph — no
+decorative visuals.
