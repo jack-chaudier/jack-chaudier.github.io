@@ -36,54 +36,52 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            rel="preload"
-            as="style"
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0,0;1,9..144,300..700,0,0&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
             rel="stylesheet"
-            media="print"
-            onload="this.media='all'"
         />
-        <noscript>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
-                rel="stylesheet"
-            />
-        </noscript>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="/style.css" />
     </head>
     <body>
         <a href="/" class="skip-link">Skip to home</a>
 
+        <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.8h14.8v16.4H4.6Z"/><path d="M7.8 8h8.4M7.8 11.6h8.4M7.8 15.2h5.2"/></g></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 1.8v2.6M12 19.6v2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M1.8 12h2.6M19.6 12h2.6M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9"/></g></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></symbol>
+        </svg>
+
         <div class="shell">
             <nav class="top" aria-label="Primary">
                 <div class="wordmark">
-                    <b>Jack Gaffney</b>
-                    <span class="mono">/ errata</span>
+                    <a href="/"><b>Jack Gaffney</b></a>
+                    <span class="crumb">/ errata</span>
                 </div>
-                <div class="topnav mono">
+                <div class="topnav">
                     <a href="/">home</a>
+                    <a href="/#work">work</a>
+                    <a href="/writing/">writing</a>
+                    <a href="/#contact">contact</a>
                     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
-                        <span class="knob" aria-hidden="true"></span>
+                        <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                        <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
                     </button>
                 </div>
             </nav>
 
             <main class="not-found" id="main">
                 <p class="code">Error 404 · page not found</p>
-                <h1>Nothing filed<br/><em>under this name.</em></h1>
+                <h1>Nothing filed<br /><em>under this name.</em></h1>
                 <p>
-                    You followed a link that doesn't resolve here. Could be a
-                    draft, could be a typo, could be a page I've since retired.
+                    You followed a link that doesn't resolve here. Could be a draft, could be a typo,
+                    could be a page I've since retired.
                 </p>
-                <a class="home" href="/"><span>&larr; return to portfolio</span></a>
+                <div class="linkrow">
+                    <a class="ilink" href="/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>return to portfolio</span></a>
+                    <a class="ilink" href="/writing/"><svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg><span>writing index</span></a>
+                </div>
             </main>
         </div>
 
-        <script src="script.js"></script>
+        <script src="/script.js"></script>
     </body>
 </html>
