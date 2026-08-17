@@ -96,13 +96,14 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 
 /* inline link icons (X, Substack, GitHub, …) */
 .icn {
-    width: .82em;
-    height: .82em;
-    vertical-align: -.06em;
-    margin-right: .38em;
+    width: .9em;
+    height: .9em;
+    vertical-align: -.08em;
+    margin-right: .4em;
     fill: currentColor;
     display: inline-block;
 }
+.hero .meta .icn { width: 12px; height: 12px; vertical-align: -1.5px; }
 
 /* =============== LAYOUT =============== */
 .shell {
