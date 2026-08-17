@@ -2,23 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jack-chaudier.github.io/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </url>
   <url>
     <loc>https://jack-chaudier.github.io/writing/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://jack-chaudier.github.io/writing/research-platform-memo/</loc>
+    <lastmod>2026-07-19</lastmod>
+  </url>
+  <url>
+    <loc>https://jack-chaudier.github.io/writing/deck-building-to-dev-building/</loc>
+    <lastmod>2026-07-14</lastmod>
   </url>
   <url>
     <loc>https://jack-chaudier.github.io/writing/tether/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </url>
   <url>
     <loc>https://jack-chaudier.github.io/writing/quantum-opus/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </url>
   <url>
     <loc>https://jack-chaudier.github.io/writing/maritime/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </url>
   <!-- writing:urls -->
 </urlset>
