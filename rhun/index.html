@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4ede1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121110">
+<title>Project Rhun: toward Pylos-1 — Jack Gaffney</title>
+<meta name="description" content="Project Rhun is Jack Gaffney's research program toward Pylos-1: a decoder that treats context as custody and lets loss be visible. What a mirage is, why entitlement is not correctness, and where the work honestly stands.">
+<meta property="og:title" content="Project Rhun — Toward Pylos-1">
+<meta property="og:description" content="A research program about what a language model is entitled to say, and a decoder built to treat context as custody. No trained model exists yet.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jack-chaudier.github.io/rhun/">
+<meta property="og:image" content="https://jack-chaudier.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@jackchaudier">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; form-action 'none'; frame-ancestors 'none';">
+<link rel="canonical" href="https://jack-chaudier.github.io/rhun/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>(function(){var r=document.documentElement;r.classList.add("js");var t=null;try{t=localStorage.getItem("jg-theme")}catch(e){}r.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="frame" aria-hidden="true"></div>
+<header class="site-head"><nav class="topnav" aria-label="Primary">
+  <a class="wordmark" href="/"><span class="mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="11.75" stroke-width="10.5"/><circle cx="32" cy="32" r="2.2" fill="currentColor" stroke="none"/><circle cx="32" cy="32" r="21" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0 6.597" transform="rotate(-90 32 32)"/><circle cx="32" cy="32" r="24" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0 5.027" transform="rotate(-90 32 32)"/></svg></span><span>Jack Gaffney</span></a>
+  <div class="topnav-links mono"><a href="/#work">Work</a><a href="/rhun/">Rhun</a><a href="/writing/">Writing</a><a href="/#contact">Contact</a>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">theme</button></div>
+</nav></header>
+<main class="shell" id="main">
+<section class="section rhun-teaser" aria-labelledby="rhun-title">
+  <div class="plate plate--band plate--firmament" aria-hidden="true"></div>
+  <div class="section-head"><p class="eyebrow mono">Project Rhun</p><h1 id="rhun-title">Toward Pylos&#8209;1</h1></div>
+  <div class="rhun-copy">
+    <p class="dek">A research program about what a language model is entitled to say, and a decoder built to treat context as custody. No trained model exists yet. This page is the honest shape of the work.</p>
+    <p class="rhun-status">Status: no trained model · training unrun · record private</p>
+  </div>
+</section>
+<section class="section" aria-labelledby="goal">
+  <div class="section-head"><h2 id="goal">The goal</h2></div>
+  <div class="rhun-copy">
+<p>Pylos-1 is the decoder I am working toward: one that treats context as custody and lets loss be visible. Not a LoRA wrapper, not a scanner, not a product UI.</p>
+<p>Project Rhun is the unified research record behind it: the inventories, proofs, experiments, and the trail of what was tried, kept in one place under rules that stop the vocabulary from drifting. It folds in everything I had been doing under the Mirage name.</p>
+  </div>
+</section>
+<section class="section" aria-labelledby="question">
+  <div class="section-head"><h2 id="question">The question the program asks</h2></div>
+  <div class="rhun-panel"><span class="caps">The test</span><p>Does the finite mirage shelf persist under unbounded archive and learned decoder?</p></div>
+  <div class="rhun-copy">
+<p>In small settings that can be checked exactly, there is a shelf: a stretch where a model's answers stay correct after its entitlement to them has already fallen away, because the evidence was evicted, revoked, or superseded and nothing in the decoder noticed.</p>
+<p>The program asks whether that shelf survives when the archive is unbounded and the decoder is learned rather than hand-built. If it does not, the job is to name the object that replaces it. Either answer would be a result. Neither is in hand.</p>
+  </div>
+</section>
+<section class="section" aria-labelledby="ideas">
+  <div class="section-head"><h2 id="ideas">Three ideas</h2></div>
+  <ol class="rhun-list">
+  <li><div><h3>The mirage</h3><p>A correct answer the model was not entitled to. Entitlement is not correctness. A model that says the right thing after the witness for it was lost is not right; it is lucky, and it will be lucky in the wrong direction next time. The program counts the correct unentitled answer as the failure, not the success. The gap between accuracy and justification, the share of answers that are right without being earned, is the quantity the whole thing is organized around.</p></div></li>
+  <li><div><h3>Context as custody</h3><p>Context is not a transformer window. A kernel compiler takes the history and the query and decides, for every retained byte, whether it is resident, a capsule, pageable, or opaque; each byte is exactly one of those. The model proposes; it never authorizes. What it can cite is what it was actually given custody of, and a citation to something it never read is rejected before anything is released.</p></div></li>
+  <li><div><h3>Visible loss</h3><p>Every budget is finite, so something is always left out. The rule is that whatever the budget cannot hold is written to a ledger with an address, so it can be paged back in, or the answer can say <em>unknown, and here is where it went</em>. Nothing is dropped silently. A compaction that loses a distinction has to leave a mark where the distinction was.</p></div></li>
+</ol>
+</section>
+<section class="section" aria-labelledby="program">
+  <div class="section-head"><h2 id="program">The program</h2></div>
+  <div class="rhun-copy">
+<p>The record is organized by area. Each area has its own definitions, and the metrics are deliberately kept apart: three different lines each define a justified rate of their own, and they are never compared with one another.</p>
+  </div>
+  <ol class="rhun-list">
+  <li><div><h3>pylos-1</h3><p>The destination. It holds the training proposal (Contract-Quotient Training: train a context state to preserve the distinctions that future continuations such as audits, revisions, counterfactuals, and requests for grounds will need, not just the current answer) and CLAIM-0, a preregistration of the first measurement: a small untuned model inside a verifier, with the kill rules written down and frozen before the run. The proposal is unrun. The measurement is not a gate, and it has not completed.</p></div></li>
+  <li><div><h3>mirage-geometry</h3><p>The small exact settings where the shelf can be computed and the accuracy-versus-justification gap measured directly, with the refutations filed next to the memos.</p></div></li>
+  <li><div><h3>justification-gap</h3><p>What a model can say versus what it can show, and how the two come apart once the witness is gone.</p></div></li>
+  <li><div><h3>semantic-reason</h3><p>An earlier line on reasoning over meaning. Part of the record; not the kernel object.</p></div></li>
+  <li><div><h3>dreams</h3><p>The papers (paper I and papers 00–03), archived on Zenodo as <a href="https://doi.org/10.5281/zenodo.18793829" rel="noopener noreferrer">10.5281/zenodo.18793829</a> and <a href="https://doi.org/10.5281/zenodo.18794293" rel="noopener noreferrer">10.5281/zenodo.18794293</a>.</p></div></li>
+  <li><div><h3>protected-witness-audit</h3><p>Brute-force checks over protected witnesses at small parameters. A finite check, not an infinite proof.</p></div></li>
+  <li><div><h3>revelation-context</h3><p>Runs on naturally occurring mirages rather than synthetic ones.</p></div></li>
+  <li><div><h3>stark</h3><p>Memos on witness-faithful factorization. Stark on its own does not prove the leap to unbounded archives or to language models.</p></div></li>
+</ol>
+</section>
+<section class="section" aria-labelledby="status">
+  <div class="section-head"><h2 id="status">Status</h2></div>
+  <div class="rhun-panel"><span class="caps">Where things actually stand</span><p>No trained Pylos-1 exists, and training has not been run. The training proposal is a proposal. The preregistered measurement is frozen with its kill rules and has not completed.</p><p>Nothing in the program is an established result about learned models, and I am not putting any benchmark number on this page. What exists is the record: definitions that do not drift, a test that can fail, and the code and evidence needed to run it.</p></div>
+</section>
+<section class="section" aria-labelledby="lives">
+  <div class="section-head"><h2 id="lives">Where it lives</h2></div>
+  <ol class="rhun-list">
+  <li><div><h3>Pylos, the shipped side</h3><p><a href="https://github.com/jack-chaudier/pylos" rel="noopener noreferrer">Pylos</a> is open source (<a href="https://pylos.vercel.app" rel="noopener noreferrer">pylos.vercel.app</a>): “the forever chat”, a kernel and product built for the regime the research describes, with a 1,000,000-turn hash-chained bench. Pylos-1 is the research goal of a decoder trained for that regime.</p></div></li>
+  <li><div><h3>The papers</h3><p>The dreams papers are public on Zenodo: <a href="https://doi.org/10.5281/zenodo.18793829" rel="noopener noreferrer">10.5281/zenodo.18793829</a> and <a href="https://doi.org/10.5281/zenodo.18794293" rel="noopener noreferrer">10.5281/zenodo.18794293</a>.</p></div></li>
+  <li><div><h3>The record</h3><p>The program record itself is a private research record, and I keep it that way on purpose. Ask me about it.</p></div></li>
+</ol>
+</section>
+<section class="section" aria-labelledby="before">
+  <div class="section-head"><h2 id="before">Before Rhun</h2></div>
+  <div class="rhun-copy">
+<p>The Mirage-era work, MirageKit and mirage-mcp (a repo-local memory runtime for coding agents), mirage-geometry, and miragebench, was the first pass at the same question under a different name. Rhun folds it in rather than replacing it: the useful objects were kept, the metrics were separated so they stop being confused with each other, and the naming stopped moving.</p>
+  </div>
+</section>
+</main>
+<footer class="site-foot"><div class="shell"><p class="mono">© <span id="year"></span> Jack Gaffney · Ann Arbor, MI</p><p class="footer-credits mono">Engravings: Gustave Doré, Paradiso (public domain); Flammarion engraving (public domain); Mnemosyne plate, Rijksmuseum (CC0). Type: Instrument Serif and Courier Prime (SIL OFL).</p></div></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>

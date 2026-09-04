@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4ede1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121110">
+<title>A roadmap for a data-journalism research platform — Jack Gaffney</title>
+<meta name="description" content="Data ingestion, tooling, and editorial strategy: an anonymized product memo on turning a semantic search engine into an investigative workbench for data journalism.">
+<meta property="og:title" content="A roadmap for a data-journalism research platform — Jack Gaffney">
+<meta property="og:description" content="Data ingestion, tooling, and editorial strategy: an anonymized product memo on building an investigative workbench for data journalism.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jack-chaudier.github.io/writing/research-platform-memo/">
+<meta property="og:image" content="https://jack-chaudier.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@jackchaudier">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; form-action 'none'; frame-ancestors 'none';">
+<link rel="canonical" href="https://jack-chaudier.github.io/writing/research-platform-memo/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>(function(){var r=document.documentElement;r.classList.add("js");var t=null;try{t=localStorage.getItem("jg-theme")}catch(e){}r.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="frame" aria-hidden="true"></div>
+<header class="site-head"><nav class="topnav" aria-label="Primary">
+  <a class="wordmark" href="/"><span class="mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="11.75" stroke-width="10.5"/><circle cx="32" cy="32" r="2.2" fill="currentColor" stroke="none"/><circle cx="32" cy="32" r="21" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0 6.597" transform="rotate(-90 32 32)"/><circle cx="32" cy="32" r="24" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0 5.027" transform="rotate(-90 32 32)"/></svg></span><span>Jack Gaffney</span></a>
+  <div class="topnav-links mono"><a href="/#work">Work</a><a href="/rhun/">Rhun</a><a href="/writing/">Writing</a><a href="/#contact">Contact</a>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">theme</button></div>
+</nav></header>
+<main class="shell case" id="main">
+<a class="case-back mono" href="/writing/">← Writing</a>
+<p class="case-kicker mono">Product memo · anonymized</p>
+<h1>A roadmap for a <em>data-journalism research platform</em></h1>
+<p class="dek">Data ingestion, tooling, and editorial strategy: notes on turning a semantic search engine into an investigative workbench for primary-source legislative tracking, statutory synthesis, and cross-dataset verification.</p>
+<p class="case-meta mono">July 19, 2026 · 6 min read · Semantic search · Statutory and regulatory data · Public agency APIs</p>
+<div class="case-callout"><span class="caps">Note on scope</span><p>This is an anonymized product memo I wrote after hands-on evaluation of a semantic search platform built for data-journalism workflows. The platform and its team are left unnamed; the technical reasoning and the recommendations are as I wrote them.</p></div>
+
+<h2>Where the platform is</h2>
+<p>To maximize its utility as a data journalism tool, the platform must evolve from a robust search engine into a comprehensive investigative workbench capable of tracing the full lifecycle of government action from proposal to result. The existing feature set already solves the problem of finding high quality primary sources without needing much existing knowledge of how the corpora are classified. Semantic querying is the cornerstone of this strength: even with only a rough understanding of the potentially relevant documents, a reporter can quickly amass an authoritative list of places to start. The next step toward a full workbench is a method where not just the per-document context exists, but context that helps reporters understand how those sources relate and test whether government policy produced its intended effects.</p>
+
+<p>I built the evaluation around a specific case study: using the platform to generate a report on whether federal tax incentives for electric vehicles offer varying levels of value depending on a consumer's geographic region. A semantic search surfaced a 2010 EV hearing, 2023 congressional testimony, EPA and NHTSA rulemakings, and the governing statutory and regulatory provisions. Exact searches for <code>26 U.S.C. § 30D</code> and <code>40 C.F.R. § 600.116-12</code> then resolved to codified text and canonical sources. That pipeline is where the platform shines: a broad question to an exact result. It is also where the functionality could be expanded in a way that lets nuanced arguments be made more quickly.</p>
+
+<figure class="architecture-diagram" aria-label="Investigation lifecycle pipeline">
+  <div class="arch-node">Natural-language question from a reporter</div>
+  <div class="arch-arrow" aria-hidden="true">↓</div>
+  <div class="arch-node">Semantic search + exact statutory resolution (e.g. 26 U.S.C. § 30D)</div>
+  <div class="arch-arrow" aria-hidden="true">↓</div>
+  <div class="arch-node">Authority and status layer · Extension of Remarks → bill → enacted law</div>
+  <div class="arch-arrow" aria-hidden="true">↓</div>
+  <div class="arch-node">Cross-corpus joins · IRS claims + DOE regional data + EPA specs</div>
+  <div class="arch-arrow" aria-hidden="true">↓</div>
+  <div class="arch-node">Synthesized report with temporal claim checks · saved to a dossier</div>
+</figure>
+
+<h2>1. An authority-and-status layer</h2>
+<p>The highest-priority addition should be an authority-and-status layer. One of my first semantic results was titled <em>“Electric Vehicle Consumer Incentive Tax Act.”</em> At first glance this title sounded like enacted legislation, but on further investigation the result was actually an Extension of Remarks from March 15, 1999, in which a member announced a proposal. If the full legislative process that this Act went through were easily available, a reporter would be able to diagnose that and use it. Even a document whose story ended in a negative result or stagnation is a valuable result. The more of these a reporter can access and analyze on one page, the more complete their understanding of a document's impact on the piece.</p>
+<p>In an ideal world a reporter should not have to deal with these complications, and the platform could bridge the gap. Connecting a congressional statement to the corresponding bill, committee actions, subsequent versions, enacted descendants, and current codified provisions would all be massive additions if implemented as native features. Writers are the primary stakeholders for this application. Every second saved directly enhances its utility for them, and as its usefulness increases, expanded adoption will naturally accelerate the system's overall maturity.</p>
+
+<h2>2. Report synthesis and claim verification</h2>
+<p>The second layer of the platform, the AI report creation, has the potential to be the time-saving difference. Right now it does a great job sifting through the connected top query results and then displaying that information in a way that is easy to understand and gets to the point. But there is room for improvement in claim verification. The reports are synthetic, and this cannot become truly reliable in all cases, but some steps could be taken in that direction. Two examples from my testing:</p>
+<ul>
+  <li><strong>Temporal misattribution.</strong> In one query, the generated report described the new, used, and commercial clean-vehicle credits as available “today” by relying on 2023 and 2024 agency descriptions, although the current statutes terminate those credits for vehicles acquired after September 30, 2025.</li>
+  <li><strong>Context omitted from a rulemaking.</strong> In another, the platform retrieved NHTSA's December 2025 SAFE Vehicles Rule III proposal, <code>90 Fed. Reg. 56,438</code>, but concluded that no subsequent revision changed the treatment of the credits. The proposal itself says NHTSA considered their effects <em>de minimis</em> under the updated constraints and removed their availability from its analysis.</li>
+</ul>
+<p>Neither is an argument against the synthesis layer, just a preview of what more user testing will show. If the reports could pull more context from the full, most semantically relevant documents and show a more relevant summary, users would spend less time running the document-specific search on a source that turns out not to be relevant.</p>
+
+<h2>3. A dedicated, persistent workspace</h2>
+<p>A broader recommendation is a dedicated and persistent workspace layer. Letting writers save documents, synthesized reports, and even the queries they used would allow a higher volume of searching, because a user could pick up from where they left off if a research route wasn't panning out. That would turn the platform from a place where research is found into a place where a story is planned and executed.</p>
+
+<h2>What to ingest first</h2>
+<p>Through the lens of my use case, some of the most valuable data to add would be IRS credit claims by state and income level, Department of Energy data on registrations, chargers, and state incentives, and EPA or National Renewable Energy Laboratory testing results. Those are places I went to myself, and all have APIs available. They are one example from my experience, chosen because they add the second layer of information.</p>
+<table class="case-table">
+  <thead><tr><th>Tier</th><th>Sources and APIs</th><th>What it lets a reporter test</th><th>Integration risk</th></tr></thead>
+  <tbody>
+    <tr><td>1 · high leverage</td><td>IRS credit claim filings, DOE alternative fuel station registry, EPA/NREL vehicle efficiency ratings.</td><td>Directly quantifies whether statutory tax incentives produce geographic parity.</td><td>Low: structured tabular datasets with established public REST APIs.</td></tr>
+    <tr><td>2 · administrative context</td><td>Regulations.gov public comments, OIRA executive review records, state PUC regulatory dockets.</td><td>Traces lobbying footprints and state-level policy execution bottlenecks.</td><td>Medium: unstructured PDF attachments and high-frequency revision cycles.</td></tr>
+    <tr><td>3 · deferred</td><td>Municipal police logs, third-party journalistic reporting feeds, blog posts.</td><td>Big-picture contextual scanning.</td><td>High: risks introducing subjective bias and diluting primary-source rigor.</td></tr>
+  </tbody>
+</table>
+
+<h2>The stories it is for</h2>
+<p>My story, a non-partisan look at EV tax incentives, is in my mind what this was built for. There is a layer beyond the front-facing appearance, one that looks for unavoidable differences in climate that contrast the fairness of a blanket policy. The platform made this natural, and with some additional features the process could have been even easier.</p>
+<p>The benefit of a semantic database system like this is, as I said above, its ability to separate technical knowledge from understanding of a topic. I am not an expert in tax law, but a service like this gives me the confidence that through natural-language queries, primary-source collection can be done efficiently. This is how I see it becoming valuable to anyone writing evidence-backed, non-partisan reports. The effort and intent can go toward the report itself, and less toward hunting for the specific proposed bill buried in a database where keyword and exact querying are the only options.</p>
+
+<div class="case-callout"><span class="caps">What I take from it</span><p>Data infrastructure succeeds when it shortens the distance between a domain expert's intuition and a verifiable canonical fact. Ingestion has to structure metadata so that an analyst is protected from subtle statutory regressions, like a credit that a 2024 description calls current and a 2025 statute has already ended.</p></div>
+
+<nav class="case-nextprev mono" aria-label="Previous and next">
+  <a href="/writing/deck-building/" rel="prev">← Previous: Deck Building to Dev Building</a>
+  <a href="/writing/">Writing →</a>
+</nav>
+</main>
+<footer class="site-foot"><div class="shell"><p class="mono">© <span id="year"></span> Jack Gaffney · Ann Arbor, MI</p><p class="footer-credits mono">Engravings: Gustave Doré, Paradiso (public domain); Flammarion engraving (public domain); Mnemosyne plate, Rijksmuseum (CC0). Type: Instrument Serif and Courier Prime (SIL OFL).</p></div></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 {
-  "name": "Jack Gaffney — Portfolio",
+  "name": "Jack Gaffney — AI Engineer",
   "short_name": "Jack Gaffney",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f4efe6",
-  "theme_color": "#b8542b",
+  "background_color": "#f4ede1",
+  "theme_color": "#f4ede1",
   "icons": [
     {
       "src": "/favicon.svg",

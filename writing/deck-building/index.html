@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4ede1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121110">
+<title>Deck Building to Dev Building — Jack Gaffney</title>
+<meta name="description" content="Deck Building to Dev Building: what a summer construction job taught me about specifications, mistakes, and building software in the real world.">
+<meta property="og:title" content="Deck Building to Dev Building — Jack Gaffney">
+<meta property="og:description" content="What a summer construction job taught me about specifications, mistakes, and building software in the real world.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jack-chaudier.github.io/writing/deck-building/">
+<meta property="og:image" content="https://jack-chaudier.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@jackchaudier">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; form-action 'none'; frame-ancestors 'none';">
+<link rel="canonical" href="https://jack-chaudier.github.io/writing/deck-building/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>(function(){var r=document.documentElement;r.classList.add("js");var t=null;try{t=localStorage.getItem("jg-theme")}catch(e){}r.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="frame" aria-hidden="true"></div>
+<header class="site-head"><nav class="topnav" aria-label="Primary">
+  <a class="wordmark" href="/"><span class="mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="11.75" stroke-width="10.5"/><circle cx="32" cy="32" r="2.2" fill="currentColor" stroke="none"/><circle cx="32" cy="32" r="21" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0 6.597" transform="rotate(-90 32 32)"/><circle cx="32" cy="32" r="24" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0 5.027" transform="rotate(-90 32 32)"/></svg></span><span>Jack Gaffney</span></a>
+  <div class="topnav-links mono"><a href="/#work">Work</a><a href="/rhun/">Rhun</a><a href="/writing/">Writing</a><a href="/#contact">Contact</a>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">theme</button></div>
+</nav></header>
+<main class="shell case" id="main">
+<a class="case-back mono" href="/writing/">← Writing</a>
+<p class="case-kicker mono">Essay · originally on Substack</p>
+<h1>Deck Building to <em>Dev Building</em></h1>
+<p class="dek">What a summer construction job taught me about specifications, mistakes, and building software in the real world.</p>
+<p class="case-meta mono">July 14, 2026 · 8 min read · Charlevoix and Ann Arbor, MI</p>
+<p>After my sophomore year in college, I left Ann Arbor and drove the four hours up I-75 North towards the Mackinac Bridge, before cutting west to my hometown of Charlevoix. I'd be spending the summer there. It turned out to be my last one at home. Every Charlevoix summer opened with the same question: what the job would be. In the past, in a town powered by tourism, I had undertaken a few of the many customer service jobs that littered the area. Golf courses, restaurants, and hotels, to name a few, would all be engulfed by new business and crowds which, until that point, had migrated south for the winter. Although those jobs were important, and I could jump into them without missing a beat, I couldn't shake the feeling of wanting to do something totally different. Thus, I began to look around the area for my next endeavor.</p>
+
+<p>Shortly thereafter, a decision was made. I was taking my talents to the south side of Charlevoix, and to a company that builds high-quality decks and outdoor living spaces all around Northern Michigan. The decision to work for Renewit Decking was simple at the time. Mostly, it was motivated by my dad; he said that there is nothing like manual labor and digging some holes to clear your head. That was exactly what I wanted: a change of scenery, a way to not just help but to build as well. So there I was, someone used to building with the terminal and ready to start building with lumber.</p>
+
+<p>Before I could become a full-fledged carpenter assistant, I had to survive the trial week, odd jobs while they figured out where to put me. This turned out to be exactly what I wished for, a week straight of shoveling tons of mulch and organizing the shop. The work did clear my head, and there was satisfaction in working at something until it was complete. But by the end of that week, I was more than ready for a change, and ready to get out in the field. The owner said to me that one of the site managers could use an extra set of hands, and just like that, my days of peacefully shoveling were to be replaced by a whirlwind of learning. I only hoped to help my new team, and not hinder them with my lack of knowledge.</p>
+
+<p>Monday, I showed up to the site and felt calm. It was a beautiful location to work, right on Lake Charlevoix. I stood looking out over the still water as the dawn rays began to peer over the horizon. This idyllic scene was quickly shattered though, as I was pulled aside to learn the tools for the job. The site manager walked me through the multiple cabinets full of drills and impact drivers, chalk lines, speed squares, cat's paws, and, most importantly, knee pads. I also learned my place on the crew. Everyone had a role and mine was at the bottom. Know every tool and where it goes. Carry the material. Clean up the cut-offs. Polish the boards when a section was done.</p>
+
+<p>This project was building four identical decks. After watching the first two, the lead figured I'd seen enough to begin working on a few of the menial prepping tasks and some basic installation while they handled the more delicate work. So I began going through the motions. Lined all of the framing boards, and began to use the fasteners to install each deck board. I had gotten about halfway through when the lead came up and said one thing:</p>
+
+<blockquote><p>“I see a lot of waterproofing tape down below.”</p></blockquote>
+
+<p>I peered over the edge and to the material area, and there they were: piles of unopened waterproofing tape. The particular deck we were building had two functions: one was to be a deck, and the other was to serve as a roof to the second deck below it. The waterproof tape under the boards of the top deck would help to redirect water to the gutters we had installed down the sides. Without the tape, it would not function as intended. I groaned, realizing that this meant all the work I had been doing that morning would have to be ripped up.</p>
+
+<p>“Alright, get to work,” the lead said, and so I did. Un-fastening boards you have already installed is slow going, and it was hours before the project was back to where it was before my mistake. There was no use trying to deflect from a clean and obvious misstep on my part; the only thing I could do was try and work quickly, but not so quickly as to dig the hole I found myself in even deeper. Once done, I found the lead and apologized profusely for costing so much time and money, expecting this slip-up to lead to another week of mulching, or worse. He simply said:</p>
+
+<blockquote><p>“It's alright, just don't do it again.”</p></blockquote>
+
+<div class="case-callout"><span class="caps">No revert on a job site</span><p>Unlike a failing test in an editor, a missed waterproofing membrane can't be undone with <code>git revert</code>. The cost of the mistake scales with how much material you have to pull back up. That is why one sentence from the lead stuck.</p></div>
+
+<p>The rest of the summer passed, and I never made that particular mistake again, but I did make a lot of others, though I never made them twice. I was given more responsibilities over time. I learned how to measure out foundations, deal with projects from scratch, and talk to the property owners. There was a lot more to this than I had originally thought. But by the end of the summer, I could look back to who I was at the beginning, and see how much I had grown. On top of all the hands-on skills, there were plenty of communication and planning skills that could be learned in this industry.</p>
+
+<p>The next school year passed. I took classes on game engines, computer architecture, and discrete math. My knowledge in my area of study increased, and I began to lose that impostor syndrome that had at times plagued me when walking through project showcases, or going to career fairs. I could now take a project spec, look at the different libraries or packages listed in the requirements, implement each function stub, and tie everything together beautifully in the driver. Each project I did or assignment I completed served to make me more confident and more sure that the woes of learning for-loops, structs, and hash maps were all behind me. If I could implement a SQL-style database, a custom shell, and optimized BST lookups, then I was ready for anything software engineering could throw at me.</p>
+
+<p>That summer, I was set up for my first job in industry, a SWE intern at Quantum Opus, a lab in Plymouth, Michigan, just 20 minutes away from my campus. Leading up to the start date, I was excited to get my start in the field; my start in actually helping people with the knowledge I had spent three whole years at school honing. Before I knew it, it was the first day, and upon talking to the CEO about the project I would be working on over the summer, this opportunity I was given began to feel even more daunting than last summer.</p>
+
+<p>On the surface, the problem was simple: build a company database system from scratch to replace the existing tangle of Excel spreadsheets and vast paper trail. Right away, a familiar feeling took hold of me. <em>I can't do this</em>, I thought, and began to feel slight panic swell up in me. In school we had a project spec, or an exam guide, a <code>requirements.txt</code> given to us. Up until that point, I always knew what was expected of me, and roughly how to implement it. This was a new challenge, and I was well over my head.</p>
+
+<div class="case-callout"><span class="caps">The clean-spec illusion</span><p>School trains you to execute against a complete specification: function stubs, a test suite, a grading harness. Real operations hand you none of that. What you get is an ambiguous human workflow and the noisy habits people built to cope with it, and the spec is something you have to go and find.</p></div>
+
+<p>To prevent the returning impostor syndrome that was beginning to creep back in from rising to the surface, I just got to work. I began to research, first by talking to the scientists there and finding out exactly what their current workflow was. I learned how the systems they were building worked, learned what data they collected, and how it all fit together. In the back of my mind and in my notes, a schema began to form. After learning everything I could about what they did, I then worked backwards. Taught myself how to set up a Postgres server and link that to a Go backend. I pored over the Gin documentation until I could pull data out of Postgres and put it on a screen in React.</p>
+
+<p>After a few weeks, I realized that instead of inadequate, I felt excited working through these new challenges, learning all the while. <strong>It was deck building, I thought.</strong> I had to learn the site, learn the tools, and how everything fit together. The database needed to be easy to use and easy to query, as well as integrate with the Python testing files they already used. This was no different than that first deck I built, exactly one year before. At Renewit I had watched the crew talk with homeowners, altering the blueprint on the fly to fit the site.</p>
+
+<p>“What do you think?” the lead asked me. This lead was a chip engineer, and we had just gone over a set of experiment results, working out how to store them long term. It was a normal day at work by then, and with each passing week the system that I was building got more mature and closer to completion. “Yeah,” I replied, mind racing through several potential solutions. “I can see a way to implement that. Send me over a few files and I'll test it by the end of the day.”</p>
+
+<h2>The same job, twice</h2>
+<table class="case-table">
+  <thead><tr><th></th><th>Renewit Decking</th><th>Quantum Opus</th></tr></thead>
+  <tbody>
+    <tr><td>The spec I started with</td><td>Rough architectural drawings, modified on-site to account for grade, soil, and lakefront moisture.</td><td>Fragmented Excel sheets and unwritten scientist routines, discovered through daily conversations.</td></tr>
+    <tr><td>What a hidden assumption cost</td><td>Skipping the waterproofing tape meant unfastening every deck board I had laid that morning.</td><td>A mismatched database schema meant unrolling API routes and migration scripts.</td></tr>
+    <tr><td>Who I had to keep aligned</td><td>Property owners, daily, on handrail styling and structural changes.</td><td>Chip engineers and lab technicians, in feedback loops on ingestion speed.</td></tr>
+    <tr><td>What shipped</td><td>Four multi-tier, weather-resistant outdoor living structures built to endure Michigan winters.</td><td>A production Go/PostgreSQL internal platform actively powering lab workflows.</td></tr>
+  </tbody>
+</table>
+
+<p class="case-note">Originally published on Substack: <a href="https://jackgaffney0.substack.com/p/deck-building-to-dev-building" rel="noopener noreferrer">jackgaffney0.substack.com/p/deck-building-to-dev-building</a>. I write there about forward-deployed engineering, AI systems in messy operations, and technical lessons from the field.</p>
+
+<nav class="case-nextprev mono" aria-label="Previous and next">
+  <a href="/writing/tether/" rel="prev">← Previous: Tether</a>
+  <a href="/writing/research-platform-memo/" rel="next">Next: Data-journalism platform memo →</a>
+</nav>
+</main>
+<footer class="site-foot"><div class="shell"><p class="mono">© <span id="year"></span> Jack Gaffney · Ann Arbor, MI</p><p class="footer-credits mono">Engravings: Gustave Doré, Paradiso (public domain); Flammarion engraving (public domain); Mnemosyne plate, Rijksmuseum (CC0). Type: Instrument Serif and Courier Prime (SIL OFL).</p></div></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>

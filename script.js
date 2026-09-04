@@ -1,61 +1,69 @@
-/* =========================================================
-   Jack Gaffney — portfolio script
-   Theme toggle + footer year. Nothing else.
-   ========================================================= */
+/* =========================================================================
+   jack-chaudier.github.io — theme toggle and footer year. Nothing else.
+   ========================================================================= */
 (function () {
     "use strict";
 
-    const root = document.documentElement;
-    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    var root = document.documentElement;
+    var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    var COLORS = { light: "#f4ede1", dark: "#121110" };
 
-    /* ================= THEME ================= */
     function readStoredTheme() {
         try {
-            return localStorage.getItem("jg-theme");
+            var stored = localStorage.getItem("jg-theme");
+            return stored === "light" || stored === "dark" ? stored : null;
         } catch (e) {
             return null;
         }
     }
+
     function writeStoredTheme(theme) {
         try {
             localStorage.setItem("jg-theme", theme);
         } catch (e) {
-            /* private mode, etc — ignore */
+            /* storage unavailable */
         }
     }
+
     function preferredTheme() {
-        const stored = readStoredTheme();
-        if (stored === "light" || stored === "dark") return stored;
-        return darkQuery.matches ? "dark" : "light";
+        return readStoredTheme() || (darkQuery.matches ? "dark" : "light");
     }
+
     function applyTheme(theme) {
         root.setAttribute("data-theme", theme);
-        const toggle = document.getElementById("themeToggle");
-        if (toggle) {
-            const dark = theme === "dark";
-            toggle.setAttribute("aria-pressed", String(dark));
-            toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+        var dark = theme === "dark";
+        var toggles = document.querySelectorAll(".theme-toggle");
+        for (var i = 0; i < toggles.length; i++) {
+            toggles[i].setAttribute("aria-pressed", String(dark));
+            toggles[i].setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+        }
+        var metas = document.querySelectorAll('meta[name="theme-color"]');
+        for (var j = 0; j < metas.length; j++) {
+            metas[j].setAttribute("content", COLORS[theme]);
         }
     }
+
     function toggleTheme() {
-        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        var current = root.getAttribute("data-theme") || preferredTheme();
+        var next = current === "dark" ? "light" : "dark";
         applyTheme(next);
         writeStoredTheme(next);
     }
 
-    applyTheme(preferredTheme());
+    applyTheme(root.getAttribute("data-theme") || preferredTheme());
 
-    const themeToggle = document.getElementById("themeToggle");
-    if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+    var toggles = document.querySelectorAll(".theme-toggle");
+    for (var i = 0; i < toggles.length; i++) {
+        toggles[i].addEventListener("click", toggleTheme);
+    }
 
     if (typeof darkQuery.addEventListener === "function") {
-        darkQuery.addEventListener("change", (e) => {
+        darkQuery.addEventListener("change", function (e) {
             if (readStoredTheme()) return;
             applyTheme(e.matches ? "dark" : "light");
         });
     }
 
-    /* ================= YEAR ================= */
-    const yearEl = document.getElementById("year");
+    var yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
